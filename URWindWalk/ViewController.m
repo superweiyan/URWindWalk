@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "URLog.h"
+#import "URMarcoUtil.h"
+#import "URMapWrapper.h"
 
 @interface ViewController ()
 
@@ -17,6 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+//    [[URLog sharedObject] logInfo:@"xxx" model:@"start" funName:[NSString stringWithUTF8String:__func__]];
+    
+//    NSString *info = @"xxx";
+//    URLog(info, info);
+    
+    [[URMapWrapper sharedObject] queryWeather];
+    
 }
 
 

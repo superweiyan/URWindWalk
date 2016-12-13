@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5659B384B9BF7DB254C049BC /* libPods-URWindWalk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */; };
+		A0C65A251DFEA7F7005EF47D /* URLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C65A221DFEA7F7005EF47D /* URLog.m */; };
+		A0C65A261DFEA7F7005EF47D /* URLogWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C65A241DFEA7F7005EF47D /* URLogWrapper.m */; };
+		A0C65A2A1DFEAB23005EF47D /* URMarcoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C65A291DFEAB22005EF47D /* URMarcoUtil.m */; };
+		A0C65A2E1DFEAF5C005EF47D /* URMapWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C65A2D1DFEAF5C005EF47D /* URMapWrapper.m */; };
 		A0D29C131DF4679600C7CF4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D29C121DF4679600C7CF4D /* main.m */; };
 		A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D29C151DF4679600C7CF4D /* AppDelegate.m */; };
 		A0D29C191DF4679600C7CF4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D29C181DF4679600C7CF4D /* ViewController.m */; };
@@ -16,6 +21,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DF0D77818870D74D7875F69 /* Pods-URWindWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URWindWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-URWindWalk/Pods-URWindWalk.release.xcconfig"; sourceTree = "<group>"; };
+		8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-URWindWalk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C65A211DFEA7F7005EF47D /* URLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLog.h; sourceTree = "<group>"; };
+		A0C65A221DFEA7F7005EF47D /* URLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLog.m; sourceTree = "<group>"; };
+		A0C65A231DFEA7F7005EF47D /* URLogWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLogWrapper.h; sourceTree = "<group>"; };
+		A0C65A241DFEA7F7005EF47D /* URLogWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLogWrapper.m; sourceTree = "<group>"; };
+		A0C65A281DFEAB22005EF47D /* URMarcoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URMarcoUtil.h; sourceTree = "<group>"; };
+		A0C65A291DFEAB22005EF47D /* URMarcoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMarcoUtil.m; sourceTree = "<group>"; };
+		A0C65A2C1DFEAF5C005EF47D /* URMapWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URMapWrapper.h; sourceTree = "<group>"; };
+		A0C65A2D1DFEAF5C005EF47D /* URMapWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMapWrapper.m; sourceTree = "<group>"; };
 		A0D29C0E1DF4679600C7CF4D /* URWindWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URWindWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D29C121DF4679600C7CF4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A0D29C141DF4679600C7CF4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +41,7 @@
 		A0D29C1D1DF4679600C7CF4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0D29C201DF4679600C7CF4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0D29C221DF4679600C7CF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F7AC569DE18F7C87C76F81 /* Pods-URWindWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URWindWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URWindWalk/Pods-URWindWalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +49,66 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5659B384B9BF7DB254C049BC /* libPods-URWindWalk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D0D080E248059302696579C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0C65A1F1DFEA7F7005EF47D /* ThirdPartyWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				A0C65A2B1DFEAF4E005EF47D /* Map */,
+				A0C65A201DFEA7F7005EF47D /* Log */,
+			);
+			path = ThirdPartyWrapper;
+			sourceTree = "<group>";
+		};
+		A0C65A201DFEA7F7005EF47D /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				A0C65A211DFEA7F7005EF47D /* URLog.h */,
+				A0C65A221DFEA7F7005EF47D /* URLog.m */,
+				A0C65A231DFEA7F7005EF47D /* URLogWrapper.h */,
+				A0C65A241DFEA7F7005EF47D /* URLogWrapper.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		A0C65A271DFEAB12005EF47D /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				A0C65A281DFEAB22005EF47D /* URMarcoUtil.h */,
+				A0C65A291DFEAB22005EF47D /* URMarcoUtil.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		A0C65A2B1DFEAF4E005EF47D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A0C65A2C1DFEAF5C005EF47D /* URMapWrapper.h */,
+				A0C65A2D1DFEAF5C005EF47D /* URMapWrapper.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		A0D29C051DF4679600C7CF4D = {
 			isa = PBXGroup;
 			children = (
 				A0D29C101DF4679600C7CF4D /* URWindWalk */,
 				A0D29C0F1DF4679600C7CF4D /* Products */,
+				F3DCFFD5155147E0793D5ED4 /* Pods */,
+				2D0D080E248059302696579C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +123,8 @@
 		A0D29C101DF4679600C7CF4D /* URWindWalk */ = {
 			isa = PBXGroup;
 			children = (
+				A0C65A271DFEAB12005EF47D /* Config */,
+				A0C65A1F1DFEA7F7005EF47D /* ThirdPartyWrapper */,
 				A0D29C141DF4679600C7CF4D /* AppDelegate.h */,
 				A0D29C151DF4679600C7CF4D /* AppDelegate.m */,
 				A0D29C171DF4679600C7CF4D /* ViewController.h */,
@@ -79,6 +146,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F3DCFFD5155147E0793D5ED4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2F7AC569DE18F7C87C76F81 /* Pods-URWindWalk.debug.xcconfig */,
+				7DF0D77818870D74D7875F69 /* Pods-URWindWalk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0D29C251DF4679600C7CF4D /* Build configuration list for PBXNativeTarget "URWindWalk" */;
 			buildPhases = (
+				A79C952E714710A4FB60A15D /* [CP] Check Pods Manifest.lock */,
 				A0D29C0A1DF4679600C7CF4D /* Sources */,
 				A0D29C0B1DF4679600C7CF4D /* Frameworks */,
 				A0D29C0C1DF4679600C7CF4D /* Resources */,
+				C3E2C2F6864B72E3F095373A /* [CP] Embed Pods Frameworks */,
+				C65D35C121156CA10DFF79AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,14 +224,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A79C952E714710A4FB60A15D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C3E2C2F6864B72E3F095373A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URWindWalk/Pods-URWindWalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C65D35C121156CA10DFF79AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URWindWalk/Pods-URWindWalk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A0D29C0A1DF4679600C7CF4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A0D29C191DF4679600C7CF4D /* ViewController.m in Sources */,
+				A0C65A2E1DFEAF5C005EF47D /* URMapWrapper.m in Sources */,
 				A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */,
 				A0D29C131DF4679600C7CF4D /* main.m in Sources */,
+				A0C65A2A1DFEAB23005EF47D /* URMarcoUtil.m in Sources */,
+				A0C65A261DFEA7F7005EF47D /* URLogWrapper.m in Sources */,
+				A0C65A251DFEA7F7005EF47D /* URLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +401,7 @@
 		};
 		A0D29C261DF4679600C7CF4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F7AC569DE18F7C87C76F81 /* Pods-URWindWalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = URWindWalk/Info.plist;
@@ -281,6 +413,7 @@
 		};
 		A0D29C271DF4679600C7CF4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DF0D77818870D74D7875F69 /* Pods-URWindWalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = URWindWalk/Info.plist;
@@ -309,6 +442,7 @@
 				A0D29C271DF4679600C7CF4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
