@@ -69,7 +69,6 @@ NSString * URWeatherSearchCityNameNotification = @"URWeatherSearchCityNameNotifi
 - (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response
 {
     NSLog(@"+++ %@", request.city);
-    
     for (int i = 0; i < response.lives.count; i++) {
         AMapLocalWeatherLive *weatherLive = [response.lives objectAtIndex:i];
         NSLog(@"++weather %@", weatherLive.temperature);
