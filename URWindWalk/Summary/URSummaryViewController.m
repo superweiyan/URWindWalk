@@ -48,6 +48,12 @@ float URWeatherShowHeight = 100.0;
     [self.view addSubview:_tableView];
     
     self.weatherImage = [[UIImageView alloc] initWithFrame:CGRectZero];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"weather-cloudy" ofType:@"jpg"];
+    self.weatherImage.image = [UIImage imageWithContentsOfFile:path];
+    self.weatherImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.weatherImage.clipsToBounds = YES;
+    self.weatherImage.tag = 1000;
+    
     [self.tableView addSubview:self.weatherImage];
 }
 
@@ -62,6 +68,26 @@ float URWeatherShowHeight = 100.0;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [UITableViewCell new];
+}
+
+#pragma mark - 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    float offSet = scrollView.contentOffset.y;
+    
+    if (offSet < -URWeatherShowHeight)
+    {
+        UIImageView * tempImageView = (UIImageView*)[self.view viewWithTag:1000];
+        
+        CGRect f = tempImageView.frame;
+        //保持图片原点仍为屏幕左上方
+        f.origin.y = offSet;
+        //保证图片根据滑动高度拉伸
+        f.size.height = -offSet;
+        //给图片重新设置坐标
+        tempImageView.frame = f;
+    }
 }
 
 @end

@@ -21,6 +21,11 @@
                                                    0,
                                                    0,
                                                    0);
+    
+    self.weatherImage.frame = CGRectMake(0,
+                                         -URWeatherShowHeight,
+                                         self.view.bounds.size.width,
+                                         URWeatherShowHeight);
 }
 
 @end

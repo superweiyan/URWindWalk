@@ -31,6 +31,7 @@
 		A0E657501E0A685F003D5E87 /* URLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574A1E0A685E003D5E87 /* URLog.m */; };
 		A0E657511E0A685F003D5E87 /* URLogWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574C1E0A685F003D5E87 /* URLogWrapper.m */; };
 		A0E657521E0A685F003D5E87 /* URMapWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574F1E0A685F003D5E87 /* URMapWrapper.m */; };
+		A0E657551E0A6E33003D5E87 /* weather-cloudy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		A0E6574C1E0A685F003D5E87 /* URLogWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLogWrapper.m; sourceTree = "<group>"; };
 		A0E6574E1E0A685F003D5E87 /* URMapWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URMapWrapper.h; sourceTree = "<group>"; };
 		A0E6574F1E0A685F003D5E87 /* URMapWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMapWrapper.m; sourceTree = "<group>"; };
+		A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "weather-cloudy.jpg"; sourceTree = "<group>"; };
 		A0F887FF1E012AAB0002A41A /* URWindWalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URWindWalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F888011E012AAB0002A41A /* URWindWalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URWindWalkTests.m; sourceTree = "<group>"; };
 		A0F888031E012AAB0002A41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		A0E657461E0A5CDA003D5E87 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A0E657531E0A6E33003D5E87 /* image */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -280,6 +283,14 @@
 				A0E6574F1E0A685F003D5E87 /* URMapWrapper.m */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		A0E657531E0A6E33003D5E87 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 		A0F888001E012AAB0002A41A /* URWindWalkTests */ = {
@@ -387,6 +398,7 @@
 			files = (
 				A0D29C211DF4679600C7CF4D /* LaunchScreen.storyboard in Resources */,
 				A0D29C1E1DF4679600C7CF4D /* Assets.xcassets in Resources */,
+				A0E657551E0A6E33003D5E87 /* weather-cloudy.jpg in Resources */,
 				A0D29C1C1DF4679600C7CF4D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
