@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "URWWWeatherView.h"
 
 extern float URWeatherShowHeight;
 
 @interface URSummaryViewController : UIViewController
 
-@property (nonatomic, strong) UITableView   *tableView;
-@property (nonatomic, strong) UIImageView   *weatherImage;
+@property (nonatomic, strong) UITableView           *tableView;
+@property (nonatomic, strong) URWWWeatherView       *weatherView;
 
 @end

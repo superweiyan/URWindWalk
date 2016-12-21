@@ -11,6 +11,8 @@
 #import <AMapSearchKit/AMapSearchKit.h>
 
 NSString * URWeatherSearchCityNameNotification = @"URWeatherSearchCityNameNotification";
+NSString * URWeatherSearchLiveNotification = @"URWeatherSearchLiveNotification";
+
 
 @interface URMapWrapper()<AMapSearchDelegate>
 {
@@ -66,21 +68,23 @@ NSString * URWeatherSearchCityNameNotification = @"URWeatherSearchCityNameNotifi
 
 #pragma mark - AMapSearchDelegate
 
-- (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response
+- (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request
+                   response:(AMapWeatherSearchResponse *)response
 {
-    NSLog(@"+++ %@", request.city);
     for (int i = 0; i < response.lives.count; i++) {
         AMapLocalWeatherLive *weatherLive = [response.lives objectAtIndex:i];
-        NSLog(@"++weather %@", weatherLive.temperature);
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:URWeatherSearchLiveNotification
+                                                            object:nil
+                                                          userInfo:@{@"temperature":weatherLive.temperature,
+                                                                     @"weather":weatherLive.weather}];
     }
-    
 }
 
 - (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error
 {
     NSLog(@"Error: %@", error);
 }
-
 
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request
                      response:(AMapReGeocodeSearchResponse *)response
@@ -89,10 +93,11 @@ NSString * URWeatherSearchCityNameNotification = @"URWeatherSearchCityNameNotifi
         AMapReGeocode *regeocode = response.regeocode;
         AMapAddressComponent *addressComponent = regeocode.addressComponent;
         
-        NSLog(@"%@", addressComponent.city);
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:URWeatherSearchCityNameNotification
-                                                            object:nil];
+        if (addressComponent.city.length > 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:URWeatherSearchCityNameNotification
+                                                                object:nil
+                                                              userInfo:@{@"key":addressComponent.city}];
+        }
     }
 }
 

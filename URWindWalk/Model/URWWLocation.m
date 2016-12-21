@@ -11,3 +11,7 @@
 @implementation URWWLocation
 
 @end
+
+@implementation URWWWeatherModel
+
+@end

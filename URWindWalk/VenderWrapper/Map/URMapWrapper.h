@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * URWeatherSearchCityNameNotification;
+extern NSString * URWeatherSearchLiveNotification;
 
 @interface URMapWrapper : NSObject
 

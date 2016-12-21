@@ -9,7 +9,7 @@
 #import "URSummaryViewController.h"
 #import "URSummaryViewController+URLayout.h"
 
-float URWeatherShowHeight = 100.0;
+float URWeatherShowHeight = 150.0;
 
 @interface URSummaryViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -47,14 +47,10 @@ float URWeatherShowHeight = 100.0;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
-    self.weatherImage = [[UIImageView alloc] initWithFrame:CGRectZero];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"weather-cloudy" ofType:@"jpg"];
-    self.weatherImage.image = [UIImage imageWithContentsOfFile:path];
-    self.weatherImage.contentMode = UIViewContentModeScaleAspectFill;
-    self.weatherImage.clipsToBounds = YES;
-    self.weatherImage.tag = 1000;
+    self.weatherView = [[URWWWeatherView alloc] initWithFrame:CGRectZero];
+    self.weatherView.tag = 1000;
     
-    [self.tableView addSubview:self.weatherImage];
+    [self.tableView addSubview:self.weatherView];
 }
 
 #pragma mark  - UITableViewDataSource
@@ -78,7 +74,7 @@ float URWeatherShowHeight = 100.0;
     
     if (offSet < -URWeatherShowHeight)
     {
-        UIImageView * tempImageView = (UIImageView*)[self.view viewWithTag:1000];
+        URWWWeatherView * tempImageView = (URWWWeatherView *)[self.view viewWithTag:1000];
         
         CGRect f = tempImageView.frame;
         //保持图片原点仍为屏幕左上方

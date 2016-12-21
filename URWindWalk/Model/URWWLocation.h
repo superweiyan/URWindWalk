@@ -13,4 +13,12 @@
 @property (nonatomic, assign)  double   longitude;  //经度
 @property (nonatomic, assign)  double   latitude;    //纬度
 @property (nonatomic, assign)  double   altitude;   //海拔
+
+@end
+
+@interface URWWWeatherModel : NSObject
+
+@property (nonatomic, strong) NSString  *weather;
+@property (nonatomic, strong) NSString  *temperature;
+
 @end
