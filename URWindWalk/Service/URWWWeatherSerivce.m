@@ -1,22 +1,22 @@
 //
-//  URWWSerivce.m
+//  URWWWeatherSerivce.m
 //  URWindWalk
 //
 //  Created by weiyan on 21/12/2016.
 //  Copyright © 2016 weiyan. All rights reserved.
 //
 
-#import "URWWSerivce.h"
+#import "URWWWeatherSerivce.h"
 #import "URLocationManager.h"
 
-@implementation URWWSerivce
+@implementation URWWWeatherSerivce
 
 + (id)sharedObject
 {
     static dispatch_once_t __once;              \
-    static URWWSerivce * __instance = nil;         \
+    static URWWWeatherSerivce * __instance = nil;         \
     dispatch_once(&__once, ^{                   \
-        __instance = [[URWWSerivce alloc] init];   \
+        __instance = [[URWWWeatherSerivce alloc] init];   \
     });                                         \
     return __instance;
 }

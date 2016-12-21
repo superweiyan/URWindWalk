@@ -13,6 +13,7 @@
 #import "URSummaryViewController.h"
 #import "RunViewController.h"
 #import "MeViewController.h"
+#import "URWWWeatherSerivce.h"
 
 @interface ViewController ()<UITabBarDelegate>
 @end

@@ -12,6 +12,8 @@
 
 NSString * URWWLocationAuthorizationStatusChangeNotification = @"URWWLocationAuthorizationStatusChangeNotification";
 NSString * URWWLocationChangeNotification = @"URWWLocationChangeNotification";
+NSString * URWWLocationFailNotification = @"URWWLocationFailNotification";
+NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 
 @interface URLocationManager()<CLLocationManagerDelegate>
 {
@@ -28,6 +30,11 @@ NSString * URWWLocationChangeNotification = @"URWWLocationChangeNotification";
         [self initLocation];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [_locManager stopUpdatingLocation];
 }
 
 - (void)initLocation
@@ -61,6 +68,10 @@ NSString * URWWLocationChangeNotification = @"URWWLocationChangeNotification";
 {
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
+    if(![CLLocationManager locationServicesEnabled]) {
+        return NO;
+    }
+    
     if (status != kCLAuthorizationStatusAuthorizedAlways ||
         status != kCLAuthorizationStatusAuthorizedWhenInUse) {
         return NO;
@@ -91,6 +102,25 @@ NSString * URWWLocationChangeNotification = @"URWWLocationChangeNotification";
     self.location.altitude = currentLocation.altitude;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:URWWLocationChangeNotification object:nil];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+    NSString *errorInfo = @"获取位置失败";
+    if (error.code == kCLErrorNetwork) {
+        errorInfo = @"获取位置失败, 当前网络错误";
+    }
+    if (error.code == kCLErrorDenied) {
+        errorInfo = @"获取位置失败, 访问被拒绝";
+    }
+    else if (error.code == kCLErrorLocationUnknown ) {
+        errorInfo = @"获取位置失败, 未知位置";
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:URWWLocationFailNotificationKey
+                                                        object:nil
+                                                      userInfo:@{URWWLocationFailNotificationKey:errorInfo}];
 }
 
 @end

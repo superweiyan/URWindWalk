@@ -1,5 +1,5 @@
 //
-//  URWWSerivce.h
+//  URWWWeatherSerivce.h
 //  URWindWalk
 //
 //  Created by weiyan on 21/12/2016.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface URWWSerivce : NSObject
+@interface URWWWeatherSerivce : NSObject
 
 + (id)sharedObject;
 

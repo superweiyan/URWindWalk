@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "URWWSerivce.h"
+#import "URWWWeatherSerivce.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [URWWSerivce sharedObject];
+    [URWWWeatherSerivce sharedObject];
     
     return YES;
 }

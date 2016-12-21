@@ -10,6 +10,8 @@
 
 extern NSString * URWWLocationAuthorizationStatusChangeNotification;
 extern NSString * URWWLocationChangeNotification;
+extern NSString * URWWLocationFailNotification;
+extern NSString * URWWLocationFailNotificationKey;
 
 @class URWWLocation;
 

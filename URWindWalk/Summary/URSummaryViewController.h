@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+extern float URWeatherShowHeight;
+
 @interface URSummaryViewController : UIViewController
+
+@property (nonatomic, strong) UITableView   *tableView;
+@property (nonatomic, strong) UIImageView   *weatherImage;
 
 @end
