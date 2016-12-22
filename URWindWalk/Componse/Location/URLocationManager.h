@@ -13,11 +13,11 @@ extern NSString * URWWLocationChangeNotification;
 extern NSString * URWWLocationFailNotification;
 extern NSString * URWWLocationFailNotificationKey;
 
-@class URWWLocation;
+@class URWWLocationInfo;
 
 @interface URLocationManager : NSObject
 
-@property (nonatomic, strong) URWWLocation * location;
+@property (nonatomic, strong) URWWLocationInfo * location;
 
 - (void)startLocation;
 

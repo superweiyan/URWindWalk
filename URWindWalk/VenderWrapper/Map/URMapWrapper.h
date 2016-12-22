@@ -15,6 +15,8 @@ extern NSString * URWeatherSearchLiveNotification;
 
 + (id)sharedObject;
 
+- (BOOL)queryCurrentLocationWeather;
+
 - (void)queryWeather:(NSString *)cityName;
 
 - (void)queryGeocode:(float)latitude longitude:(float)longitude;

@@ -15,6 +15,8 @@
 @interface URWWWeatherSerivce()
 {
     URLocationManager *_locationManager;
+    
+    NSString        *_cityName;
 }
 @end
 
@@ -56,6 +58,11 @@
                                              selector:@selector(onURWeatherSearchLiveNotification:)
                                                  name:URWeatherSearchLiveNotification
                                                object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onURWeatherSearchCityNameNotification:)
+                                                 name:URWeatherSearchCityNameNotification
+                                               object:nil];
 }
 
 - (void)locationService
@@ -78,9 +85,15 @@
 {
     NSDictionary *userInfo = notification.userInfo;
     
-    URWWWeatherModel *weatherModel = [[URWWWeatherModel alloc] init];
-    weatherModel.temperature = [userInfo objectForKey:@"temperature"];
-    weatherModel.weather = [userInfo objectForKey:@"weather"];
+    URWWWeatherInfo *weatherInfo = [[URWWWeatherInfo alloc] init];
+    weatherInfo.temperature = [userInfo objectForKey:@"temperature"];
+    weatherInfo.weather = [userInfo objectForKey:@"weather"];
+    weatherInfo.city = _cityName;
+}
+
+- (void)onURWeatherSearchCityNameNotification:(NSNotification *)notification
+{
+    _cityName = [notification.userInfo objectForKey:@"key"];
 }
 
 @end

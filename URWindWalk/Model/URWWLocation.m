@@ -8,10 +8,10 @@
 
 #import "URWWLocation.h"
 
-@implementation URWWLocation
+@implementation URWWLocationInfo
 
 @end
 
-@implementation URWWWeatherModel
+@implementation URWWWeatherInfo
 
 @end

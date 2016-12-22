@@ -94,7 +94,7 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
     CLLocation *currentLocation = [locations lastObject];
 
     if (!self.location) {
-        self.location = [[URWWLocation alloc] init];
+        self.location = [[URWWLocationInfo alloc] init];
     }
     
     self.location.longitude = currentLocation.coordinate.longitude;

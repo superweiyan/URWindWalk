@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UIImageView   * weatherImage;
 @property (nonatomic, strong) UILabel       * tempationLabel;
+@property (nonatomic, strong) UILabel       * locationLabel;
 
 @end
 
@@ -41,6 +42,10 @@
     self.tempationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.tempationLabel.backgroundColor = [UIColor redColor];
     [self addSubview:self.tempationLabel];
+    
+    self.locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.locationLabel.backgroundColor = [UIColor blueColor];
+    [self addSubview:self.locationLabel];
 }
 
 - (void)layoutSubviews
@@ -48,12 +53,16 @@
     [super layoutSubviews];
     self.weatherImage.frame = self.bounds;
     self.tempationLabel.frame = CGRectMake(10, 70, 100, 30);
+    self.locationLabel.frame = CGRectMake(100, 70, 100, 30);
 }
 
 - (void)loadData
 {
-    URWWLocation *location = [URWWWeatherSerivce sharedObject].location;
+    URWWLocationInfo *location = [URWWWeatherSerivce sharedObject].location;
     self.tempationLabel.text = [NSString stringWithFormat:@"海拔: %f", location.altitude];
+    
+    URWWWeatherInfo *weatherInfo = [URWWWeatherSerivce sharedObject].weatherInfo;
+    self.locationLabel.text = weatherInfo.city;
 }
 
 @end

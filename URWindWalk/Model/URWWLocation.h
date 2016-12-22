@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface URWWLocation : NSObject
+@interface URWWLocationInfo : NSObject
 
 @property (nonatomic, assign)  double   longitude;  //经度
 @property (nonatomic, assign)  double   latitude;    //纬度
@@ -16,8 +16,9 @@
 
 @end
 
-@interface URWWWeatherModel : NSObject
+@interface URWWWeatherInfo : NSObject
 
+@property (nonatomic, strong) NSString  *city;
 @property (nonatomic, strong) NSString  *weather;
 @property (nonatomic, strong) NSString  *temperature;
 

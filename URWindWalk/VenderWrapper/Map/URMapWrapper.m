@@ -18,6 +18,8 @@ NSString * URWeatherSearchLiveNotification = @"URWeatherSearchLiveNotification";
 {
     AMapSearchAPI   *_amapSearchAPI;
     AMapSearchAPI   *_geosearch;
+    
+    NSString        *_currentCity;
 }
 @end
 
@@ -47,6 +49,15 @@ NSString * URWeatherSearchLiveNotification = @"URWeatherSearchLiveNotification";
     return self;
 }
 
+- (BOOL)queryCurrentLocationWeather
+{
+    if (_currentCity.length > 0) {
+        [self queryWeather:_currentCity];
+        return YES;
+    }
+    return NO;
+}
+
 - (void)queryWeather:(NSString *)cityName
 {
     AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
@@ -58,8 +69,10 @@ NSString * URWeatherSearchLiveNotification = @"URWeatherSearchLiveNotification";
 - (void)queryGeocode:(float)latitude longitude:(float)longitude
 {
     [AMapServices sharedServices].apiKey = @"204b3dfcbc0423bd06af7915e3b9411f";
-    _geosearch = [[AMapSearchAPI alloc] init];
-    _geosearch.delegate = self;
+    if (!_geosearch) {
+        _geosearch = [[AMapSearchAPI alloc] init];
+        _geosearch.delegate = self;
+    }
     
     AMapReGeocodeSearchRequest *request = [[AMapReGeocodeSearchRequest alloc] init];
     request.location = [AMapGeoPoint locationWithLatitude:latitude longitude:longitude];
@@ -94,6 +107,8 @@ NSString * URWeatherSearchLiveNotification = @"URWeatherSearchLiveNotification";
         AMapAddressComponent *addressComponent = regeocode.addressComponent;
         
         if (addressComponent.city.length > 0) {
+            
+            _currentCity = addressComponent.city;
             [[NSNotificationCenter defaultCenter] postNotificationName:URWeatherSearchCityNameNotification
                                                                 object:nil
                                                               userInfo:@{@"key":addressComponent.city}];
