@@ -20,6 +20,9 @@
 		A087236D1E0D16FF00AADFBC /* b16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A087236C1E0D16FF00AADFBC /* b16.jpg */; };
 		A08723701E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A087236F1E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m */; };
 		A08723731E0D20CF00AADFBC /* URWWObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723711E0D20CF00AADFBC /* URWWObjectInfo.m */; };
+		A087237A1E0D27A500AADFBC /* URWWRunRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723781E0D27A500AADFBC /* URWWRunRecordView.m */; };
+		A087237E1E0D66F900AADFBC /* URLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A087237D1E0D66F900AADFBC /* URLabel.m */; };
+		A08723811E0D6F3F00AADFBC /* URRunRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723801E0D6F3F00AADFBC /* URRunRecordTableViewCell.m */; };
 		A0C65A2A1DFEAB23005EF47D /* URMarcoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C65A291DFEAB22005EF47D /* URMarcoUtil.m */; };
 		A0D29C131DF4679600C7CF4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D29C121DF4679600C7CF4D /* main.m */; };
 		A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D29C151DF4679600C7CF4D /* AppDelegate.m */; };
@@ -61,6 +64,12 @@
 		A087236F1E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWUserInfoTableViewCell.m; sourceTree = "<group>"; };
 		A08723711E0D20CF00AADFBC /* URWWObjectInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWObjectInfo.m; sourceTree = "<group>"; };
 		A08723721E0D20CF00AADFBC /* URWWObjectInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWObjectInfo.h; sourceTree = "<group>"; };
+		A08723781E0D27A500AADFBC /* URWWRunRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWRunRecordView.m; sourceTree = "<group>"; };
+		A08723791E0D27A500AADFBC /* URWWRunRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWRunRecordView.h; sourceTree = "<group>"; };
+		A087237C1E0D66F900AADFBC /* URLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLabel.h; sourceTree = "<group>"; };
+		A087237D1E0D66F900AADFBC /* URLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLabel.m; sourceTree = "<group>"; };
+		A087237F1E0D6F3F00AADFBC /* URRunRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URRunRecordTableViewCell.h; sourceTree = "<group>"; };
+		A08723801E0D6F3F00AADFBC /* URRunRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URRunRecordTableViewCell.m; sourceTree = "<group>"; };
 		A0C65A281DFEAB22005EF47D /* URMarcoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URMarcoUtil.h; sourceTree = "<group>"; };
 		A0C65A291DFEAB22005EF47D /* URMarcoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMarcoUtil.m; sourceTree = "<group>"; };
 		A0D29C0E1DF4679600C7CF4D /* URWindWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URWindWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +134,7 @@
 		A05D10471E00EA620036AB94 /* Componse */ = {
 			isa = PBXGroup;
 			children = (
+				A08723741E0D262300AADFBC /* Run */,
 				A08722F41E0C310A00AADFBC /* UserInfo */,
 				A0E657561E0ADA91003D5E87 /* Location */,
 				A0D4BFE11E097D87006CB813 /* Weather */,
@@ -188,6 +198,8 @@
 				A08723061E0D132B00AADFBC /* URSummaryViewController.m */,
 				A087236E1E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.h */,
 				A087236F1E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m */,
+				A087237F1E0D6F3F00AADFBC /* URRunRecordTableViewCell.h */,
+				A08723801E0D6F3F00AADFBC /* URRunRecordTableViewCell.m */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -201,6 +213,24 @@
 				A087236A1E0D15E700AADFBC /* UIImage+URExtension.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A08723741E0D262300AADFBC /* Run */ = {
+			isa = PBXGroup;
+			children = (
+				A08723781E0D27A500AADFBC /* URWWRunRecordView.m */,
+				A08723791E0D27A500AADFBC /* URWWRunRecordView.h */,
+			);
+			path = Run;
+			sourceTree = "<group>";
+		};
+		A087237B1E0D66E700AADFBC /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				A087237C1E0D66F900AADFBC /* URLabel.h */,
+				A087237D1E0D66F900AADFBC /* URLabel.m */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		A0C65A271DFEAB12005EF47D /* Config */ = {
@@ -235,6 +265,7 @@
 		A0D29C101DF4679600C7CF4D /* URWindWalk */ = {
 			isa = PBXGroup;
 			children = (
+				A087237B1E0D66E700AADFBC /* Widget */,
 				A08723651E0D15BA00AADFBC /* Utils */,
 				A08722F81E0D132B00AADFBC /* Business */,
 				A0E657471E0A685E003D5E87 /* VenderWrapper */,
@@ -524,6 +555,8 @@
 				A08723071E0D132B00AADFBC /* URWWLoginViewController.m in Sources */,
 				A08723731E0D20CF00AADFBC /* URWWObjectInfo.m in Sources */,
 				A08723091E0D132B00AADFBC /* RunViewController.m in Sources */,
+				A087237E1E0D66F900AADFBC /* URLabel.m in Sources */,
+				A08723811E0D6F3F00AADFBC /* URRunRecordTableViewCell.m in Sources */,
 				A087236B1E0D15E700AADFBC /* UIImage+URExtension.m in Sources */,
 				A08723681E0D15BA00AADFBC /* NSDateUtil.m in Sources */,
 				A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */,
@@ -539,6 +572,7 @@
 				A08723701E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m in Sources */,
 				A0E657421E0A30AB003D5E87 /* URWWWeatherSerivce.m in Sources */,
 				A0E657521E0A685F003D5E87 /* URMapWrapper.m in Sources */,
+				A087237A1E0D27A500AADFBC /* URWWRunRecordView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

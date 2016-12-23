@@ -8,12 +8,13 @@
 
 #import "URWWUserInfoView.h"
 #import "UIImage+URExtension.h"
+#import "URLabel.h"
 
 @interface URWWUserInfoView()
 {
     UIImageView *_logoView;
-    UILabel     *_nameLabel;
-    UILabel     *_IDLabel;
+    URLabel     *_nameLabel;
+    URLabel     *_IDLabel;
 }
 @end
 
@@ -37,11 +38,24 @@
     UIImage *newImage = [image ur_imageWithRoundedCornersAndSize:CGSizeMake(40, 40)];
     _logoView.image = newImage;
     [self addSubview:_logoView];
+    
+    _nameLabel = [[URLabel alloc] initWithFrame:CGRectZero];
+    _nameLabel.text = @"林伟彦";
+    [self addSubview:_nameLabel];
+    
+    _IDLabel = [[URLabel alloc] initWithFrame:CGRectZero];
+    _IDLabel.text = @"123456789";
+    [self addSubview:_IDLabel];
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
     _logoView.frame = CGRectMake(10, 10, 40, 40);
+    
+    _nameLabel.frame = CGRectMake(60, 5, 100, 20);
+    
+    _IDLabel.frame = CGRectMake(60, 30, 100, 20);
 }
 @end

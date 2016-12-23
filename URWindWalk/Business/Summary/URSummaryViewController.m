@@ -9,6 +9,7 @@
 #import "URSummaryViewController.h"
 #import "URSummaryViewController+URLayout.h"
 #import "URWWUserInfoTableViewCell.h"
+#import "URRunRecordTableViewCell.h"
 
 float URWeatherShowHeight = 150.0;
 
@@ -58,19 +59,16 @@ float URWeatherShowHeight = 150.0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        static NSString *URUserInfoIdentifier = @"URUserInfoIdentifier";
-        URWWUserInfoTableViewCell *userInfoCell = [tableView dequeueReusableCellWithIdentifier:URUserInfoIdentifier];
-        if (!userInfoCell) {
-            userInfoCell = [[URWWUserInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                            reuseIdentifier:URUserInfoIdentifier];
-        }
-        return userInfoCell;
+        return [self createWeatherTableViewCell:tableView];
+    }
+    else if(indexPath.row == 1) {
+        return [self createRunRecordTableViewCell:tableView];
     }
     
     return [UITableViewCell new];
@@ -81,11 +79,14 @@ float URWeatherShowHeight = 150.0;
     if (indexPath.row == 0) {
         return 60.0;
     }
+    else if(indexPath.row == 1) {
+        return 80.0f;
+    }
     return 50.0;
 }
 
 
-#pragma mark - 
+#pragma mark - UIScrollView
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -105,4 +106,27 @@ float URWeatherShowHeight = 150.0;
     }
 }
 
+#pragma mark - tableViewCell
+
+- (UITableViewCell *)createWeatherTableViewCell:(UITableView *)tableView
+{
+    static NSString *URUserInfoIdentifier = @"URUserInfoIdentifier";
+    URWWUserInfoTableViewCell *userInfoCell = [tableView dequeueReusableCellWithIdentifier:URUserInfoIdentifier];
+    if (!userInfoCell) {
+        userInfoCell = [[URWWUserInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                        reuseIdentifier:URUserInfoIdentifier];
+    }
+    return userInfoCell;
+}
+
+- (UITableViewCell *)createRunRecordTableViewCell:(UITableView *)tableView
+{
+    static NSString *URRunRecordIdentifier = @"URRunRecordIdentifier";
+    URRunRecordTableViewCell *runRecordCell = [tableView dequeueReusableCellWithIdentifier:URRunRecordIdentifier];
+    if (!runRecordCell) {
+        runRecordCell = [[URRunRecordTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                        reuseIdentifier:URRunRecordIdentifier];
+    }
+    return runRecordCell;
+}
 @end
