@@ -6,13 +6,13 @@
 //  Copyright © 2016 weiyan. All rights reserved.
 //
 
-#import "URLoginViewController.h"
+#import "URWWLoginViewController.h"
 
-@interface URLoginViewController ()
+@interface URWWLoginViewController ()
 
 @end
 
-@implementation URLoginViewController
+@implementation URWWLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

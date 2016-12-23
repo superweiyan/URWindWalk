@@ -10,7 +10,7 @@
 #import "URLocationManager.h"
 #import "URLocationManager.h"
 #import "URMapWrapper.h"
-#import "URWWLocation.h"
+#import "URWWObjectInfo.h"
 
 @interface URWWWeatherSerivce()
 {

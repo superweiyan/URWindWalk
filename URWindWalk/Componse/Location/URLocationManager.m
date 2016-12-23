@@ -8,7 +8,7 @@
 
 #import "URLocationManager.h"
 #import <CoreLocation/CoreLocation.h>
-#import "URWWLocation.h"
+#import "URWWObjectInfo.h"
 
 NSString * URWWLocationAuthorizationStatusChangeNotification = @"URWWLocationAuthorizationStatusChangeNotification";
 NSString * URWWLocationChangeNotification = @"URWWLocationChangeNotification";

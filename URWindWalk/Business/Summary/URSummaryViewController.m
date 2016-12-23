@@ -8,6 +8,7 @@
 
 #import "URSummaryViewController.h"
 #import "URSummaryViewController+URLayout.h"
+#import "URWWUserInfoTableViewCell.h"
 
 float URWeatherShowHeight = 150.0;
 
@@ -49,7 +50,6 @@ float URWeatherShowHeight = 150.0;
     
     self.weatherView = [[URWWWeatherView alloc] initWithFrame:CGRectZero];
     self.weatherView.tag = 1000;
-    
     [self.tableView addSubview:self.weatherView];
 }
 
@@ -58,13 +58,32 @@ float URWeatherShowHeight = 150.0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        static NSString *URUserInfoIdentifier = @"URUserInfoIdentifier";
+        URWWUserInfoTableViewCell *userInfoCell = [tableView dequeueReusableCellWithIdentifier:URUserInfoIdentifier];
+        if (!userInfoCell) {
+            userInfoCell = [[URWWUserInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                            reuseIdentifier:URUserInfoIdentifier];
+        }
+        return userInfoCell;
+    }
+    
     return [UITableViewCell new];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 60.0;
+    }
+    return 50.0;
+}
+
 
 #pragma mark - 
 

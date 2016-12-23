@@ -1,5 +1,5 @@
 //
-//  URLoginViewController.h
+//  URWWLoginViewController.h
 //  URWindWalk
 //
 //  Created by weiyan on 05/12/2016.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface URLoginViewController : UIViewController
+@interface URWWLoginViewController : UIViewController
 
 @end
