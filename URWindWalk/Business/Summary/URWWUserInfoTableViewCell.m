@@ -21,6 +21,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         _userView = [[URWWUserInfoView alloc] initWithFrame:CGRectZero];
         [self addSubview:_userView];
     }

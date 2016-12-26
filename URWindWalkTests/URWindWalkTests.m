@@ -10,9 +10,7 @@
 #import "NSDateUtil.h"
 
 @interface URWindWalkTests : XCTestCase
-{
-    NSDateUtil *_dateUtil;
-}
+{}
 @end
 
 @implementation URWindWalkTests
@@ -21,7 +19,7 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
-    _dateUtil = [[NSDateUtil alloc] init];
+//    _dateUtil = [[NSDateUtil alloc] init];
 }
 
 - (void)tearDown {
@@ -34,10 +32,12 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     
     //NSString *dateString =  [_dateUtil getDateString:[NSDate date]];
-    NSString *a1 = @"2016-12-14";
-    NSString *a2 = [_dateUtil getDateString:[NSDate date]];
+    
+    NSUInteger a2 = [NSDateUtil getFirstDayOfMonth:[NSDate date]];
+    NSUInteger a1 =  4;
+    XCTAssertEqual(a1, a2);
     //XCTAssertTrue([a1 isEqualToString:a2], @"a1 and a2 should point to the same object");
-    XCTAssertEqualObjects(a1, a2);
+//    XCTAssertEqualObjects(a1, a2);
 }
 
 - (void)testPerformanceExample {

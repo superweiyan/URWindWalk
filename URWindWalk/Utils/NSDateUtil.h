@@ -27,10 +27,14 @@
 
 - (NSUInteger)getTotalDaysInMonth:(NSDate *)date;
 
-- (NSUInteger)getDayInMonth:(NSDate *)date;
++ (NSUInteger)getDayInMonth:(NSDate *)date;
 
 - (NSUInteger)getMonthInYear:(NSDate *)date;
 
 - (NSString *)chineseCalendarOfDate:(NSDate *)date;
+
++ (NSUInteger)getWeekDayWithDate:(NSDate *)date;
+
++ (NSUInteger)getFirstDayOfMonth:(NSDate *)date;
 
 @end

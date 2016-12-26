@@ -1,21 +1,21 @@
 //
-//  URRunRecordTableViewCell.m
+//  URCalendarTableViewCell.m
 //  URWindWalk
 //
 //  Created by weiyan on 23/12/2016.
 //  Copyright © 2016 weiyan. All rights reserved.
 //
 
-#import "URRunRecordTableViewCell.h"
-#import "URWWRunRecordView.h"
+#import "URCalendarTableViewCell.h"
+#import "URWWCalendarView.h"
 
-@interface URRunRecordTableViewCell()
+@interface URCalendarTableViewCell()
 {
-    URWWRunRecordView *_recordView;
+    URWWCalendarView   *_calendarView;
 }
 @end
 
-@implementation URRunRecordTableViewCell
+@implementation URCalendarTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -33,8 +33,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _recordView = [[URWWRunRecordView alloc] initWithFrame:CGRectZero];
-        [self addSubview:_recordView];
+        self.clipsToBounds = YES;
+        _calendarView = [[URWWCalendarView alloc] initWithFrame:CGRectZero];
+        [self addSubview:_calendarView];
     }
     return self;
 }
@@ -42,7 +43,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    _recordView.frame = self.bounds;
+    _calendarView.frame = self.bounds;
 }
 
 @end

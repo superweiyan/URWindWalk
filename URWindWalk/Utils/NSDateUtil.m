@@ -49,7 +49,7 @@
     return days.length;
 }
 
-- (NSUInteger)getDayInMonth:(NSDate *)date
++ (NSUInteger)getDayInMonth:(NSDate *)date
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
     unsigned int unitFlags = NSCalendarUnitDay ;
@@ -112,6 +112,26 @@
     return _day;
 }
 
++ (NSUInteger)getWeekDayWithDate:(NSDate *)date
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [calendar components:NSCalendarUnitWeekday fromDate:date];
+    return [comps weekday] - 1;
+}
+
++ (NSUInteger)getFirstDayOfMonth:(NSDate *)date
+{
+    NSUInteger day = [self getDayInMonth:date];
+    NSUInteger week = [self getWeekDayWithDate:date];
+
+    NSUInteger offset = day % 7;
+    
+    NSUInteger offsetDay = (offset - week) > 0 ? (offset - week) % 7 : week - offset;
+   
+    return offsetDay;
+}
+
+#pragma mark - private
 
 - (BOOL)isNewYearEve:(NSDate *)date
 {

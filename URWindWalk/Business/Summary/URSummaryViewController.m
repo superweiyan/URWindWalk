@@ -10,11 +10,14 @@
 #import "URSummaryViewController+URLayout.h"
 #import "URWWUserInfoTableViewCell.h"
 #import "URRunRecordTableViewCell.h"
+#import "URCalendarTableViewCell.h"
 
 float URWeatherShowHeight = 150.0;
 
 @interface URSummaryViewController ()<UITableViewDelegate, UITableViewDataSource>
-
+{
+    BOOL  _hasCalendarSelected;
+}
 @end
 
 @implementation URSummaryViewController
@@ -59,7 +62,7 @@ float URWeatherShowHeight = 150.0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,8 +73,12 @@ float URWeatherShowHeight = 150.0;
     else if(indexPath.row == 1) {
         return [self createRunRecordTableViewCell:tableView];
     }
-    
-    return [UITableViewCell new];
+    else if(indexPath.row == 2) {
+        return [self createCalenderIdentifierTableViewCell:tableView];
+    }
+    UITableViewCell *cell = [UITableViewCell new];
+    cell.textLabel.text = @(indexPath.row).stringValue;
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,7 +89,49 @@ float URWeatherShowHeight = 150.0;
     else if(indexPath.row == 1) {
         return 80.0f;
     }
+    else if(indexPath.row == 2) {
+        if (_hasCalendarSelected) {
+            return 230;
+        }
+        else {
+            return 50;
+        }
+    }
+    
     return 50.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row != 2) {
+        return;
+    }
+    
+    _hasCalendarSelected = !_hasCalendarSelected;
+    [tableView beginUpdates];
+    
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    [tableView endUpdates];
+    
+    /*
+    if(_selectedIndexPath == nil)
+    {
+        _selectedIndexPath = indexPath;
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    else{
+        bool hasSelectedOtherRow=![_selectedIndexPath isEqual:indexPath];
+        NSIndexPath *temp = _selectedIndexPath;
+        _selectedIndexPath = nil;
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:temp] withRowAnimation:UITableViewRowAnimationAutomatic];
+        if(hasSelectedOtherRow){
+            _selectedIndexPath = indexPath;
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
+     */
+    
 }
 
 
@@ -129,4 +178,17 @@ float URWeatherShowHeight = 150.0;
     }
     return runRecordCell;
 }
+
+- (UITableViewCell *)createCalenderIdentifierTableViewCell:(UITableView *)tableView
+{
+    static NSString *URCalenderIdentifier = @"URCalenderIdentifier";
+    URCalendarTableViewCell *calendarCell = [tableView dequeueReusableCellWithIdentifier:URCalenderIdentifier];
+    if (!calendarCell) {
+        calendarCell = [[URCalendarTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                        reuseIdentifier:URCalenderIdentifier];
+    }
+    return calendarCell;
+}
+
+
 @end
