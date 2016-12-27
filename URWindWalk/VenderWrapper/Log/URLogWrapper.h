@@ -10,8 +10,12 @@
 
 @interface URLogWrapper : NSObject
 
++ (id)sharedObject;
+
 - (void)logDebug:(NSString *)info;
 
 - (void)logInfo:(NSString *)info;
+
+- (NSString *)getLogPath;
 
 @end

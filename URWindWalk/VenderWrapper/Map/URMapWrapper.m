@@ -51,10 +51,10 @@ NSString * URWeatherSearchLiveNotification = @"URWeatherSearchLiveNotification";
 
 - (BOOL)queryCurrentLocationWeather
 {
-    if (_currentCity.length > 0) {
-        [self queryWeather:_currentCity];
-        return YES;
-    }
+    //if (_currentCity.length > 0) {
+//        [self queryWeather:_currentCity];
+//        return YES;
+//    }
     return NO;
 }
 
@@ -68,6 +68,8 @@ NSString * URWeatherSearchLiveNotification = @"URWeatherSearchLiveNotification";
 
 - (void)queryGeocode:(float)latitude longitude:(float)longitude
 {
+    return ;
+    
     [AMapServices sharedServices].apiKey = @"204b3dfcbc0423bd06af7915e3b9411f";
     if (!_geosearch) {
         _geosearch = [[AMapSearchAPI alloc] init];

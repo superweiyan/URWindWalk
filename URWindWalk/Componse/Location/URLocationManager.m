@@ -17,7 +17,8 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 
 @interface URLocationManager()<CLLocationManagerDelegate>
 {
-    CLLocationManager *_locManager;
+    CLLocationManager   *_locManager;
+    NSMutableArray      *_locationArray;
 }
 @end
 
@@ -39,6 +40,8 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 
 - (void)initLocation
 {
+    _locationArray = [[NSMutableArray alloc] init];
+    
     _locManager = [[CLLocationManager alloc]init];
     _locManager.delegate = self;
     _locManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -46,13 +49,14 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 
 - (void)startLocation
 {
+    [_locationArray removeAllObjects];
+    
     if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
         [_locManager requestWhenInUseAuthorization];
         [_locManager startUpdatingLocation];
     }
     else if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse ||
        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways ) {
-     
         [_locManager startUpdatingLocation];
     }
 }
@@ -93,6 +97,8 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
     
     CLLocation *currentLocation = [locations lastObject];
 
+    [_locationArray addObject:currentLocation];
+    
     if (!self.location) {
         self.location = [[URWWLocationInfo alloc] init];
     }

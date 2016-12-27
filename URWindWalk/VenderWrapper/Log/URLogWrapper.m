@@ -11,6 +11,12 @@
 
 static const int ddLogLevel = DDLogLevelVerbose;
 
+@interface URLogWrapper()
+{
+    DDFileLogger *_fileLogger;
+}
+@end
+
 @implementation URLogWrapper
 
 - (instancetype)init
@@ -22,20 +28,26 @@ static const int ddLogLevel = DDLogLevelVerbose;
     return self;
 }
 
++ (id)sharedObject
+{
+    static dispatch_once_t __once;              \
+    static URLogWrapper * __instance = nil;         \
+    dispatch_once(&__once, ^{                   \
+        __instance = [[URLogWrapper alloc] init];   \
+    });                                         \
+    return __instance;
+}
+
 - (void)configLog
 {
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
-    
-#ifdef OPEN_LOG_FILE
-    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
-    [fileLogger setMaximumFileSize:1024 * 1024];
-    [fileLogger setRollingFrequency:3600.0 * 24];
-    [[fileLogger logFileManager] setMaximumNumberOfLogFiles:7];
-    [DDLog addLogger:fileLogger];
-#endif
-    
+    _fileLogger = [[DDFileLogger alloc] init];
+    [_fileLogger setMaximumFileSize:1024 * 1024];
+    [_fileLogger setRollingFrequency:3600.0 * 24];
+    [[_fileLogger logFileManager] setMaximumNumberOfLogFiles:7];
+    [DDLog addLogger:_fileLogger];
 }
 
 - (void)logDebug:(NSString *)info
@@ -46,5 +58,10 @@ static const int ddLogLevel = DDLogLevelVerbose;
 - (void)logInfo:(NSString *)info
 {
     DDLogInfo(info);
+}
+
+- (NSString *)getLogPath
+{
+    return [[_fileLogger currentLogFileInfo] filePath];
 }
 @end

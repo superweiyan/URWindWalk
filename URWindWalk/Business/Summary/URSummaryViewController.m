@@ -11,6 +11,7 @@
 #import "URWWUserInfoTableViewCell.h"
 #import "URRunRecordTableViewCell.h"
 #import "URCalendarTableViewCell.h"
+#import "URLog.h"
 
 float URWeatherShowHeight = 150.0;
 
@@ -29,6 +30,8 @@ float URWeatherShowHeight = 150.0;
     self.navigationItem.title = @"首页";
     
     [self initSubViews];
+    
+    [[URLog sharedObject] logInfo:@"123456" model:@"summary" funName:@"viewController"];
 }
 
 - (void)didReceiveMemoryWarning {

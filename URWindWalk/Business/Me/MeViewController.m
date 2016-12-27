@@ -7,6 +7,7 @@
 //
 
 #import "MeViewController.h"
+#import "URTestViewController.h"
 
 @interface MeViewController ()
 
@@ -20,6 +21,12 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"我";
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"测试"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(onTestClicked)];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,5 +43,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)onTestClicked
+{
+    URTestViewController *controller = [[URTestViewController alloc] init];
+    controller.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 @end
