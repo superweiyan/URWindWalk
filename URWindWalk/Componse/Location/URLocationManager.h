@@ -19,6 +19,8 @@ extern NSString * URWWLocationFailNotificationKey;
 
 @property (nonatomic, strong) URWWLocationInfo * location;
 
+- (void)getCityName;
+
 - (void)startLocation;
 
 - (void)stopLocation;

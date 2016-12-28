@@ -40,7 +40,6 @@
 		A0E657421E0A30AB003D5E87 /* URWWWeatherSerivce.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E657401E0A30AB003D5E87 /* URWWWeatherSerivce.m */; };
 		A0E657501E0A685F003D5E87 /* URLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574A1E0A685E003D5E87 /* URLog.m */; };
 		A0E657511E0A685F003D5E87 /* URLogWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574C1E0A685F003D5E87 /* URLogWrapper.m */; };
-		A0E657521E0A685F003D5E87 /* URMapWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574F1E0A685F003D5E87 /* URMapWrapper.m */; };
 		A0E657551E0A6E33003D5E87 /* weather-cloudy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */; };
 		A0E657591E0ADA91003D5E87 /* URLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E657581E0ADA91003D5E87 /* URLocationManager.m */; };
 /* End PBXBuildFile section */
@@ -106,8 +105,6 @@
 		A0E6574A1E0A685E003D5E87 /* URLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLog.m; sourceTree = "<group>"; };
 		A0E6574B1E0A685E003D5E87 /* URLogWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLogWrapper.h; sourceTree = "<group>"; };
 		A0E6574C1E0A685F003D5E87 /* URLogWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLogWrapper.m; sourceTree = "<group>"; };
-		A0E6574E1E0A685F003D5E87 /* URMapWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URMapWrapper.h; sourceTree = "<group>"; };
-		A0E6574F1E0A685F003D5E87 /* URMapWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMapWrapper.m; sourceTree = "<group>"; };
 		A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "weather-cloudy.jpg"; sourceTree = "<group>"; };
 		A0E657571E0ADA91003D5E87 /* URLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLocationManager.h; sourceTree = "<group>"; };
 		A0E657581E0ADA91003D5E87 /* URLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLocationManager.m; sourceTree = "<group>"; };
@@ -392,8 +389,6 @@
 		A0E6574D1E0A685F003D5E87 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				A0E6574E1E0A685F003D5E87 /* URMapWrapper.h */,
-				A0E6574F1E0A685F003D5E87 /* URMapWrapper.m */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -617,7 +612,6 @@
 				A0D4BFE41E097DA5006CB813 /* URWWWeatherView.m in Sources */,
 				A08723701E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m in Sources */,
 				A0E657421E0A30AB003D5E87 /* URWWWeatherSerivce.m in Sources */,
-				A0E657521E0A685F003D5E87 /* URMapWrapper.m in Sources */,
 				A087237A1E0D27A500AADFBC /* URWWRunRecordView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

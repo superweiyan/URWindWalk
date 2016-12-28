@@ -9,7 +9,6 @@
 #import "URWWWeatherSerivce.h"
 #import "URLocationManager.h"
 #import "URLocationManager.h"
-#import "URMapWrapper.h"
 #import "URWWObjectInfo.h"
 
 @interface URWWWeatherSerivce()
@@ -53,16 +52,6 @@
                                              selector:@selector(onURWWLocationChangeNotification:)
                                                  name:URWWLocationChangeNotification
                                                object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onURWeatherSearchLiveNotification:)
-                                                 name:URWeatherSearchLiveNotification
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onURWeatherSearchCityNameNotification:)
-                                                 name:URWeatherSearchCityNameNotification
-                                               object:nil];
 }
 
 - (void)locationService
@@ -76,9 +65,6 @@
 - (void)onURWWLocationChangeNotification:(NSNotification *)notification
 {
     self.location = _locationManager.location;
-    
-    [[URMapWrapper sharedObject] queryGeocode:self.location.latitude
-                                    longitude:self.location.longitude];
 }
 
 - (void)onURWeatherSearchLiveNotification:(NSNotification *)notification

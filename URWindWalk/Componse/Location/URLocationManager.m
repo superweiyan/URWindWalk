@@ -19,6 +19,8 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 {
     CLLocationManager   *_locManager;
     NSMutableArray      *_locationArray;
+    CLGeocoder          *_geocoder;
+    CLLocation          *_currentLocation;
 }
 @end
 
@@ -45,6 +47,20 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
     _locManager = [[CLLocationManager alloc]init];
     _locManager.delegate = self;
     _locManager.desiredAccuracy = kCLLocationAccuracyBest;
+}
+
+- (void)getCityName
+{
+    if (!_geocoder) {
+        _geocoder = [[CLGeocoder alloc] init];
+    }
+    
+    [_geocoder reverseGeocodeLocation:_currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        for(CLPlacemark *placeMark in placemarks) {
+            //CLLocationCoordinate2D coordine = placeMark.location.coordinate;
+            NSLog(@"++ %@", placeMark.locality);
+        }
+    }];
 }
 
 - (void)startLocation
@@ -95,17 +111,19 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
      didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     
-    CLLocation *currentLocation = [locations lastObject];
+    _currentLocation = [locations lastObject];
 
-    [_locationArray addObject:currentLocation];
+    [self getCityName];
+    
+    [_locationArray addObject:_currentLocation];
     
     if (!self.location) {
         self.location = [[URWWLocationInfo alloc] init];
     }
     
-    self.location.longitude = currentLocation.coordinate.longitude;
-    self.location.latitude = currentLocation.coordinate.latitude;
-    self.location.altitude = currentLocation.altitude;
+    self.location.longitude = _currentLocation.coordinate.longitude;
+    self.location.latitude = _currentLocation.coordinate.latitude;
+    self.location.altitude = _currentLocation.altitude;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:URWWLocationChangeNotification object:nil];
 }

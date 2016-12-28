@@ -7,18 +7,15 @@
 //
 
 #import "URMapWrapper.h"
-#import <AMapFoundationKit/AMapFoundationKit.h>
-#import <AMapSearchKit/AMapSearchKit.h>
+//#import <AMapFoundationKit/AMapFoundationKit.h>
+//#import <AMapSearchKit/AMapSearchKit.h>
 
 NSString * URWeatherSearchCityNameNotification = @"URWeatherSearchCityNameNotification";
 NSString * URWeatherSearchLiveNotification = @"URWeatherSearchLiveNotification";
 
 
-@interface URMapWrapper()<AMapSearchDelegate>
+@interface URMapWrapper()
 {
-    AMapSearchAPI   *_amapSearchAPI;
-    AMapSearchAPI   *_geosearch;
-    
     NSString        *_currentCity;
 }
 @end
