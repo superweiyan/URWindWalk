@@ -7,11 +7,22 @@
 //
 
 #import "URWWObjectInfo.h"
+#import "NSDictionary+Safe.h"
 
 @implementation URWWLocationInfo
 @end
 
 @implementation URWWWeatherInfo
+
++ (instancetype)fromDictionary:(NSDictionary *)dict
+{
+    URWWWeatherInfo *weather = [[URWWWeatherInfo alloc] init];
+    weather.code = [dict safeObjectForKey:@"code"];
+    weather.temperature = [dict safeObjectForKey:@"temperature"];
+    weather.weather = [dict safeObjectForKey:@"text"];
+    return weather;
+}
+
 @end
 
 @implementation URWWUserInfo

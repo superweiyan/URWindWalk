@@ -23,9 +23,11 @@ typedef NS_ENUM(NSUInteger, URGendar) {
 
 @interface URWWWeatherInfo : NSObject
 
-@property (nonatomic, strong) NSString  *city;
-@property (nonatomic, strong) NSString  *weather;
-@property (nonatomic, strong) NSString  *temperature;
+@property (nonatomic, strong) NSString  *code;       // 天气代码
+@property (nonatomic, strong) NSString  *weather;       // 天气气象文字
+@property (nonatomic, strong) NSString  *temperature;   // 温度
+
++ (instancetype)fromDictionary:(NSDictionary *)dict;
 
 @end
 

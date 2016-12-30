@@ -7,17 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+@class URWWLocationInfo;
+
+extern NSString * URLocationCityNameChangeNotification;
+extern NSString * URLocationChangeNotification;
 
 @interface URWWLocationService : NSObject
 
+@property (nonatomic, strong) URWWLocationInfo*     locationInfo;
+
 + (URWWLocationService *)sharedObject;
 
-- (void)getCityName;
+- (void)queryCityName;
+
+- (NSString *)getCityName;
 
 - (BOOL)checkLocationService;
-
-- (void)startUpdate;
-
-- (void)stopUpdate;
 
 @end

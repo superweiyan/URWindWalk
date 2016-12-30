@@ -8,6 +8,7 @@
 
 #import "URLocationManager.h"
 #import <CoreLocation/CoreLocation.h>
+#import "URWWObjectInfo.h"
 
 @interface URLocationManager()<CLLocationManagerDelegate>
 {
@@ -24,6 +25,7 @@
     self = [super init];
     if (self) {
         [self initLocation];
+        [self startLocation];
     }
     return self;
 }
@@ -33,20 +35,24 @@
     [_locManager stopUpdatingLocation];
 }
 
+#pragma mark - interface
+
 - (void)initLocation
 {
+    self.desiredAccuracy = URDesiredAccuracyLow;
     _locManager = [[CLLocationManager alloc]init];
     _locManager.delegate = self;
-    _locManager.desiredAccuracy = kCLLocationAccuracyBest;
+    _locManager.desiredAccuracy = [self updateDesiredAccuracy:self.desiredAccuracy];
 }
 
-- (void)getCityName:(CLLocation *)location callback:(request_cityname_block)callback
+- (void)getCityName:(URWWLocationInfo *)location callback:(request_cityname_block)callback
 {
     if (!_geocoder) {
         _geocoder = [[CLGeocoder alloc] init];
     }
     
-    [_geocoder reverseGeocodeLocation:location
+    CLLocation * cLLocation = [[CLLocation alloc] initWithLatitude:location.latitude longitude:location.longitude];
+    [_geocoder reverseGeocodeLocation:cLLocation
                     completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
                         
         for (CLPlacemark *placeMark in placemarks) {
@@ -92,15 +98,31 @@
     return YES;
 }
 
+#pragma mark - setting or getting
+
+- (void)setDesiredAccuracy:(URDesiredAccuracy)desiredAccuracy
+{
+    double accuracy = [self updateDesiredAccuracy:desiredAccuracy];
+    _locManager.desiredAccuracy = accuracy;
+}
+
+
 #pragma mark - CLLocationManagerDelegate 
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{}
+{
+
+}
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     _currentLocation = [locations lastObject];
+    self.locationInfo = [self convertFromObject:_currentLocation];
+    
+    if (self.updateLocationBlock) {
+        self.updateLocationBlock();
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -120,6 +142,29 @@
     if(self.requestLocationErrorBlock) {
         self.requestLocationErrorBlock(errorInfo);
     }
+}
+
+#pragma mark - private
+
+- (double)updateDesiredAccuracy:(URDesiredAccuracy)accurarcy
+{
+    if (accurarcy == URDesiredAccuracyBest) {
+        return kCLLocationAccuracyBest;
+    }
+    else if(accurarcy == URDesiredAccuracyNormal) {
+        return kCLLocationAccuracyHundredMeters;
+    }
+    return kCLLocationAccuracyKilometer;
+}
+
+- (URWWLocationInfo *)convertFromObject:(CLLocation *)location
+{
+    URWWLocationInfo *locationInfo = [[URWWLocationInfo alloc] init];
+    locationInfo.longitude = location.coordinate.longitude;
+    locationInfo.latitude = location.coordinate.latitude;
+    locationInfo.altitude = location.altitude;
+    
+    return locationInfo;
 }
 
 @end

@@ -8,14 +8,14 @@
 
 #import "URWWWeatherSerivce.h"
 #import "URLocationManager.h"
-#import "URLocationManager.h"
 #import "URWWObjectInfo.h"
+#import "TPWeatherWrapper.h"
+
+NSString * URWeatherInfoNotification = @"URWeatherInfoNotification";
 
 @interface URWWWeatherSerivce()
 {
-    URLocationManager *_locationManager;
-    
-    NSString        *_cityName;
+    TPWeatherWrapper *_weatherWrapper;
 }
 @end
 
@@ -35,8 +35,9 @@
 {
     self = [super init];
     if (self) {
-        [self locationService];
+        _weatherWrapper = [[TPWeatherWrapper alloc] init];
         [self initNotification];
+        [self initBlock];
     }
     return self;
 }
@@ -46,31 +47,34 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)initNotification
+- (void)initBlock
 {
+    __weak typeof(self) weakSelf = self;
+    _weatherWrapper.weatherInfoBlock = ^(URWWWeatherInfo *weatherInfo) {
+        [weakSelf updateWeatherInfo:weatherInfo];
+    };
 }
 
-- (void)locationService
+#pragma mark - interface
+
+- (void)queryWeather:(NSString *)location
 {
-    _locationManager = [[URLocationManager alloc] init];
-    [_locationManager startLocation];
+    [_weatherWrapper queryWeather:location];
+}
+
+#pragma mark - block
+
+- (void)updateWeatherInfo:(URWWWeatherInfo *)weatherInfo
+{
+    self.weatherInfo = weatherInfo;
+    [[NSNotificationCenter defaultCenter] postNotificationName:URWeatherInfoNotification object:nil];
 }
 
 #pragma mark - notification
 
-- (void)onURWeatherSearchLiveNotification:(NSNotification *)notification
+- (void)initNotification
 {
-    NSDictionary *userInfo = notification.userInfo;
     
-    URWWWeatherInfo *weatherInfo = [[URWWWeatherInfo alloc] init];
-    weatherInfo.temperature = [userInfo objectForKey:@"temperature"];
-    weatherInfo.weather = [userInfo objectForKey:@"weather"];
-    weatherInfo.city = _cityName;
-}
-
-- (void)onURWeatherSearchCityNameNotification:(NSNotification *)notification
-{
-    _cityName = [notification.userInfo objectForKey:@"key"];
 }
 
 @end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5659B384B9BF7DB254C049BC /* libPods-URWindWalk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */; };
 		A056C7241E019E970091A34D /* URWindWalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F888011E012AAB0002A41A /* URWindWalkTests.m */; };
+		A0647B191E163BC400F5AC6E /* TPWeatherWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B181E163BC400F5AC6E /* TPWeatherWrapper.m */; };
+		A0647B1C1E16449C00F5AC6E /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B1B1E16449C00F5AC6E /* NSDictionary+Safe.m */; };
 		A06AFEE21E100B68008D6464 /* URWWCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE11E100B68008D6464 /* URWWCalendarCollectionViewCell.m */; };
 		A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE81E11643B008D6464 /* URTestViewController.m */; };
 		A08722F71E0C314400AADFBC /* URWWUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722F61E0C314400AADFBC /* URWWUserInfoView.m */; };
@@ -50,6 +52,10 @@
 /* Begin PBXFileReference section */
 		7DF0D77818870D74D7875F69 /* Pods-URWindWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URWindWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-URWindWalk/Pods-URWindWalk.release.xcconfig"; sourceTree = "<group>"; };
 		8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-URWindWalk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0647B171E163BC400F5AC6E /* TPWeatherWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWeatherWrapper.h; sourceTree = "<group>"; };
+		A0647B181E163BC400F5AC6E /* TPWeatherWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWeatherWrapper.m; sourceTree = "<group>"; };
+		A0647B1A1E16449C00F5AC6E /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
+		A0647B1B1E16449C00F5AC6E /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		A06AFEE01E100B68008D6464 /* URWWCalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWCalendarCollectionViewCell.h; sourceTree = "<group>"; };
 		A06AFEE11E100B68008D6464 /* URWWCalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWCalendarCollectionViewCell.m; sourceTree = "<group>"; };
 		A06AFEE71E11643B008D6464 /* URTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URTestViewController.h; sourceTree = "<group>"; };
@@ -164,6 +170,15 @@
 			path = Componse;
 			sourceTree = "<group>";
 		};
+		A0647B161E163BB000F5AC6E /* ThinkPageWeather */ = {
+			isa = PBXGroup;
+			children = (
+				A0647B171E163BC400F5AC6E /* TPWeatherWrapper.h */,
+				A0647B181E163BC400F5AC6E /* TPWeatherWrapper.m */,
+			);
+			path = ThinkPageWeather;
+			sourceTree = "<group>";
+		};
 		A06AFEE61E116428008D6464 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +260,8 @@
 				A08723671E0D15BA00AADFBC /* NSDateUtil.m */,
 				A08723691E0D15E700AADFBC /* UIImage+URExtension.h */,
 				A087236A1E0D15E700AADFBC /* UIImage+URExtension.m */,
+				A0647B1A1E16449C00F5AC6E /* NSDictionary+Safe.h */,
+				A0647B1B1E16449C00F5AC6E /* NSDictionary+Safe.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -384,6 +401,7 @@
 		A0E657471E0A685E003D5E87 /* VenderWrapper */ = {
 			isa = PBXGroup;
 			children = (
+				A0647B161E163BB000F5AC6E /* ThinkPageWeather */,
 				A0EAE8871E13973A000236A4 /* AFNetWorkingHttp */,
 				A0E657481E0A685E003D5E87 /* Log */,
 				A0E6574D1E0A685F003D5E87 /* Map */,
@@ -619,10 +637,12 @@
 				A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */,
 				A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */,
 				A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */,
+				A0647B191E163BC400F5AC6E /* TPWeatherWrapper.m in Sources */,
 				A087236B1E0D15E700AADFBC /* UIImage+URExtension.m in Sources */,
 				A08723841E0D76AD00AADFBC /* URCalendarTableViewCell.m in Sources */,
 				A08723681E0D15BA00AADFBC /* NSDateUtil.m in Sources */,
 				A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */,
+				A0647B1C1E16449C00F5AC6E /* NSDictionary+Safe.m in Sources */,
 				A0E657511E0A685F003D5E87 /* URLogWrapper.m in Sources */,
 				A0EAE8861E136B0C000236A4 /* URHttpUrlDefine.m in Sources */,
 				A06AFEE21E100B68008D6464 /* URWWCalendarCollectionViewCell.m in Sources */,

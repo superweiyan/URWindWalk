@@ -9,9 +9,13 @@
 #import "URWWLocationService.h"
 #import "URLocationManager.h"
 
+NSString * URLocationCityNameChangeNotification = @"URLocationCityNameChangeNotification";
+NSString * URLocationChangeNotification = @"URLocationChangeNotification";
+
 @interface URWWLocationService()
 {
-    URLocationManager *_locationManager;
+    URLocationManager   *_locationManager;    
+    NSString            *_cityName;
 }
 @end
 
@@ -44,11 +48,35 @@
     _locationManager.requestLocationErrorBlock = ^(NSString *error) {
         [weakSelf showTip:error];
     };
+    
+    _locationManager.updateLocationBlock = ^{
+        [weakSelf updateLocation];
+    };
 }
 
-- (void)getCityName
+- (void)getCurrentLocation
 {
+    [self loadCity];
+}
+
+- (void)queryCityName
+{
+    __weak typeof(self) weakSelf = self;
+    if (_locationInfo) {
+        [_locationManager getCityName:_locationInfo callback:^(NSString *cityName) {
+            [weakSelf updateCityname:cityName];
+        }];
+    }
+}
+
+- (NSString *)getCityName
+{
+    if (_cityName.length > 0) {
+        return _cityName;
+    }
     
+    [self queryCityName];
+    return nil;
 }
 
 - (BOOL)checkLocationService
@@ -66,6 +94,20 @@
     [_locationManager stopLocation];
 }
 
+#pragma mark - block
+
+- (void)updateLocation
+{
+     _locationInfo = _locationManager.locationInfo;
+    [[NSNotificationCenter defaultCenter] postNotificationName:URLocationChangeNotification object:nil];
+}
+
+- (void)updateCityname:(NSString *)cityName
+{
+    _cityName = cityName;
+    [[NSNotificationCenter defaultCenter] postNotificationName:URLocationCityNameChangeNotification object:nil];
+}
+
 #pragma mark - 
 
 - (void)loadCity
@@ -74,7 +116,6 @@
         [self startUpdate];
     }
 }
-
 
 - (void)showTip:(NSString *)error
 {

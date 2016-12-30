@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@class URWWLocationInfo;
+extern NSString * URWeatherInfoNotification;
+
 @class URWWWeatherInfo;
 
 @interface URWWWeatherSerivce : NSObject
 
-@property (nonatomic, strong) URWWLocationInfo          *location;
 @property (nonatomic, strong) URWWWeatherInfo           *weatherInfo;
 
 + (URWWWeatherSerivce *)sharedObject;
+
+- (void)queryWeather:(NSString *)location;
 
 @end

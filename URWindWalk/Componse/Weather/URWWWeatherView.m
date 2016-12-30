@@ -9,6 +9,7 @@
 #import "URWWWeatherView.h"
 #import "URWWWeatherSerivce.h"
 #import "URWWObjectInfo.h"
+#import "URWWLocationService.h"
 
 @interface URWWWeatherView()
 
@@ -27,8 +28,14 @@
     if (self) {
         [self initData];
         [self loadData];
+        [self initNotification];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)initData
@@ -42,16 +49,13 @@
     
     self.tempationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.tempationLabel.font = [UIFont systemFontOfSize:10];
-    self.tempationLabel.backgroundColor = [UIColor redColor];
     [self addSubview:self.tempationLabel];
     
     self.locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.locationLabel.backgroundColor = [UIColor blueColor];
     self.locationLabel.font = [UIFont systemFontOfSize:10];
     [self addSubview:self.locationLabel];
     
     self.weatherInfoLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.weatherInfoLabel.backgroundColor = [UIColor grayColor];
     self.weatherInfoLabel.font = [UIFont systemFontOfSize:10];
     [self addSubview:self.weatherInfoLabel];
 }
@@ -67,11 +71,52 @@
 
 - (void)loadData
 {
-    URWWLocationInfo *location = [URWWWeatherSerivce sharedObject].location;
-    self.tempationLabel.text = [NSString stringWithFormat:@"海拔: %f", location.altitude];
+    NSString *cityName = [[URWWLocationService sharedObject] getCityName];
+    if (cityName) {
+        self.locationLabel.text = [NSString stringWithFormat:@"城市: %@", cityName];
+    }
+}
+
+- (void)initNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onLocationCityNameChangeNotification:)
+                                                 name:URLocationCityNameChangeNotification
+                                               object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onLocationChangeNotification:)
+                                                 name:URLocationChangeNotification
+                                               object:nil];
+    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onWeatherInfoNotification:)
+                                                 name:URWeatherInfoNotification
+                                               object:nil];
+}
+
+#pragma mark - notification
+
+- (void)onLocationCityNameChangeNotification:(NSNotification *)notification
+{
+    NSString *cityName = [[URWWLocationService sharedObject] getCityName];
+    self.locationLabel.text = [NSString stringWithFormat:@"城市: %@", cityName];
+    
+    URWWLocationInfo *locationInfo = [URWWLocationService sharedObject].locationInfo;
+    NSString *location = [NSString stringWithFormat:@"%f:%f", locationInfo.latitude, locationInfo.longitude];
+    [[URWWWeatherSerivce sharedObject] queryWeather:location];
+}
+
+- (void)onLocationChangeNotification:(NSNotification *)notification
+{
+    [[URWWLocationService sharedObject] queryCityName];    
+}
+
+- (void)onWeatherInfoNotification:(NSNotification *)notification
+{
     URWWWeatherInfo *weatherInfo = [URWWWeatherSerivce sharedObject].weatherInfo;
-    self.locationLabel.text = [NSString stringWithFormat:@"城市: %@", weatherInfo.city];
+    self.tempationLabel.text = [NSString stringWithFormat:@"气温: %@", weatherInfo.temperature];
     self.weatherInfoLabel.text = [NSString stringWithFormat:@"天气: %@", weatherInfo.weather];
 }
 
