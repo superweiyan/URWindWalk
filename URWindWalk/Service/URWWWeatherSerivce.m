@@ -48,10 +48,6 @@
 
 - (void)initNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onURWWLocationChangeNotification:)
-                                                 name:URWWLocationChangeNotification
-                                               object:nil];
 }
 
 - (void)locationService
@@ -61,11 +57,6 @@
 }
 
 #pragma mark - notification
-
-- (void)onURWWLocationChangeNotification:(NSNotification *)notification
-{
-    self.location = _locationManager.location;
-}
 
 - (void)onURWeatherSearchLiveNotification:(NSNotification *)notification
 {

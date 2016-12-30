@@ -8,21 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * URWWLocationAuthorizationStatusChangeNotification;
-extern NSString * URWWLocationChangeNotification;
-extern NSString * URWWLocationFailNotification;
-extern NSString * URWWLocationFailNotificationKey;
+@class CLLocation;
 
-@class URWWLocationInfo;
+typedef void(^request_cityname_block) (NSString *cityName);
+typedef void(^update_location_block) (CLLocation *);
+typedef void(^request_location_error_block) (NSString *errorInfo);
 
 @interface URLocationManager : NSObject
 
-@property (nonatomic, strong) URWWLocationInfo * location;
+@property (nonatomic, copy) request_location_error_block requestLocationErrorBlock;
 
-- (void)getCityName;
+- (void)getCityName:(CLLocation *)location callback:(request_cityname_block)callback;
 
 - (void)startLocation;
 
 - (void)stopLocation;
+
+- (BOOL)canLocationService;
 
 @end

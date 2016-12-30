@@ -8,10 +8,12 @@
 
 #import "URTestViewController.h"
 #import "URLogWrapper.h"
+#import "URAFNetWorkingWrapper.h"
+#import "URHttpUrlDefine.h"
 
 @interface URTestViewController ()
 {
-    UITextView      *_logView;
+    UITextView                      *_logView;
 }
 
 @end
@@ -27,9 +29,11 @@
     self.navigationItem.title = @"日志";
     
     [self loadLog];
+    [self testUrl:@"23.16:113.23"];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -38,6 +42,14 @@
 {
     [super viewDidLayoutSubviews];
     _logView.frame = self.view.bounds;
+}
+
+- (void)testUrl:(NSString *)location
+{
+    NSString *url = [NSString stringWithFormat:URQueryThinkPageWeatherUrl, location];
+    [URAFNetWorkingWrapper requetURLWithParamForGet:url param:nil callback:^(BOOL result, id responseObject) {
+        
+    }];
 }
 
 - (void)loadLog

@@ -10,7 +10,6 @@
 		5659B384B9BF7DB254C049BC /* libPods-URWindWalk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */; };
 		A056C7241E019E970091A34D /* URWindWalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F888011E012AAB0002A41A /* URWindWalkTests.m */; };
 		A06AFEE21E100B68008D6464 /* URWWCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE11E100B68008D6464 /* URWWCalendarCollectionViewCell.m */; };
-		A06AFEE51E115FE6008D6464 /* URLocationWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE41E115FE6008D6464 /* URLocationWrapper.m */; };
 		A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE81E11643B008D6464 /* URTestViewController.m */; };
 		A08722F71E0C314400AADFBC /* URWWUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722F61E0C314400AADFBC /* URWWUserInfoView.m */; };
 		A08723071E0D132B00AADFBC /* URWWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722FB1E0D132B00AADFBC /* URWWLoginViewController.m */; };
@@ -42,6 +41,10 @@
 		A0E657511E0A685F003D5E87 /* URLogWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574C1E0A685F003D5E87 /* URLogWrapper.m */; };
 		A0E657551E0A6E33003D5E87 /* weather-cloudy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */; };
 		A0E657591E0ADA91003D5E87 /* URLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E657581E0ADA91003D5E87 /* URLocationManager.m */; };
+		A0EAE8861E136B0C000236A4 /* URHttpUrlDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8851E136B0C000236A4 /* URHttpUrlDefine.m */; };
+		A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8891E13973A000236A4 /* URAFNetWorkingWrapper.m */; };
+		A0EAE88D1E139AF2000236A4 /* URDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88C1E139AF2000236A4 /* URDefine.m */; };
+		A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88F1E13AF17000236A4 /* URWWLocationService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +52,6 @@
 		8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-URWindWalk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06AFEE01E100B68008D6464 /* URWWCalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWCalendarCollectionViewCell.h; sourceTree = "<group>"; };
 		A06AFEE11E100B68008D6464 /* URWWCalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWCalendarCollectionViewCell.m; sourceTree = "<group>"; };
-		A06AFEE31E115FE6008D6464 /* URLocationWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLocationWrapper.h; sourceTree = "<group>"; };
-		A06AFEE41E115FE6008D6464 /* URLocationWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLocationWrapper.m; sourceTree = "<group>"; };
 		A06AFEE71E11643B008D6464 /* URTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URTestViewController.h; sourceTree = "<group>"; };
 		A06AFEE81E11643B008D6464 /* URTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URTestViewController.m; sourceTree = "<group>"; };
 		A08722F51E0C314400AADFBC /* URWWUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWUserInfoView.h; sourceTree = "<group>"; };
@@ -108,6 +109,14 @@
 		A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "weather-cloudy.jpg"; sourceTree = "<group>"; };
 		A0E657571E0ADA91003D5E87 /* URLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLocationManager.h; sourceTree = "<group>"; };
 		A0E657581E0ADA91003D5E87 /* URLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLocationManager.m; sourceTree = "<group>"; };
+		A0EAE8841E136B0C000236A4 /* URHttpUrlDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URHttpUrlDefine.h; sourceTree = "<group>"; };
+		A0EAE8851E136B0C000236A4 /* URHttpUrlDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URHttpUrlDefine.m; sourceTree = "<group>"; };
+		A0EAE8881E13973A000236A4 /* URAFNetWorkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URAFNetWorkingWrapper.h; sourceTree = "<group>"; };
+		A0EAE8891E13973A000236A4 /* URAFNetWorkingWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URAFNetWorkingWrapper.m; sourceTree = "<group>"; };
+		A0EAE88B1E139AF2000236A4 /* URDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URDefine.h; sourceTree = "<group>"; };
+		A0EAE88C1E139AF2000236A4 /* URDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URDefine.m; sourceTree = "<group>"; };
+		A0EAE88E1E13AF17000236A4 /* URWWLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWLocationService.h; sourceTree = "<group>"; };
+		A0EAE88F1E13AF17000236A4 /* URWWLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWLocationService.m; sourceTree = "<group>"; };
 		A0F887FF1E012AAB0002A41A /* URWindWalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URWindWalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F888011E012AAB0002A41A /* URWindWalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URWindWalkTests.m; sourceTree = "<group>"; };
 		A0F888031E012AAB0002A41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -274,6 +283,10 @@
 			children = (
 				A0C65A281DFEAB22005EF47D /* URMarcoUtil.h */,
 				A0C65A291DFEAB22005EF47D /* URMarcoUtil.m */,
+				A0EAE8841E136B0C000236A4 /* URHttpUrlDefine.h */,
+				A0EAE8851E136B0C000236A4 /* URHttpUrlDefine.m */,
+				A0EAE88B1E139AF2000236A4 /* URDefine.h */,
+				A0EAE88C1E139AF2000236A4 /* URDefine.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -354,6 +367,8 @@
 			children = (
 				A0E657401E0A30AB003D5E87 /* URWWWeatherSerivce.m */,
 				A0E657411E0A30AB003D5E87 /* URWWWeatherSerivce.h */,
+				A0EAE88E1E13AF17000236A4 /* URWWLocationService.h */,
+				A0EAE88F1E13AF17000236A4 /* URWWLocationService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -369,6 +384,7 @@
 		A0E657471E0A685E003D5E87 /* VenderWrapper */ = {
 			isa = PBXGroup;
 			children = (
+				A0EAE8871E13973A000236A4 /* AFNetWorkingHttp */,
 				A0E657481E0A685E003D5E87 /* Log */,
 				A0E6574D1E0A685F003D5E87 /* Map */,
 			);
@@ -407,10 +423,17 @@
 			children = (
 				A0E657571E0ADA91003D5E87 /* URLocationManager.h */,
 				A0E657581E0ADA91003D5E87 /* URLocationManager.m */,
-				A06AFEE31E115FE6008D6464 /* URLocationWrapper.h */,
-				A06AFEE41E115FE6008D6464 /* URLocationWrapper.m */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		A0EAE8871E13973A000236A4 /* AFNetWorkingHttp */ = {
+			isa = PBXGroup;
+			children = (
+				A0EAE8881E13973A000236A4 /* URAFNetWorkingWrapper.h */,
+				A0EAE8891E13973A000236A4 /* URAFNetWorkingWrapper.m */,
+			);
+			path = AFNetWorkingHttp;
 			sourceTree = "<group>";
 		};
 		A0F888001E012AAB0002A41A /* URWindWalkTests */ = {
@@ -593,12 +616,15 @@
 				A08723091E0D132B00AADFBC /* RunViewController.m in Sources */,
 				A087237E1E0D66F900AADFBC /* URLabel.m in Sources */,
 				A08723811E0D6F3F00AADFBC /* URRunRecordTableViewCell.m in Sources */,
+				A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */,
 				A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */,
+				A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */,
 				A087236B1E0D15E700AADFBC /* UIImage+URExtension.m in Sources */,
 				A08723841E0D76AD00AADFBC /* URCalendarTableViewCell.m in Sources */,
 				A08723681E0D15BA00AADFBC /* NSDateUtil.m in Sources */,
 				A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */,
 				A0E657511E0A685F003D5E87 /* URLogWrapper.m in Sources */,
+				A0EAE8861E136B0C000236A4 /* URHttpUrlDefine.m in Sources */,
 				A06AFEE21E100B68008D6464 /* URWWCalendarCollectionViewCell.m in Sources */,
 				A0D29C131DF4679600C7CF4D /* main.m in Sources */,
 				A087230B1E0D132B00AADFBC /* URSummaryViewController.m in Sources */,
@@ -607,8 +633,8 @@
 				A08723881E0E0CCA00AADFBC /* URWWCalendarView.m in Sources */,
 				A08723081E0D132B00AADFBC /* MeViewController.m in Sources */,
 				A0E657591E0ADA91003D5E87 /* URLocationManager.m in Sources */,
-				A06AFEE51E115FE6008D6464 /* URLocationWrapper.m in Sources */,
 				A0E657501E0A685F003D5E87 /* URLog.m in Sources */,
+				A0EAE88D1E139AF2000236A4 /* URDefine.m in Sources */,
 				A0D4BFE41E097DA5006CB813 /* URWWWeatherView.m in Sources */,
 				A08723701E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m in Sources */,
 				A0E657421E0A30AB003D5E87 /* URWWWeatherSerivce.m in Sources */,

@@ -8,17 +8,10 @@
 
 #import "URLocationManager.h"
 #import <CoreLocation/CoreLocation.h>
-#import "URWWObjectInfo.h"
-
-NSString * URWWLocationAuthorizationStatusChangeNotification = @"URWWLocationAuthorizationStatusChangeNotification";
-NSString * URWWLocationChangeNotification = @"URWWLocationChangeNotification";
-NSString * URWWLocationFailNotification = @"URWWLocationFailNotification";
-NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 
 @interface URLocationManager()<CLLocationManagerDelegate>
 {
     CLLocationManager   *_locManager;
-    NSMutableArray      *_locationArray;
     CLGeocoder          *_geocoder;
     CLLocation          *_currentLocation;
 }
@@ -42,31 +35,33 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 
 - (void)initLocation
 {
-    _locationArray = [[NSMutableArray alloc] init];
-    
     _locManager = [[CLLocationManager alloc]init];
     _locManager.delegate = self;
     _locManager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
-- (void)getCityName
+- (void)getCityName:(CLLocation *)location callback:(request_cityname_block)callback
 {
     if (!_geocoder) {
         _geocoder = [[CLGeocoder alloc] init];
     }
     
-    [_geocoder reverseGeocodeLocation:_currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        for(CLPlacemark *placeMark in placemarks) {
-            //CLLocationCoordinate2D coordine = placeMark.location.coordinate;
-            NSLog(@"++ %@", placeMark.locality);
+    [_geocoder reverseGeocodeLocation:location
+                    completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+                        
+        for (CLPlacemark *placeMark in placemarks) {
+            if(placeMark.locality > 0) {
+                if (callback) {
+                    callback(placeMark.locality);
+                }
+                break;
+            }
         }
     }];
 }
 
 - (void)startLocation
 {
-    [_locationArray removeAllObjects];
-    
     if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
         [_locManager requestWhenInUseAuthorization];
         [_locManager startUpdatingLocation];
@@ -81,8 +76,6 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 {
     [_locManager stopUpdatingLocation];
 }
-
-#pragma mark - private
 
 - (BOOL)canLocationService
 {
@@ -102,30 +95,12 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
 #pragma mark - CLLocationManagerDelegate 
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:URWWLocationAuthorizationStatusChangeNotification
-                                                        object:nil];
-}
+{}
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-    
     _currentLocation = [locations lastObject];
-
-    [self getCityName];
-    
-    [_locationArray addObject:_currentLocation];
-    
-    if (!self.location) {
-        self.location = [[URWWLocationInfo alloc] init];
-    }
-    
-    self.location.longitude = _currentLocation.coordinate.longitude;
-    self.location.latitude = _currentLocation.coordinate.latitude;
-    self.location.altitude = _currentLocation.altitude;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:URWWLocationChangeNotification object:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -142,9 +117,9 @@ NSString * URWWLocationFailNotificationKey = @"URWWLocationFailNotificationKey";
         errorInfo = @"获取位置失败, 未知位置";
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:URWWLocationFailNotificationKey
-                                                        object:nil
-                                                      userInfo:@{URWWLocationFailNotificationKey:errorInfo}];
+    if(self.requestLocationErrorBlock) {
+        self.requestLocationErrorBlock(errorInfo);
+    }
 }
 
 @end
