@@ -26,7 +26,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self initData];
+        [self initView];
         [self loadData];
         [self initNotification];
     }
@@ -38,7 +38,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)initData
+- (void)initView
 {
     self.weatherImage = [[UIImageView alloc] initWithFrame:CGRectZero];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"weather-cloudy" ofType:@"jpg"];
@@ -58,6 +58,21 @@
     self.weatherInfoLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.weatherInfoLabel.font = [UIFont systemFontOfSize:10];
     [self addSubview:self.weatherInfoLabel];
+}
+
+- (NSAttributedString *)drawBroadEdge:(NSString *)text
+{
+    NSDictionary *typingAttributes = @{
+                                       NSForegroundColorAttributeName : [UIColor whiteColor],
+                                       NSStrokeColorAttributeName : [UIColor blackColor],
+                                       NSStrokeWidthAttributeName : [NSNumber numberWithFloat:-2.0]
+                                       };
+    
+    NSAttributedString *str = [[NSAttributedString alloc]
+                               initWithString:text
+                               attributes:typingAttributes];
+    
+    return str;
 }
 
 - (void)layoutSubviews
@@ -101,7 +116,7 @@
 - (void)onLocationCityNameChangeNotification:(NSNotification *)notification
 {
     NSString *cityName = [[URWWLocationService sharedObject] getCityName];
-    self.locationLabel.text = [NSString stringWithFormat:@"城市: %@", cityName];
+    self.locationLabel.attributedText = [self drawBroadEdge:[NSString stringWithFormat:@"城市: %@", cityName]];
     
     URWWLocationInfo *locationInfo = [URWWLocationService sharedObject].locationInfo;
     NSString *location = [NSString stringWithFormat:@"%f:%f", locationInfo.latitude, locationInfo.longitude];
@@ -116,8 +131,8 @@
 - (void)onWeatherInfoNotification:(NSNotification *)notification
 {
     URWWWeatherInfo *weatherInfo = [URWWWeatherSerivce sharedObject].weatherInfo;
-    self.tempationLabel.text = [NSString stringWithFormat:@"气温: %@", weatherInfo.temperature];
-    self.weatherInfoLabel.text = [NSString stringWithFormat:@"天气: %@", weatherInfo.weather];
+    self.tempationLabel.attributedText = [self drawBroadEdge:[NSString stringWithFormat:@"气温: %@", weatherInfo.temperature]];
+    self.weatherInfoLabel.attributedText = [self drawBroadEdge:[NSString stringWithFormat:@"天气: %@", weatherInfo.weather]];
 }
 
 @end

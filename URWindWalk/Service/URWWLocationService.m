@@ -16,6 +16,8 @@ NSString * URLocationChangeNotification = @"URLocationChangeNotification";
 {
     URLocationManager   *_locationManager;    
     NSString            *_cityName;
+    
+    BOOL                _isLocationQueryCycle;
 }
 @end
 
@@ -36,8 +38,8 @@ NSString * URLocationChangeNotification = @"URLocationChangeNotification";
     self = [super init];
     if (self) {
         _locationManager = [[URLocationManager alloc] init];
-        
         [self initBlock];
+        [self getCurrentLocation];
     }
     return self;
 }
@@ -56,7 +58,8 @@ NSString * URLocationChangeNotification = @"URLocationChangeNotification";
 
 - (void)getCurrentLocation
 {
-    [self loadCity];
+    [self startUpdate];
+    _isLocationQueryCycle = YES;
 }
 
 - (void)queryCityName
@@ -74,8 +77,6 @@ NSString * URLocationChangeNotification = @"URLocationChangeNotification";
     if (_cityName.length > 0) {
         return _cityName;
     }
-    
-    [self queryCityName];
     return nil;
 }
 
@@ -100,6 +101,10 @@ NSString * URLocationChangeNotification = @"URLocationChangeNotification";
 {
      _locationInfo = _locationManager.locationInfo;
     [[NSNotificationCenter defaultCenter] postNotificationName:URLocationChangeNotification object:nil];
+    
+    if (_isLocationQueryCycle) {
+        [self stopUpdate];
+    }
 }
 
 - (void)updateCityname:(NSString *)cityName
@@ -109,13 +114,6 @@ NSString * URLocationChangeNotification = @"URLocationChangeNotification";
 }
 
 #pragma mark - 
-
-- (void)loadCity
-{
-    if ([self checkLocationService]) {
-        [self startUpdate];
-    }
-}
 
 - (void)showTip:(NSString *)error
 {

@@ -11,9 +11,9 @@
 @class URWWLocationInfo;
 
 typedef NS_ENUM(NSUInteger, URDesiredAccuracy){
-    URDesiredAccuracyBest = 0,          //
+    URDesiredAccuracyLow = 0,          //
     URDesiredAccuracyNormal = 1,        //百米
-    URDesiredAccuracyLow = 2            //千米
+    URDesiredAccuracyBest = 2            //千米
 };
 
 typedef void(^request_cityname_block) (NSString *cityName);

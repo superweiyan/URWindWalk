@@ -25,7 +25,6 @@
     self = [super init];
     if (self) {
         [self initLocation];
-        [self startLocation];
     }
     return self;
 }
@@ -39,10 +38,9 @@
 
 - (void)initLocation
 {
-    self.desiredAccuracy = URDesiredAccuracyLow;
     _locManager = [[CLLocationManager alloc]init];
     _locManager.delegate = self;
-    _locManager.desiredAccuracy = [self updateDesiredAccuracy:self.desiredAccuracy];
+    self.desiredAccuracy = URDesiredAccuracyLow;
 }
 
 - (void)getCityName:(URWWLocationInfo *)location callback:(request_cityname_block)callback
