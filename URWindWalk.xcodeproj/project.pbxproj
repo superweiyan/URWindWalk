@@ -13,6 +13,7 @@
 		A0647B1C1E16449C00F5AC6E /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B1B1E16449C00F5AC6E /* NSDictionary+Safe.m */; };
 		A0647B1F1E16BD9E00F5AC6E /* URWWMainService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B1E1E16BD9E00F5AC6E /* URWWMainService.m */; };
 		A0647B221E17684000F5AC6E /* URWWRunService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B211E17684000F5AC6E /* URWWRunService.m */; };
+		A0647B261E1AB14500F5AC6E /* URLogCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B251E1AB14500F5AC6E /* URLogCheckViewController.m */; };
 		A06AFEE21E100B68008D6464 /* URWWCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE11E100B68008D6464 /* URWWCalendarCollectionViewCell.m */; };
 		A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE81E11643B008D6464 /* URTestViewController.m */; };
 		A08722F71E0C314400AADFBC /* URWWUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722F61E0C314400AADFBC /* URWWUserInfoView.m */; };
@@ -62,6 +63,8 @@
 		A0647B1E1E16BD9E00F5AC6E /* URWWMainService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWMainService.m; sourceTree = "<group>"; };
 		A0647B201E17684000F5AC6E /* URWWRunService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWRunService.h; sourceTree = "<group>"; };
 		A0647B211E17684000F5AC6E /* URWWRunService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWRunService.m; sourceTree = "<group>"; };
+		A0647B241E1AB14500F5AC6E /* URLogCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLogCheckViewController.h; sourceTree = "<group>"; };
+		A0647B251E1AB14500F5AC6E /* URLogCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLogCheckViewController.m; sourceTree = "<group>"; };
 		A06AFEE01E100B68008D6464 /* URWWCalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWCalendarCollectionViewCell.h; sourceTree = "<group>"; };
 		A06AFEE11E100B68008D6464 /* URWWCalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWCalendarCollectionViewCell.m; sourceTree = "<group>"; };
 		A06AFEE71E11643B008D6464 /* URTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URTestViewController.h; sourceTree = "<group>"; };
@@ -185,6 +188,15 @@
 			path = ThinkPageWeather;
 			sourceTree = "<group>";
 		};
+		A0647B231E1AB12A00F5AC6E /* LogCheck */ = {
+			isa = PBXGroup;
+			children = (
+				A0647B241E1AB14500F5AC6E /* URLogCheckViewController.h */,
+				A0647B251E1AB14500F5AC6E /* URLogCheckViewController.m */,
+			);
+			path = LogCheck;
+			sourceTree = "<group>";
+		};
 		A06AFEE61E116428008D6464 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +218,7 @@
 		A08722F81E0D132B00AADFBC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				A0647B231E1AB12A00F5AC6E /* LogCheck */,
 				A06AFEE61E116428008D6464 /* Test */,
 				A08722F91E0D132B00AADFBC /* Login */,
 				A08722FC1E0D132B00AADFBC /* Me */,
@@ -648,6 +661,7 @@
 				A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */,
 				A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */,
 				A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */,
+				A0647B261E1AB14500F5AC6E /* URLogCheckViewController.m in Sources */,
 				A0647B191E163BC400F5AC6E /* TPWeatherWrapper.m in Sources */,
 				A087236B1E0D15E700AADFBC /* UIImage+URExtension.m in Sources */,
 				A08723841E0D76AD00AADFBC /* URCalendarTableViewCell.m in Sources */,

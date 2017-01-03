@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSMutableArray        *coordinate2DArray;
 @property (strong, nonatomic) IBOutlet MKMapView    *mapView;
 @property (assign, nonatomic) NSUInteger            count;
+@property (assign, nonatomic) MKCoordinateSpan      span;
 
 @end
 
@@ -52,6 +53,9 @@
     self.mapView.mapType = MKMapTypeStandard;
     self.mapView.delegate = self;
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
+    
+    self.span = MKCoordinateSpanMake(0.005, 0.005);
+    
 //    self.mapView.zoomEnabled = NO;
     [self.view addSubview:self.mapView];
 }
@@ -73,17 +77,19 @@
     
      [[URLog sharedObject] logInfo:@"update run coordinate" model:@"run" funName:nil];
     
+    MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.coordinate, self.span);
+    self.mapView.region = region;
+    
     self.count += 1;
     URWWLocationInfo *locationInfo = [[URWWLocationInfo alloc] init];
     locationInfo.longitude = userLocation.location.coordinate.longitude;
     locationInfo.latitude = userLocation.location.coordinate.latitude;
     [self.coordinate2DArray addObject:locationInfo];
     
-    if (self.count == 3) {
-        [self drawline:[self.coordinate2DArray copy]];
-        self.count = 0;
-        [self.coordinate2DArray removeAllObjects];
-    }
+    [self drawline:[self.coordinate2DArray copy]];
+    
+    NSString *locationString = [NSString stringWithFormat:@"%f:%f", locationInfo.longitude, locationInfo.latitude];
+    [[URLog sharedObject] logInfo:locationString model:@"run" funName:nil];
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
