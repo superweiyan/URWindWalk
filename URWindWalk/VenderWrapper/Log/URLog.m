@@ -36,7 +36,7 @@
     return __instance;
 }
 
-- (void)logInfo:(NSString *)info model:(NSString *)model funName:(char *)funName
+- (void)logInfo:(NSString *)info model:(NSString *)model funName:(const char *)funName
 {
     [_logWrapper logInfo:[NSString stringWithFormat:@"\"%@\", \"%s\", %@", model, funName, info]];
 }

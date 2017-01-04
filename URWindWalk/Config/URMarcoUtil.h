@@ -7,8 +7,5 @@
 //
 
 //#import <Foundation/Foundation.h>
-#import "URLogWrapper.h"
 
-#define URLog(info, modelName) [[URLogWrapper sharedObject] logInfo:info model:modelName funName:__func__];
-
-#define URLogBase(info, modelName) [[URLogWrapper sharedObject] logInfo:info model:modelName];
+#define URLog(info, modelName) [[URLog sharedObject] logInfo:info model:modelName funName:__func__];
