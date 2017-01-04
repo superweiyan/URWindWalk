@@ -10,6 +10,10 @@
 
 @interface URWWRunService : NSObject
 
+@property (nonatomic, assign) BOOL isRunning;
+
++ (URWWRunService *)sharedObject;
+
 - (void)startRun;
 
 - (void)stopRun;

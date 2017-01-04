@@ -10,15 +10,24 @@
 
 @implementation URWWRunService
 
++ (URWWRunService *)sharedObject
+{
+    static dispatch_once_t __once;              \
+    static URWWRunService * __instance = nil;         \
+    dispatch_once(&__once, ^{                   \
+        __instance = [[URWWRunService alloc] init];   \
+    });                                         \
+    return __instance;
+}
+
 - (void)startRun
 {
-    
+    self.isRunning = YES;
 }
 
 - (void)stopRun
 {
-    
+    self.isRunning = NO;
 }
-
 
 @end

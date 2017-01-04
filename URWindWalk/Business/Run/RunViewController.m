@@ -11,14 +11,14 @@
 #import "URLog.h"
 #import "URWWObjectInfo.h"
 #import "URMarcoUtil.h"
+#import "URWWRunService.h"
 
 @interface RunViewController ()<MKMapViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray        *coordinate2DArray;
 @property (strong, nonatomic) IBOutlet MKMapView    *mapView;
-@property (assign, nonatomic) NSUInteger            count;
 @property (assign, nonatomic) MKCoordinateSpan      span;
-
+@property (strong, nonatomic) UIButton              *runButton;
 @end
 
 @implementation RunViewController
@@ -42,16 +42,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    URLog(@"run", @"enter run viewcontroller");
-    
-    //[[URLog sharedObject] logInfo:@"enter run viewController" model:@"run" funName:__func__];
 }
 
 - (void)initViews
 {
-    self.count = 0;
-    
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectZero];
     self.mapView.mapType = MKMapTypeStandard;
     self.mapView.delegate = self;
@@ -61,6 +55,15 @@
     
 //    self.mapView.zoomEnabled = NO;
     [self.view addSubview:self.mapView];
+    
+    self.runButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.runButton addTarget:self
+                       action:@selector(onStartButtonClick)
+             forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.runButton setTitle:@"开始" forState:UIControlStateNormal];
+    self.runButton.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.runButton];
 }
 
 - (void)viewDidLayoutSubviews
@@ -71,6 +74,11 @@
                                     self.view.bounds.origin.y,
                                     self.view.bounds.size.width,
                                     self.view.bounds.size.height / 2);
+    
+    self.runButton.frame = CGRectMake(self.view.bounds.origin.x,
+                                      CGRectGetMaxY(self.mapView.frame) + 20,
+                                      90,
+                                      40);
 }
 
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
@@ -82,12 +90,15 @@
 {
     [self.mapView setCenterCoordinate:userLocation.coordinate animated:YES];
     
-     [[URLog sharedObject] logInfo:@"update run coordinate" model:@"run" funName:nil];
+    
     
     MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.coordinate, self.span);
     self.mapView.region = region;
     
-    self.count += 1;
+    if(![URWWRunService sharedObject].isRunning) {
+        return ;
+    }
+
     URWWLocationInfo *locationInfo = [[URWWLocationInfo alloc] init];
     locationInfo.longitude = userLocation.location.coordinate.longitude;
     locationInfo.latitude = userLocation.location.coordinate.latitude;
@@ -96,14 +107,15 @@
     [self drawline:[self.coordinate2DArray copy]];
     
     NSString *locationString = [NSString stringWithFormat:@"%f:%f", locationInfo.longitude, locationInfo.latitude];
-    [[URLog sharedObject] logInfo:locationString model:@"run" funName:nil];
+    
+    URLog(locationString, @"run");
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
     MKPolylineRenderer *ployRenderer = [[MKPolylineRenderer alloc]initWithPolyline:overlay];
     // 设置线段的宽
-    ployRenderer.lineWidth = 2;
+    ployRenderer.lineWidth = 1;
     // 设置线段的边框颜色
     ployRenderer.strokeColor = [UIColor redColor];
     // 设置填充色
@@ -114,7 +126,7 @@
 
 - (void)drawline:(NSArray*)nowRoadArrary
 {
-     [[URLog sharedObject] logInfo:@"drawline" model:@"run" funName:nil];
+    URLog(@"drawline", @"run");
     
     //  将array中的信息点转换成CLLocationCoordinate2D数组
     CLLocationCoordinate2D coords[nowRoadArrary.count];
@@ -132,5 +144,23 @@
     MKPolyline *cc = [MKPolyline polylineWithCoordinates:coords count:nowRoadArrary.count];
     [self.mapView addOverlay:cc];
 }
+
+#pragma mark - click
+
+- (void)onStartButtonClick
+{
+    if ([URWWRunService sharedObject].isRunning) {
+        [[URWWRunService sharedObject] stopRun];
+        [self.runButton setTitle:@"开始" forState:UIControlStateNormal];
+        [self.coordinate2DArray removeAllObjects];
+    }
+    else {
+        [self.runButton setTitle:@"结束" forState:UIControlStateNormal];
+        [[URWWRunService sharedObject] startRun];
+    }
+}
+
+
+
 
 @end
