@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "URLog.h"
 #import "URWWObjectInfo.h"
+#import "URMarcoUtil.h"
 
 @interface RunViewController ()<MKMapViewDelegate>
 
@@ -42,7 +43,9 @@
 {
     [super viewDidAppear:animated];
     
-    [[URLog sharedObject] logInfo:@"enter run viewController" model:@"run" funName:nil];
+    URLog(@"run", @"enter run viewcontroller");
+    
+    //[[URLog sharedObject] logInfo:@"enter run viewController" model:@"run" funName:__func__];
 }
 
 - (void)initViews
@@ -63,7 +66,11 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.mapView.frame = self.view.bounds;
+    
+    self.mapView.frame = CGRectMake(self.view.bounds.origin.x,
+                                    self.view.bounds.origin.y,
+                                    self.view.bounds.size.width,
+                                    self.view.bounds.size.height / 2);
 }
 
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated

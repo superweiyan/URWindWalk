@@ -12,6 +12,8 @@
 
 + (id)sharedObject;
 
-- (void)logInfo:(NSString *)info model:(NSString *)model funName:(NSString *)funName;
+- (void)logInfo:(NSString *)info model:(NSString *)model funName:(char *)funName;
+
+- (void)logInfo:(NSString *)info model:(NSString *)model;
 
 @end

@@ -36,9 +36,14 @@
     return __instance;
 }
 
-- (void)logInfo:(NSString *)info model:(NSString *)model funName:(NSString *)funName
+- (void)logInfo:(NSString *)info model:(NSString *)model funName:(char *)funName
 {
-    [_logWrapper logInfo:[NSString stringWithFormat:@"\"%@\", \"%@\", %@", model, funName, info]];
+    [_logWrapper logInfo:[NSString stringWithFormat:@"\"%@\", \"%s\", %@", model, funName, info]];
+}
+
+- (void)logInfo:(NSString *)info model:(NSString *)model
+{
+    [_logWrapper logInfo:[NSString stringWithFormat:@"\"%@\", %@", model, info]];
 }
 
 @end

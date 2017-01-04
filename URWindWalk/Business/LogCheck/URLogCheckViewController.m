@@ -69,7 +69,6 @@
 - (void)onClearLog
 {
     NSString *logPath = [[URLogWrapper sharedObject] getLogPath];
-    NSLog(@"==== %@", logPath);
     NSFileManager *fileMgr = [NSFileManager defaultManager];
     NSError *error;
     if([fileMgr removeItemAtPath:logPath error:&error]) {
