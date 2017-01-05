@@ -8,4 +8,6 @@
 
 //#import <Foundation/Foundation.h>
 
+#import "URLog.h"
+
 #define URLog(info, modelName) [[URLog sharedObject] logInfo:info model:modelName funName:__func__];

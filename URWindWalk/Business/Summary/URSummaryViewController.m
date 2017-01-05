@@ -12,6 +12,7 @@
 #import "URRunRecordTableViewCell.h"
 #import "URCalendarTableViewCell.h"
 #import "URLog.h"
+#import "URWWRunService.h"
 
 float URWeatherShowHeight = 150.0;
 
@@ -40,8 +41,12 @@ float URWeatherShowHeight = 150.0;
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    
     [self layoutSubViews];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - init
@@ -51,6 +56,7 @@ float URWeatherShowHeight = 150.0;
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:_tableView];
     
     self.weatherView = [[URWWWeatherView alloc] initWithFrame:CGRectZero];
@@ -58,12 +64,13 @@ float URWeatherShowHeight = 150.0;
     [self.tableView addSubview:self.weatherView];
 }
 
+
 #pragma mark  - UITableViewDataSource
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,9 +84,18 @@ float URWeatherShowHeight = 150.0;
     else if(indexPath.row == 2) {
         return [self createCalenderIdentifierTableViewCell:tableView];
     }
-    UITableViewCell *cell = [UITableViewCell new];
-    cell.textLabel.text = @(indexPath.row).stringValue;
-    return cell;
+    else if(indexPath.row == 3) {
+        UITableViewCell *cell = [UITableViewCell new];
+        cell.textLabel.text = @"训练计划";
+        return cell;
+    }
+    else if(indexPath.row == 4) {
+        UITableViewCell *cell = [UITableViewCell new];
+        cell.textLabel.text = @"挑战行动";
+        return cell;
+    }
+    
+    return [UITableViewCell new];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -114,25 +130,6 @@ float URWeatherShowHeight = 150.0;
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
     [tableView endUpdates];
-    
-    /*
-    if(_selectedIndexPath == nil)
-    {
-        _selectedIndexPath = indexPath;
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-    else{
-        bool hasSelectedOtherRow=![_selectedIndexPath isEqual:indexPath];
-        NSIndexPath *temp = _selectedIndexPath;
-        _selectedIndexPath = nil;
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:temp] withRowAnimation:UITableViewRowAnimationAutomatic];
-        if(hasSelectedOtherRow){
-            _selectedIndexPath = indexPath;
-            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-    }
-     */
-    
 }
 
 
@@ -190,6 +187,5 @@ float URWeatherShowHeight = 150.0;
     }
     return calendarCell;
 }
-
 
 @end

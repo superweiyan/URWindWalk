@@ -12,6 +12,7 @@
 #import "URWWObjectInfo.h"
 #import "URMarcoUtil.h"
 #import "URWWRunService.h"
+#import "URLabel.h"
 
 @interface RunViewController ()<MKMapViewDelegate>
 
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView    *mapView;
 @property (assign, nonatomic) MKCoordinateSpan      span;
 @property (strong, nonatomic) UIButton              *runButton;
+@property (strong, nonatomic) URLabel               *distanceLabel;
 @end
 
 @implementation RunViewController
@@ -28,10 +30,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"跑步";
-    
-    self.coordinate2DArray = [[NSMutableArray alloc] init];
+    [self initData];
     [self initViews];
+    [self initNotification];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,28 +43,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-}
-
-- (void)initViews
-{
-    self.mapView = [[MKMapView alloc] initWithFrame:CGRectZero];
-    self.mapView.mapType = MKMapTypeStandard;
-    self.mapView.delegate = self;
-    self.mapView.userTrackingMode = MKUserTrackingModeFollow;
-    
-    self.span = MKCoordinateSpanMake(0.002, 0.002);
-    
-//    self.mapView.zoomEnabled = NO;
-    [self.view addSubview:self.mapView];
-    
-    self.runButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [self.runButton addTarget:self
-                       action:@selector(onStartButtonClick)
-             forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.runButton setTitle:@"开始" forState:UIControlStateNormal];
-    self.runButton.backgroundColor = [UIColor redColor];
-    [self.view addSubview:self.runButton];
 }
 
 - (void)viewDidLayoutSubviews
@@ -79,7 +58,53 @@
                                       CGRectGetMaxY(self.mapView.frame) + 20,
                                       90,
                                       40);
+    
+    self.distanceLabel.frame = CGRectMake(self.view.bounds.origin.x,
+                                          CGRectGetMaxY(self.mapView.frame) + 80,
+                                          90,
+                                          40);
 }
+
+#pragma mark - init
+
+- (void)initData
+{
+    self.navigationItem.title = @"跑步";
+    self.coordinate2DArray = [[NSMutableArray alloc] init];
+}
+
+- (void)initViews
+{
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectZero];
+    self.mapView.mapType = MKMapTypeStandard;
+    self.mapView.delegate = self;
+    self.mapView.userTrackingMode = MKUserTrackingModeFollow;
+    
+    self.span = MKCoordinateSpanMake(0.002, 0.002);
+    
+    [self.view addSubview:self.mapView];
+    
+    self.runButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.runButton addTarget:self
+                       action:@selector(onStartButtonClick)
+             forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.runButton setTitle:@"开始" forState:UIControlStateNormal];
+    self.runButton.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.runButton];
+    
+    self.distanceLabel = [[URLabel alloc] initWithFrame:CGRectZero];
+    self.distanceLabel.textAlignment = NSTextAlignmentCenter;
+    self.distanceLabel.text = @(0.0).stringValue;
+    [self.view addSubview:self.distanceLabel];
+}
+
+- (void)initNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUpdateRunDistanceNotification:) name:URUpdateRunDistanceNotification object:nil];
+}
+
+#pragma mark - MKMapViewDelegate
 
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
@@ -96,6 +121,8 @@
     if(![URWWRunService sharedObject].isRunning) {
         return ;
     }
+    
+    [[URWWRunService sharedObject] updateRunLocation:userLocation.location];
 
     URWWLocationInfo *locationInfo = [[URWWLocationInfo alloc] init];
     locationInfo.longitude = userLocation.location.coordinate.longitude;
@@ -104,7 +131,9 @@
     
     [self drawline:[self.coordinate2DArray copy]];
     
-    NSString *locationString = [NSString stringWithFormat:@"%f:%f", locationInfo.longitude, locationInfo.latitude];
+    NSString *locationString = [NSString stringWithFormat:@"%f:%f",
+                                locationInfo.longitude,
+                                locationInfo.latitude];
     
     URLog(locationString, @"run");
 }
@@ -169,6 +198,13 @@
         [[URWWRunService sharedObject] startRun];
         
     }
+}
+
+#pragma mark - notification
+
+- (void)onUpdateRunDistanceNotification:(NSNotification *)notification
+{
+    _distanceLabel.text = [NSString stringWithFormat:@"%.2f", [URWWRunService sharedObject].distance];
 }
 
 

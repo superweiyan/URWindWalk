@@ -7,6 +7,16 @@
 //
 
 #import "URWWRunService.h"
+#import <CoreLocation/CoreLocation.h>
+#import "URMarcoUtil.h"
+
+NSString *URUpdateRunDistanceNotification = @"URUpdateRunDistanceNotification";
+
+@interface URWWRunService()
+{
+    NSMutableArray  *_locationArray;
+}
+@end
 
 @implementation URWWRunService
 
@@ -20,8 +30,18 @@
     return __instance;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _locationArray = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (void)startRun
 {
+    _distance = 0;
     self.isRunning = YES;
 }
 
@@ -29,5 +49,31 @@
 {
     self.isRunning = NO;
 }
+
+- (void)updateRunLocation:(CLLocation *)location
+{
+    if (!self.isRunning) {
+        return ;
+    }
+    
+    if (_locationArray.count != 0) {
+        
+        CLLocation *lastLocation = [_locationArray lastObject];
+        
+        [self calcDistance:location end:lastLocation];
+    }
+    
+    [_locationArray addObject:location];
+}
+
+- (void)calcDistance:(CLLocation *)startLocation end:(CLLocation *)endLocation
+{
+    double distance = [endLocation distanceFromLocation:startLocation];
+    _distance += distance;
+    
+    URLog(@"", @"run");
+    [[NSNotificationCenter defaultCenter] postNotificationName:URUpdateRunDistanceNotification object:nil];
+}
+
 
 @end
