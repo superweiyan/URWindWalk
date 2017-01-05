@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, URShowType){
-    URShowTypeText = 0,
-    URShowTypeImage = 1,
-    UIShowTypeActive = 2
-};
-
 @protocol URWWCalendarCollectionViewCellDelegate <NSObject>
 
 - (void)onCellClicked;
@@ -24,8 +18,6 @@ typedef NS_ENUM(NSUInteger, URShowType){
 
 @property (nonatomic, assign) id<URWWCalendarCollectionViewCellDelegate> delegate;
 
-//- (void)setType:(URShowType)type;
-
-- (void)updateInfo:(NSUInteger)info;
+- (void)updateInfo:(NSString *)info;
 
 @end

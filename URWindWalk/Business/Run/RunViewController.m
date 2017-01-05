@@ -51,7 +51,7 @@
     self.mapView.delegate = self;
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
     
-    self.span = MKCoordinateSpanMake(0.005, 0.005);
+    self.span = MKCoordinateSpanMake(0.002, 0.002);
     
 //    self.mapView.zoomEnabled = NO;
     [self.view addSubview:self.mapView];
@@ -89,8 +89,6 @@
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     [self.mapView setCenterCoordinate:userLocation.coordinate animated:YES];
-    
-    
     
     MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.coordinate, self.span);
     self.mapView.region = region;
@@ -145,6 +143,17 @@
     [self.mapView addOverlay:cc];
 }
 
+- (void)removeOverlay
+{
+    for (id<MKOverlay> overlayToRemove in self.mapView.overlays)
+    {
+        if ([overlayToRemove isKindOfClass:[MKPolyline class]])
+        {
+            [self.mapView removeOverlay:overlayToRemove];
+        }
+    }
+}
+
 #pragma mark - click
 
 - (void)onStartButtonClick
@@ -156,7 +165,9 @@
     }
     else {
         [self.runButton setTitle:@"结束" forState:UIControlStateNormal];
+        [self removeOverlay];
         [[URWWRunService sharedObject] startRun];
+        
     }
 }
 

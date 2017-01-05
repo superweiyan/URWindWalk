@@ -11,10 +11,9 @@
 
 @interface URWWCalendarCollectionViewCell()
 {
-    UILabel     *_typeView;
-    UIButton    *_maskBtn;
-    
-    URShowType  _showType;
+    UILabel         *_typeView;
+    UIImageView     *_maskStyleView;
+    UIButton        *_maskBtn;
 }
 
 @end
@@ -32,61 +31,35 @@
 
 - (void)initViews
 {
-    _showType = 0;
-    
     _typeView = [[UILabel alloc] initWithFrame:CGRectZero];
+    _typeView.textAlignment = NSTextAlignmentCenter;
+    _typeView.font = [UIFont systemFontOfSize:13.0];
     [self addSubview:_typeView];
+    
+    _maskStyleView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [self addSubview:_maskStyleView];
     
     _maskBtn = [[UIButton alloc] initWithFrame:CGRectZero];
     [_maskBtn addTarget:self action:@selector(onClicked) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_maskBtn];
-    
-    self.backgroundColor = [UIColor blueColor];
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
+    _maskStyleView.frame = self.bounds;
     _typeView.frame = self.bounds;
     _maskBtn.frame = self.bounds;
 }
 
-//- (void)setType:(URShowType)type
-//{
-//    _showType = type;
-//    
-//    if (type == URShowTypeText) {
-//        if (!_typeView && [_typeView isKindOfClass:[UILabel class]]) {
-//            _typeView = [[UILabel alloc] initWithFrame:self.bounds];
-//            [self insertSubview:_typeView atIndex:0];
-//        }
-//    }
-//    else if(type == URShowTypeImage){
-//        if (!_typeView && [_typeView isKindOfClass:[UIImageView class]]) {
-//            _typeView = [[UIImageView alloc] initWithFrame:self.bounds];
-//            [self insertSubview:_typeView atIndex:0];
-//        }
-//    }
-//    else if(type == UIShowTypeActive) {
-//        if (!_typeView && [_typeView isKindOfClass:[UIImageView class]]) {
-//            _typeView = [[UIImageView alloc] initWithFrame:self.bounds];
-//            [self insertSubview:_typeView atIndex:0];
-//        }
-//    }
-//}
-
-- (void)updateInfo:(NSUInteger)info
+- (void)updateInfo:(NSString *)info
 {
-    _typeView.text = @(info).stringValue;
+    _typeView.text = info;
 }
 
 - (void)onClicked
-{
-    if (_showType != UIShowTypeActive ) {
-        return ;
-    }
-    
+{    
     if (self.delegate && [self.delegate respondsToSelector:@selector(onCellClicked)]) {
         [self.delegate onCellClicked];
     }

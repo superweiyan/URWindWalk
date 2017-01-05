@@ -23,18 +23,20 @@
  *  s 表示秒
  */
 
-- (NSString *)getDateString:(NSDate *)date style:(NSString *)style;
++ (NSString *)getDateString:(NSDate *)date style:(NSString *)style;
 
-- (NSUInteger)getTotalDaysInMonth:(NSDate *)date;
++ (NSUInteger)getTotalDaysInMonth:(NSDate *)date;
 
 + (NSUInteger)getDayInMonth:(NSDate *)date;
 
-- (NSUInteger)getMonthInYear:(NSDate *)date;
++ (NSUInteger)getMonthInYear:(NSDate *)date;
 
-- (NSString *)chineseCalendarOfDate:(NSDate *)date;
++ (NSString *)chineseCalendarOfDate:(NSDate *)date;
 
 + (NSUInteger)getWeekDayWithDate:(NSDate *)date;
 
 + (NSUInteger)getFirstDayOfMonth:(NSDate *)date;
+
++ (NSString *)getChineseMonthInYear:(NSDate *)date;
 
 @end

@@ -17,15 +17,18 @@
     URLabel                         *_monthDistaneLabel;
     UICollectionView                *_monthCalendarView;
     NSMutableArray                  *_showDateArray;
+    
+    NSDate                          *_date;
 }
 @end
 
 @implementation URWWCalendarView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrameWithDate:(CGRect)frame date:(NSDate *)date;
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _date = date;
         [self loadDate];
         [self initViews];
     }
@@ -36,25 +39,30 @@
 {
     _showDateArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 7; i++) {
-        [_showDateArray addObject:@(i)];
+        
+        [_showDateArray addObject:[self convertChineseForNumber:i]];
     }
     
-    NSUInteger offsetDay = [NSDateUtil getFirstDayOfMonth:[NSDate date]];
+    NSUInteger offsetDay = [NSDateUtil getFirstDayOfMonth:_date];
     for (int i = 0; i < offsetDay; i++) {
-        [_showDateArray addObject:@(0)];
+        [_showDateArray addObject:@(0).stringValue];
     }
     
-    NSUInteger offAllDay = [NSDateUtil getDayInMonth:[NSDate date]];
+    NSUInteger offAllDay = [NSDateUtil getTotalDaysInMonth:_date];
     
     for (int i = 0; i < offAllDay; i++) {
-        [_showDateArray addObject:@(i)];
+        [_showDateArray addObject:@(i + 1).stringValue];
     }
 }
 
 - (void)initViews
 {
     _calendarLabel = [[URLabel alloc] initWithFrame:CGRectZero];
-    _calendarLabel.text = @"日历";
+    
+    NSString *month = [NSDateUtil getChineseMonthInYear:_date];
+    NSString *title = [NSString stringWithFormat:@"日历(%@)", month];
+    _calendarLabel.text = title;
+    
     [self addSubview:_calendarLabel];
     
     _monthDistaneLabel = [[URLabel alloc] initWithFrame:CGRectZero];
@@ -71,6 +79,7 @@
     [_monthCalendarView registerClass:[URWWCalendarCollectionViewCell class]  forCellWithReuseIdentifier:@"CollectionCell"];
     _monthCalendarView.delegate = self;
     _monthCalendarView.dataSource = self;
+    _monthCalendarView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_monthCalendarView];
 }
 
@@ -100,8 +109,8 @@
     URWWCalendarCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell"
                                                                                               forIndexPath:indexPath];
     
-    NSNumber *num = [_showDateArray objectAtIndex:indexPath.row];
-    [cell updateInfo:num.unsignedIntegerValue];
+    NSString *num = [_showDateArray objectAtIndex:indexPath.row];
+    [cell updateInfo:num];
     return cell;
 }
 
@@ -111,6 +120,38 @@
 {
     CGFloat itemWidth = (self.bounds.size.width - 20 - 5 * 6) / 7;
     return CGSizeMake(itemWidth, 20);
+}
+
+#pragma mark - private 
+
+- (NSString *)convertChineseForNumber:(NSUInteger)number
+{
+    switch (number) {
+        case 0:
+            return @"日";
+            break;
+        case 1:
+            return @"一";
+            break;
+        case 2:
+            return @"二";
+            break;
+        case 3:
+            return @"三";
+            break;
+        case 4:
+            return @"四";
+            break;
+        case 5:
+            return @"五";
+            break;
+        case 6:
+            return @"六";
+            break;
+        default:
+            break;
+    }
+    return @"日";
 }
 
 @end

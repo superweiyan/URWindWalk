@@ -13,6 +13,8 @@
 #define ChineseDays @[@"初一", @"初二", @"初三", @"初四", @"初五", @"初六", @"初七", @"初八", @"初九", @"初十",@"十一", @"十二", @"十三", @"十四", @"十五", @"十六", @"十七", @"十八", @"十九", @"二十", @"廿一", @"廿二", @"廿三", @"廿四", @"廿五", @"廿六", @"廿七", @"廿八", @"廿九", @"三十"]
 #define ChineseWeatherFestival @[@"立春",@"雨水",@"惊蛰",@"春分",@"清明",@"谷雨",@"立夏",@"小满",@"忙种",@"夏至",@"小暑",@"大暑",@"立秋",@"处暑",@"寒露",@"霜降",@"白露",@"秋分",@"立冬",@"小雪",@"大雪",@"冬至",@"小寒",@"大寒"]
 
+#define officialChineseMonths @[@"正月", @"二月", @"三月", @"四月", @"五月", @"六月", @"七月", @"八月",@"九月", @"十月", @"十一月", @"十二月"]
+
 @implementation NSDateUtil
 
 - (NSString *)getDateString:(NSDate *)date
@@ -32,17 +34,17 @@
 //    int min = [dd minute];
 //    int sec = [dd second];
     
-    return [self  getDateString:date style:@"yyyy-MM-dd"];
+    return [NSDateUtil  getDateString:date style:@"yyyy-MM-dd"];
 }
 
-- (NSString *)getDateString:(NSDate *)date style:(NSString *)style
++ (NSString *)getDateString:(NSDate *)date style:(NSString *)style
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:style];
     return  [dateFormat stringFromDate:date];
 }
 
-- (NSUInteger)getTotalDaysInMonth:(NSDate *)date
++ (NSUInteger)getTotalDaysInMonth:(NSDate *)date
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSRange days = [cal rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:date];
@@ -57,7 +59,7 @@
     return [dd day];
 }
 
-- (NSUInteger)getMonthInYear:(NSDate *)date
++ (NSUInteger)getMonthInYear:(NSDate *)date
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
     unsigned int unitFlags = NSCalendarUnitMonth ;
@@ -65,7 +67,7 @@
     return [dd month];
 }
 
-- (NSString *)chineseCalendarOfDate:(NSDate *)date
++ (NSString *)chineseCalendarOfDate:(NSDate *)date
 {
     NSCalendar *chineseCalendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierChinese];
     NSDateComponents *components = [chineseCalendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
@@ -105,7 +107,7 @@
     }else if(Datecomponents.month == 12 && Datecomponents.day == 25){ //圣诞节
         _day = [NSString stringWithFormat:@"%@",ChineseFestival[6]];
     }
-    else if ([self isNewYearEve:date]) {
+    else if ([NSDateUtil isNewYearEve:date]) {
         return @"除夕";
     }
     
@@ -126,14 +128,20 @@
 
     NSUInteger offset = day % 7;
     
-    NSUInteger offsetDay = (offset - week) > 0 ? (offset - week) % 7 : week - offset;
+    NSUInteger offsetDay = (offset - (week + 1)) > 0 ? (offset - (week + 1)) % 7 : (week + 1) - offset;
    
     return offsetDay;
 }
 
++ (NSString *)getChineseMonthInYear:(NSDate *)date
+{
+    NSUInteger month = [NSDateUtil getMonthInYear:date];
+    return officialChineseMonths[month];
+}
+
 #pragma mark - private
 
-- (BOOL)isNewYearEve:(NSDate *)date
++ (BOOL)isNewYearEve:(NSDate *)date
 {
     //    //除夕 另外提出放在所有节日的末尾执行，除夕是在春节前一天，即把components当天时间前移一天，放在所有节日末尾，避免其他节日全部前移一天
     NSTimeInterval timeInterval_day = 60 * 60 * 24;
@@ -142,11 +150,9 @@
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |NSCalendarUnitDay;
     NSDateComponents *components = [localeCalendar components:unitFlags fromDate:nextDay_date];
     if ( 1 == components.month && 1 == components.day ) {
-        return @"除夕";
+        return YES;
     }
-    return nil;
+    return NO;
 }
-
-
 
 @end

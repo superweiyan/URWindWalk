@@ -34,7 +34,7 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.clipsToBounds = YES;
-        _calendarView = [[URWWCalendarView alloc] initWithFrame:CGRectZero];
+        _calendarView = [[URWWCalendarView alloc] initWithFrameWithDate:CGRectZero date:[NSDate date]];
         [self addSubview:_calendarView];
     }
     return self;

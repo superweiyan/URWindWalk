@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface URWWCalendarView : UIView
+
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+
+- (instancetype)initWithFrameWithDate:(CGRect)frame date:(NSDate *)date;
 
 @end
