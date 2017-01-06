@@ -33,9 +33,8 @@
 {
     _logoView = [[UIImageView alloc] initWithFrame:CGRectZero];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"b16" ofType:@"jpg"];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    UIImage *newImage = [image ur_imageWithRoundedCornersAndSize:CGSizeMake(40, 40)];
+    UIImage *image = [UIImage ur_getLocalImageForResouce:@"b16"];
+    UIImage *newImage = [image ur_imageWithRoundCornerRadius:CGSizeMake(40, 40) cornerRadius:5.0];
     _logoView.image = newImage;
     [self addSubview:_logoView];
     

@@ -10,6 +10,11 @@
 
 @interface UIImage(URExtension)
 
-- (UIImage *)ur_imageWithRoundedCornersAndSize:(CGSize)sizeToFit;
+- (UIImage *)ur_imageWithRoundedSize:(CGSize)sizeToFit;
+
+- (UIImage *)ur_imageWithRoundCornerRadius:(CGSize)sizeToFit
+                              cornerRadius:(CGFloat)cornerRadius;
+
++ (UIImage *)ur_getLocalImageForResouce:(NSString *)imageName;
 
 @end

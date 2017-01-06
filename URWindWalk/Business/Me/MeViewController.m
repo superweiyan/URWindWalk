@@ -14,6 +14,7 @@
 @interface MeViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     UITableView     *_infoTable;
+    NSArray         *_typeArray;
 }
 @end
 
@@ -24,21 +25,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"我";
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"测试"
-                                                                    style:UIBarButtonItemStylePlain
-                                                                   target:self
-                                                                   action:@selector(onTestClicked)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
-    _infoTable = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    _infoTable.delegate = self;
-    _infoTable.dataSource = self;
-    [self.view addSubview:_infoTable];
-    
-    UIView  *footView = [[UIView alloc] init];
-    _infoTable.tableFooterView = footView;
+    [self initViews];
+    [self initData];
 }
 
 - (void)dealloc
@@ -59,6 +47,32 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+#pragma mark - init
+
+- (void)initViews
+{
+    self.navigationItem.title = @"我";
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"测试"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(onTestClicked)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    _infoTable = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _infoTable.delegate = self;
+    _infoTable.dataSource = self;
+    [self.view addSubview:_infoTable];
+    
+    UIView  *footView = [[UIView alloc] init];
+    _infoTable.tableFooterView = footView;
+}
+
+- (void)initData
+{
+    _typeArray = @[@"日志", @"勋章", @"最佳成绩", @"跑鞋"];
+}
+
 #pragma mark - tableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -72,7 +86,7 @@
         return 1;
     }
     else if(section == 1) {
-        return 1;
+        return _typeArray.count;
     }
     return 1;
 }
@@ -82,18 +96,24 @@
     if (indexPath.row == 0 && indexPath.section == 0) {
         return [self createMeCell:tableView];
     }
-    else if(indexPath.row == 0 && indexPath.section == 1) {
-        UITableViewCell * newCell = [UITableViewCell new];
-        newCell.imageView.image = [UIImage imageNamed:@""];
-        newCell.textLabel.font = [UIFont systemFontOfSize:13.0];
-        newCell.textLabel.text = @"日志";
-        return newCell;
+    
+    else if (indexPath.section == 1) {
+        NSString *title = [_typeArray objectAtIndex:indexPath.row];
+        return [self createDefaultTableViewCell:title];
+    }
+    else if(indexPath.section == 2) {
+        return [self createDefaultTableViewCell:@"设置"];
     }
     
+    return [UITableViewCell new];
+}
+
+- (UITableViewCell *)createDefaultTableViewCell:(NSString *)title
+{
     UITableViewCell * newCell = [UITableViewCell new];
     newCell.imageView.image = [UIImage imageNamed:@""];
     newCell.textLabel.font = [UIFont systemFontOfSize:13.0];
-    newCell.textLabel.text = @"设置";
+    newCell.textLabel.text = title;
     return newCell;
 }
 
