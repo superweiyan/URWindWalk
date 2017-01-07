@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class URWWUserInfo;
+
 typedef NS_ENUM(NSUInteger, URGendar) {
     URGendarFemale = 0,
     URGendarMale = 1
@@ -31,11 +33,11 @@ typedef NS_ENUM(NSUInteger, URGendar) {
 
 @end
 
-@interface URWWUserInfo : NSObject
+@interface URWWUserRunInfo : NSObject
 
-@property (nonatomic, strong)   NSString        *nickName;
-@property (nonatomic, assign)   URGendar        gendar;
-@property (nonatomic, assign)   NSUInteger      level;
-@property (nonatomic, assign)   NSUInteger      score;
+@property (nonatomic, strong)   URWWUserInfo        *nickName;
+@property (nonatomic, assign)   URGendar            gendar;
+@property (nonatomic, assign)   NSUInteger          level;
+@property (nonatomic, assign)   NSUInteger          score;
 
 @end

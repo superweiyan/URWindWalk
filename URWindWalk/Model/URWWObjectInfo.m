@@ -8,6 +8,7 @@
 
 #import "URWWObjectInfo.h"
 #import "NSDictionary+Safe.h"
+#import "URWWUserInfo.h"
 
 @implementation URWWLocationInfo
 @end
@@ -25,5 +26,5 @@
 
 @end
 
-@implementation URWWUserInfo
+@implementation URWWUserRunInfo
 @end

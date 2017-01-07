@@ -34,6 +34,8 @@
 		A08723841E0D76AD00AADFBC /* URCalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723831E0D76AD00AADFBC /* URCalendarTableViewCell.m */; };
 		A08723881E0E0CCA00AADFBC /* URWWCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723871E0E0CCA00AADFBC /* URWWCalendarView.m */; };
 		A0B222A71E1F44DF00AD35EE /* URPortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B222A51E1F44DF00AD35EE /* URPortraitView.m */; };
+		A0B222AD1E1FEB7300AD35EE /* URWWUserInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B222AC1E1FEB7300AD35EE /* URWWUserInfoService.m */; };
+		A0B222B01E1FEE4B00AD35EE /* URWWUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B222AF1E1FEE4B00AD35EE /* URWWUserInfo.m */; };
 		A0C65A2A1DFEAB23005EF47D /* URMarcoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C65A291DFEAB22005EF47D /* URMarcoUtil.m */; };
 		A0D29C131DF4679600C7CF4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D29C121DF4679600C7CF4D /* main.m */; };
 		A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D29C151DF4679600C7CF4D /* AppDelegate.m */; };
@@ -106,6 +108,10 @@
 		A08723871E0E0CCA00AADFBC /* URWWCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWCalendarView.m; sourceTree = "<group>"; };
 		A0B222A51E1F44DF00AD35EE /* URPortraitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URPortraitView.m; sourceTree = "<group>"; };
 		A0B222A61E1F44DF00AD35EE /* URPortraitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URPortraitView.h; sourceTree = "<group>"; };
+		A0B222AB1E1FEB7300AD35EE /* URWWUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWUserInfoService.h; sourceTree = "<group>"; };
+		A0B222AC1E1FEB7300AD35EE /* URWWUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWUserInfoService.m; sourceTree = "<group>"; };
+		A0B222AE1E1FEE4B00AD35EE /* URWWUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWUserInfo.h; sourceTree = "<group>"; };
+		A0B222AF1E1FEE4B00AD35EE /* URWWUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWUserInfo.m; sourceTree = "<group>"; };
 		A0C65A281DFEAB22005EF47D /* URMarcoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URMarcoUtil.h; sourceTree = "<group>"; };
 		A0C65A291DFEAB22005EF47D /* URMarcoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMarcoUtil.m; sourceTree = "<group>"; };
 		A0D29C0E1DF4679600C7CF4D /* URWindWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URWindWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -404,6 +410,8 @@
 			children = (
 				A08723711E0D20CF00AADFBC /* URWWObjectInfo.m */,
 				A08723721E0D20CF00AADFBC /* URWWObjectInfo.h */,
+				A0B222AE1E1FEE4B00AD35EE /* URWWUserInfo.h */,
+				A0B222AF1E1FEE4B00AD35EE /* URWWUserInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -419,6 +427,8 @@
 				A0647B1E1E16BD9E00F5AC6E /* URWWMainService.m */,
 				A0647B201E17684000F5AC6E /* URWWRunService.h */,
 				A0647B211E17684000F5AC6E /* URWWRunService.m */,
+				A0B222AB1E1FEB7300AD35EE /* URWWUserInfoService.h */,
+				A0B222AC1E1FEB7300AD35EE /* URWWUserInfoService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -679,9 +689,11 @@
 				A08723681E0D15BA00AADFBC /* NSDateUtil.m in Sources */,
 				A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */,
 				A0647B1C1E16449C00F5AC6E /* NSDictionary+Safe.m in Sources */,
+				A0B222AD1E1FEB7300AD35EE /* URWWUserInfoService.m in Sources */,
 				A0E657511E0A685F003D5E87 /* URLogWrapper.m in Sources */,
 				A0EAE8861E136B0C000236A4 /* URHttpUrlDefine.m in Sources */,
 				A06AFEE21E100B68008D6464 /* URWWCalendarCollectionViewCell.m in Sources */,
+				A0B222B01E1FEE4B00AD35EE /* URWWUserInfo.m in Sources */,
 				A0D29C131DF4679600C7CF4D /* main.m in Sources */,
 				A087230B1E0D132B00AADFBC /* URSummaryViewController.m in Sources */,
 				A08722F71E0C314400AADFBC /* URWWUserInfoView.m in Sources */,
