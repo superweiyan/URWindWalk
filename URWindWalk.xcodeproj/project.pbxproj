@@ -11,7 +11,6 @@
 		A0342EF41E1C034D0005E74C /* URMeInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0342EF31E1C034D0005E74C /* URMeInfoTableViewCell.m */; };
 		A056C7241E019E970091A34D /* URWindWalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F888011E012AAB0002A41A /* URWindWalkTests.m */; };
 		A0647B191E163BC400F5AC6E /* TPWeatherWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B181E163BC400F5AC6E /* TPWeatherWrapper.m */; };
-		A0647B1C1E16449C00F5AC6E /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B1B1E16449C00F5AC6E /* NSDictionary+Safe.m */; };
 		A0647B1F1E16BD9E00F5AC6E /* URWWMainService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B1E1E16BD9E00F5AC6E /* URWWMainService.m */; };
 		A0647B221E17684000F5AC6E /* URWWRunService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B211E17684000F5AC6E /* URWWRunService.m */; };
 		A0647B261E1AB14500F5AC6E /* URLogCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B251E1AB14500F5AC6E /* URLogCheckViewController.m */; };
@@ -24,7 +23,6 @@
 		A087230A1E0D132B00AADFBC /* URSummaryViewController+URLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723041E0D132B00AADFBC /* URSummaryViewController+URLayout.m */; };
 		A087230B1E0D132B00AADFBC /* URSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723061E0D132B00AADFBC /* URSummaryViewController.m */; };
 		A08723681E0D15BA00AADFBC /* NSDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723671E0D15BA00AADFBC /* NSDateUtil.m */; };
-		A087236B1E0D15E700AADFBC /* UIImage+URExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A087236A1E0D15E700AADFBC /* UIImage+URExtension.m */; };
 		A087236D1E0D16FF00AADFBC /* b16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A087236C1E0D16FF00AADFBC /* b16.jpg */; };
 		A08723701E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A087236F1E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m */; };
 		A08723731E0D20CF00AADFBC /* URWWObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A08723711E0D20CF00AADFBC /* URWWObjectInfo.m */; };
@@ -44,6 +42,8 @@
 		A0D29C1E1DF4679600C7CF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D29C1D1DF4679600C7CF4D /* Assets.xcassets */; };
 		A0D29C211DF4679600C7CF4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D29C1F1DF4679600C7CF4D /* LaunchScreen.storyboard */; };
 		A0D4BFE41E097DA5006CB813 /* URWWWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D4BFE31E097DA5006CB813 /* URWWWeatherView.m */; };
+		A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2711E2B19FF005B254F /* UIImage+URExtension.m */; };
+		A0DFE2761E2B19FF005B254F /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2731E2B19FF005B254F /* NSDictionary+Safe.m */; };
 		A0E657331E098619003D5E87 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E657321E098619003D5E87 /* CoreLocation.framework */; };
 		A0E657421E0A30AB003D5E87 /* URWWWeatherSerivce.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E657401E0A30AB003D5E87 /* URWWWeatherSerivce.m */; };
 		A0E657501E0A685F003D5E87 /* URLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574A1E0A685E003D5E87 /* URLog.m */; };
@@ -63,8 +63,6 @@
 		A0342EF31E1C034D0005E74C /* URMeInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMeInfoTableViewCell.m; sourceTree = "<group>"; };
 		A0647B171E163BC400F5AC6E /* TPWeatherWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWeatherWrapper.h; sourceTree = "<group>"; };
 		A0647B181E163BC400F5AC6E /* TPWeatherWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWeatherWrapper.m; sourceTree = "<group>"; };
-		A0647B1A1E16449C00F5AC6E /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
-		A0647B1B1E16449C00F5AC6E /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		A0647B1D1E16BD9E00F5AC6E /* URWWMainService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWMainService.h; sourceTree = "<group>"; };
 		A0647B1E1E16BD9E00F5AC6E /* URWWMainService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWMainService.m; sourceTree = "<group>"; };
 		A0647B201E17684000F5AC6E /* URWWRunService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWRunService.h; sourceTree = "<group>"; };
@@ -89,8 +87,6 @@
 		A08723061E0D132B00AADFBC /* URSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URSummaryViewController.m; sourceTree = "<group>"; };
 		A08723661E0D15BA00AADFBC /* NSDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateUtil.h; sourceTree = "<group>"; };
 		A08723671E0D15BA00AADFBC /* NSDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateUtil.m; sourceTree = "<group>"; };
-		A08723691E0D15E700AADFBC /* UIImage+URExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+URExtension.h"; sourceTree = "<group>"; };
-		A087236A1E0D15E700AADFBC /* UIImage+URExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+URExtension.m"; sourceTree = "<group>"; };
 		A087236C1E0D16FF00AADFBC /* b16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b16.jpg; sourceTree = "<group>"; };
 		A087236E1E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWUserInfoTableViewCell.h; sourceTree = "<group>"; };
 		A087236F1E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWUserInfoTableViewCell.m; sourceTree = "<group>"; };
@@ -126,6 +122,10 @@
 		A0D29C221DF4679600C7CF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0D4BFE21E097DA5006CB813 /* URWWWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWWeatherView.h; sourceTree = "<group>"; };
 		A0D4BFE31E097DA5006CB813 /* URWWWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWWeatherView.m; sourceTree = "<group>"; };
+		A0DFE2711E2B19FF005B254F /* UIImage+URExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+URExtension.m"; sourceTree = "<group>"; };
+		A0DFE2721E2B19FF005B254F /* UIImage+URExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+URExtension.h"; sourceTree = "<group>"; };
+		A0DFE2731E2B19FF005B254F /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
+		A0DFE2741E2B19FF005B254F /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
 		A0E657321E098619003D5E87 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A0E657401E0A30AB003D5E87 /* URWWWeatherSerivce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWWeatherSerivce.m; sourceTree = "<group>"; };
 		A0E657411E0A30AB003D5E87 /* URWWWeatherSerivce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWWeatherSerivce.h; sourceTree = "<group>"; };
@@ -291,10 +291,6 @@
 			children = (
 				A08723661E0D15BA00AADFBC /* NSDateUtil.h */,
 				A08723671E0D15BA00AADFBC /* NSDateUtil.m */,
-				A08723691E0D15E700AADFBC /* UIImage+URExtension.h */,
-				A087236A1E0D15E700AADFBC /* UIImage+URExtension.m */,
-				A0647B1A1E16449C00F5AC6E /* NSDictionary+Safe.h */,
-				A0647B1B1E16449C00F5AC6E /* NSDictionary+Safe.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -366,6 +362,7 @@
 		A0D29C101DF4679600C7CF4D /* URWindWalk */ = {
 			isa = PBXGroup;
 			children = (
+				A0DFE2701E2B19AF005B254F /* Category */,
 				A087237B1E0D66E700AADFBC /* Widget */,
 				A08723651E0D15BA00AADFBC /* Utils */,
 				A08722F81E0D132B00AADFBC /* Business */,
@@ -403,6 +400,17 @@
 				A0D4BFE31E097DA5006CB813 /* URWWWeatherView.m */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		A0DFE2701E2B19AF005B254F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A0DFE2711E2B19FF005B254F /* UIImage+URExtension.m */,
+				A0DFE2721E2B19FF005B254F /* UIImage+URExtension.h */,
+				A0DFE2731E2B19FF005B254F /* NSDictionary+Safe.m */,
+				A0DFE2741E2B19FF005B254F /* NSDictionary+Safe.h */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		A0E657381E0A1CF5003D5E87 /* Model */ = {
@@ -674,6 +682,7 @@
 				A087230A1E0D132B00AADFBC /* URSummaryViewController+URLayout.m in Sources */,
 				A0342EF41E1C034D0005E74C /* URMeInfoTableViewCell.m in Sources */,
 				A0D29C191DF4679600C7CF4D /* ViewController.m in Sources */,
+				A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */,
 				A08723071E0D132B00AADFBC /* URWWLoginViewController.m in Sources */,
 				A08723731E0D20CF00AADFBC /* URWWObjectInfo.m in Sources */,
 				A08723091E0D132B00AADFBC /* RunViewController.m in Sources */,
@@ -684,11 +693,9 @@
 				A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */,
 				A0647B261E1AB14500F5AC6E /* URLogCheckViewController.m in Sources */,
 				A0647B191E163BC400F5AC6E /* TPWeatherWrapper.m in Sources */,
-				A087236B1E0D15E700AADFBC /* UIImage+URExtension.m in Sources */,
 				A08723841E0D76AD00AADFBC /* URCalendarTableViewCell.m in Sources */,
 				A08723681E0D15BA00AADFBC /* NSDateUtil.m in Sources */,
 				A0D29C161DF4679600C7CF4D /* AppDelegate.m in Sources */,
-				A0647B1C1E16449C00F5AC6E /* NSDictionary+Safe.m in Sources */,
 				A0B222AD1E1FEB7300AD35EE /* URWWUserInfoService.m in Sources */,
 				A0E657511E0A685F003D5E87 /* URLogWrapper.m in Sources */,
 				A0EAE8861E136B0C000236A4 /* URHttpUrlDefine.m in Sources */,
@@ -700,6 +707,7 @@
 				A0B222A71E1F44DF00AD35EE /* URPortraitView.m in Sources */,
 				A0C65A2A1DFEAB23005EF47D /* URMarcoUtil.m in Sources */,
 				A0647B1F1E16BD9E00F5AC6E /* URWWMainService.m in Sources */,
+				A0DFE2761E2B19FF005B254F /* NSDictionary+Safe.m in Sources */,
 				A08723881E0E0CCA00AADFBC /* URWWCalendarView.m in Sources */,
 				A08723081E0D132B00AADFBC /* MeViewController.m in Sources */,
 				A0E657591E0ADA91003D5E87 /* URLocationManager.m in Sources */,
