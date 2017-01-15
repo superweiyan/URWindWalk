@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *URUpdateRunDistanceNotification;
+extern NSString *URUpdateStepFrequencyNotification;
 
 @class CLLocation;
 
@@ -16,6 +17,7 @@ extern NSString *URUpdateRunDistanceNotification;
 
 @property (nonatomic, assign) BOOL          isRunning;
 @property (nonatomic, assign) double        distance;
+@property (nonatomic, assign) double        stepFrequency;
 
 + (URWWRunService *)sharedObject;
 

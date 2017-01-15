@@ -9,12 +9,18 @@
 #import "URWWRunService.h"
 #import <CoreLocation/CoreLocation.h>
 #import "URMarcoUtil.h"
+#import "URStepFrequencyUtil.h"
 
 NSString *URUpdateRunDistanceNotification = @"URUpdateRunDistanceNotification";
 
+NSString *URUpdateStepFrequencyNotification = @"URUpdateStepFrequencyNotification";
+
 @interface URWWRunService()
 {
-    NSMutableArray  *_locationArray;
+    NSMutableArray              *_locationArray;
+    URStepFrequencyUtil         *_stepFrequencyUtil;
+    
+    NSTimer                     *_getStepTimer;
 }
 @end
 
@@ -35,6 +41,8 @@ NSString *URUpdateRunDistanceNotification = @"URUpdateRunDistanceNotification";
     self = [super init];
     if (self) {
         _locationArray = [[NSMutableArray alloc] init];
+        
+        _stepFrequencyUtil = [[URStepFrequencyUtil alloc] init];
     }
     return self;
 }
@@ -43,11 +51,28 @@ NSString *URUpdateRunDistanceNotification = @"URUpdateRunDistanceNotification";
 {
     _distance = 0;
     self.isRunning = YES;
+    
+    if(![_stepFrequencyUtil startStep]) {
+        URLog(@"无法获取步数", @"run");
+    }
+    else {
+        _getStepTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                         target:self
+                                                       selector:@selector(onUpdateStepTimeout)
+                                                       userInfo:nil
+                                                        repeats:YES];
+    }
 }
 
 - (void)stopRun
 {
     self.isRunning = NO;
+    [_stepFrequencyUtil stopStep];
+    
+    if(_getStepTimer) {
+        [_getStepTimer invalidate];
+        _getStepTimer = nil;
+    }
 }
 
 - (void)updateRunLocation:(CLLocation *)location
@@ -75,5 +100,34 @@ NSString *URUpdateRunDistanceNotification = @"URUpdateRunDistanceNotification";
     [[NSNotificationCenter defaultCenter] postNotificationName:URUpdateRunDistanceNotification object:nil];
 }
 
+#pragma mark - init
+
+- (void)initBlock
+{
+    __weak typeof(self) weakSelf = self;
+    _stepFrequencyUtil.stepFrequencyResultBlock = ^(NSUInteger res,  NSString * resultError) {
+        [weakSelf updateStepFrequencyResult:resultError ext:resultError];
+    };
+}
+
+#pragma mark - block
+
+- (void)updateStepFrequencyResult:(NSString *)res ext:(NSString *)resInfo
+{
+    if (res) {
+        
+    }
+    else {
+        URLog(@"获取步数失败", @"run");
+    }
+}
+
+#pragma mark - time
+
+- (void)onUpdateStepTimeout
+{
+    self.stepFrequency += _stepFrequencyUtil.stepFrequency;
+    [[NSNotificationCenter defaultCenter] postNotificationName:URUpdateStepFrequencyNotification object:nil];
+}
 
 @end

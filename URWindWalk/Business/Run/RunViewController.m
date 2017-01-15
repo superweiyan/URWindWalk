@@ -21,6 +21,8 @@
 @property (assign, nonatomic) MKCoordinateSpan      span;
 @property (strong, nonatomic) UIButton              *runButton;
 @property (strong, nonatomic) URLabel               *distanceLabel;
+
+@property (strong, nonatomic) URLabel               *stepFreqencyLabel;
 @end
 
 @implementation RunViewController
@@ -63,6 +65,11 @@
                                           CGRectGetMaxY(self.mapView.frame) + 80,
                                           90,
                                           40);
+    
+    self.stepFreqencyLabel.frame = CGRectMake(self.view.bounds.origin.x,
+                                              CGRectGetMaxY(self.distanceLabel.frame) + 80,
+                                              100,
+                                              20);
 }
 
 #pragma mark - init
@@ -97,11 +104,23 @@
     self.distanceLabel.textAlignment = NSTextAlignmentCenter;
     self.distanceLabel.text = @(0.0).stringValue;
     [self.view addSubview:self.distanceLabel];
+    
+    self.stepFreqencyLabel = [[URLabel alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.stepFreqencyLabel];
 }
 
 - (void)initNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUpdateRunDistanceNotification:) name:URUpdateRunDistanceNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUpdateRunDistanceNotification:)
+                                                 name:URUpdateRunDistanceNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUpdateStepFrequencyNotification:)
+                                                 name:URUpdateStepFrequencyNotification
+                                               object:nil];
+
 }
 
 #pragma mark - MKMapViewDelegate
@@ -135,7 +154,7 @@
                                 locationInfo.longitude,
                                 locationInfo.latitude];
     
-    URLog(locationString, @"run");
+//    URLog(locationString, @"run");
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
@@ -207,6 +226,11 @@
     _distanceLabel.text = [NSString stringWithFormat:@"%.2f", [URWWRunService sharedObject].distance];
 }
 
+- (void)onUpdateStepFrequencyNotification:(NSNotification *)notification
+{
+    _stepFreqencyLabel.text = @([URWWRunService sharedObject].stepFrequency).stringValue;
+
+}
 
 
 

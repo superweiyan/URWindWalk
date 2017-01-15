@@ -44,6 +44,7 @@
 		A0D4BFE41E097DA5006CB813 /* URWWWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D4BFE31E097DA5006CB813 /* URWWWeatherView.m */; };
 		A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2711E2B19FF005B254F /* UIImage+URExtension.m */; };
 		A0DFE2761E2B19FF005B254F /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2731E2B19FF005B254F /* NSDictionary+Safe.m */; };
+		A0DFE2791E2B1AC5005B254F /* URStepFrequencyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2781E2B1AC5005B254F /* URStepFrequencyUtil.m */; };
 		A0E657331E098619003D5E87 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E657321E098619003D5E87 /* CoreLocation.framework */; };
 		A0E657421E0A30AB003D5E87 /* URWWWeatherSerivce.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E657401E0A30AB003D5E87 /* URWWWeatherSerivce.m */; };
 		A0E657501E0A685F003D5E87 /* URLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574A1E0A685E003D5E87 /* URLog.m */; };
@@ -126,6 +127,8 @@
 		A0DFE2721E2B19FF005B254F /* UIImage+URExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+URExtension.h"; sourceTree = "<group>"; };
 		A0DFE2731E2B19FF005B254F /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		A0DFE2741E2B19FF005B254F /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
+		A0DFE2771E2B1AC5005B254F /* URStepFrequencyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URStepFrequencyUtil.h; sourceTree = "<group>"; };
+		A0DFE2781E2B1AC5005B254F /* URStepFrequencyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URStepFrequencyUtil.m; sourceTree = "<group>"; };
 		A0E657321E098619003D5E87 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A0E657401E0A30AB003D5E87 /* URWWWeatherSerivce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWWeatherSerivce.m; sourceTree = "<group>"; };
 		A0E657411E0A30AB003D5E87 /* URWWWeatherSerivce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWWeatherSerivce.h; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 			children = (
 				A08723661E0D15BA00AADFBC /* NSDateUtil.h */,
 				A08723671E0D15BA00AADFBC /* NSDateUtil.m */,
+				A0DFE2771E2B1AC5005B254F /* URStepFrequencyUtil.h */,
+				A0DFE2781E2B1AC5005B254F /* URStepFrequencyUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -705,6 +710,7 @@
 				A087230B1E0D132B00AADFBC /* URSummaryViewController.m in Sources */,
 				A08722F71E0C314400AADFBC /* URWWUserInfoView.m in Sources */,
 				A0B222A71E1F44DF00AD35EE /* URPortraitView.m in Sources */,
+				A0DFE2791E2B1AC5005B254F /* URStepFrequencyUtil.m in Sources */,
 				A0C65A2A1DFEAB23005EF47D /* URMarcoUtil.m in Sources */,
 				A0647B1F1E16BD9E00F5AC6E /* URWWMainService.m in Sources */,
 				A0DFE2761E2B19FF005B254F /* NSDictionary+Safe.m in Sources */,
