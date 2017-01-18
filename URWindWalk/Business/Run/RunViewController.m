@@ -150,9 +150,9 @@
     
     [self drawline:[self.coordinate2DArray copy]];
     
-    NSString *locationString = [NSString stringWithFormat:@"%f:%f",
-                                locationInfo.longitude,
-                                locationInfo.latitude];
+//    NSString *locationString = [NSString stringWithFormat:@"%f:%f",
+//                                locationInfo.longitude,
+//                                locationInfo.latitude];
     
 //    URLog(locationString, @"run");
 }

@@ -31,9 +31,6 @@
     return self;
 }
 
-- (void)startLocation
-{}
-
 
 
 @end

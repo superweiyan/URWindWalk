@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5659B384B9BF7DB254C049BC /* libPods-URWindWalk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */; };
+		A01119BF1E2EFEBE00511C57 /* URSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = A01119BE1E2EFEBE00511C57 /* URSocketService.m */; };
 		A0342EF41E1C034D0005E74C /* URMeInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0342EF31E1C034D0005E74C /* URMeInfoTableViewCell.m */; };
 		A056C7241E019E970091A34D /* URWindWalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F888011E012AAB0002A41A /* URWindWalkTests.m */; };
 		A0647B191E163BC400F5AC6E /* TPWeatherWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B181E163BC400F5AC6E /* TPWeatherWrapper.m */; };
@@ -45,6 +45,8 @@
 		A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2711E2B19FF005B254F /* UIImage+URExtension.m */; };
 		A0DFE2761E2B19FF005B254F /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2731E2B19FF005B254F /* NSDictionary+Safe.m */; };
 		A0DFE2791E2B1AC5005B254F /* URStepFrequencyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2781E2B1AC5005B254F /* URStepFrequencyUtil.m */; };
+		A0DFE27C1E2C6030005B254F /* URWWLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE27B1E2C6030005B254F /* URWWLoginService.m */; };
+		A0DFE2811E2C789B005B254F /* URAsyncSocketWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2801E2C789B005B254F /* URAsyncSocketWrapper.m */; };
 		A0E657331E098619003D5E87 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E657321E098619003D5E87 /* CoreLocation.framework */; };
 		A0E657421E0A30AB003D5E87 /* URWWWeatherSerivce.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E657401E0A30AB003D5E87 /* URWWWeatherSerivce.m */; };
 		A0E657501E0A685F003D5E87 /* URLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E6574A1E0A685E003D5E87 /* URLog.m */; };
@@ -55,11 +57,13 @@
 		A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8891E13973A000236A4 /* URAFNetWorkingWrapper.m */; };
 		A0EAE88D1E139AF2000236A4 /* URDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88C1E139AF2000236A4 /* URDefine.m */; };
 		A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88F1E13AF17000236A4 /* URWWLocationService.m */; };
+		C986EA9AAA48A052B3B730F8 /* Pods_URWindWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3D0D3C8D0E2F50736ACF8E /* Pods_URWindWalk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7DF0D77818870D74D7875F69 /* Pods-URWindWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URWindWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-URWindWalk/Pods-URWindWalk.release.xcconfig"; sourceTree = "<group>"; };
-		8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-URWindWalk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A01119BD1E2EFEBE00511C57 /* URSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URSocketService.h; sourceTree = "<group>"; };
+		A01119BE1E2EFEBE00511C57 /* URSocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URSocketService.m; sourceTree = "<group>"; };
 		A0342EF21E1C034D0005E74C /* URMeInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URMeInfoTableViewCell.h; sourceTree = "<group>"; };
 		A0342EF31E1C034D0005E74C /* URMeInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMeInfoTableViewCell.m; sourceTree = "<group>"; };
 		A0647B171E163BC400F5AC6E /* TPWeatherWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWeatherWrapper.h; sourceTree = "<group>"; };
@@ -129,6 +133,10 @@
 		A0DFE2741E2B19FF005B254F /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
 		A0DFE2771E2B1AC5005B254F /* URStepFrequencyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URStepFrequencyUtil.h; sourceTree = "<group>"; };
 		A0DFE2781E2B1AC5005B254F /* URStepFrequencyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URStepFrequencyUtil.m; sourceTree = "<group>"; };
+		A0DFE27A1E2C6030005B254F /* URWWLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWLoginService.h; sourceTree = "<group>"; };
+		A0DFE27B1E2C6030005B254F /* URWWLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWLoginService.m; sourceTree = "<group>"; };
+		A0DFE27F1E2C789B005B254F /* URAsyncSocketWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URAsyncSocketWrapper.h; sourceTree = "<group>"; };
+		A0DFE2801E2C789B005B254F /* URAsyncSocketWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URAsyncSocketWrapper.m; sourceTree = "<group>"; };
 		A0E657321E098619003D5E87 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A0E657401E0A30AB003D5E87 /* URWWWeatherSerivce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWWeatherSerivce.m; sourceTree = "<group>"; };
 		A0E657411E0A30AB003D5E87 /* URWWWeatherSerivce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWWeatherSerivce.h; sourceTree = "<group>"; };
@@ -150,6 +158,7 @@
 		A0F887FF1E012AAB0002A41A /* URWindWalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URWindWalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F888011E012AAB0002A41A /* URWindWalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URWindWalkTests.m; sourceTree = "<group>"; };
 		A0F888031E012AAB0002A41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC3D0D3C8D0E2F50736ACF8E /* Pods_URWindWalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URWindWalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F7AC569DE18F7C87C76F81 /* Pods-URWindWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URWindWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URWindWalk/Pods-URWindWalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E657331E098619003D5E87 /* CoreLocation.framework in Frameworks */,
-				5659B384B9BF7DB254C049BC /* libPods-URWindWalk.a in Frameworks */,
+				C986EA9AAA48A052B3B730F8 /* Pods_URWindWalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				A0E657321E098619003D5E87 /* CoreLocation.framework */,
-				8F16631E51E62F3D659DE2CC /* libPods-URWindWalk.a */,
+				DC3D0D3C8D0E2F50736ACF8E /* Pods_URWindWalk.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -418,6 +427,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		A0DFE27E1E2C788C005B254F /* URSocket */ = {
+			isa = PBXGroup;
+			children = (
+				A0DFE27F1E2C789B005B254F /* URAsyncSocketWrapper.h */,
+				A0DFE2801E2C789B005B254F /* URAsyncSocketWrapper.m */,
+			);
+			path = URSocket;
+			sourceTree = "<group>";
+		};
 		A0E657381E0A1CF5003D5E87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +460,10 @@
 				A0647B211E17684000F5AC6E /* URWWRunService.m */,
 				A0B222AB1E1FEB7300AD35EE /* URWWUserInfoService.h */,
 				A0B222AC1E1FEB7300AD35EE /* URWWUserInfoService.m */,
+				A0DFE27A1E2C6030005B254F /* URWWLoginService.h */,
+				A0DFE27B1E2C6030005B254F /* URWWLoginService.m */,
+				A01119BD1E2EFEBE00511C57 /* URSocketService.h */,
+				A01119BE1E2EFEBE00511C57 /* URSocketService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -457,6 +479,7 @@
 		A0E657471E0A685E003D5E87 /* VenderWrapper */ = {
 			isa = PBXGroup;
 			children = (
+				A0DFE27E1E2C788C005B254F /* URSocket */,
 				A0647B161E163BB000F5AC6E /* ThinkPageWeather */,
 				A0EAE8871E13973A000236A4 /* AFNetWorkingHttp */,
 				A0E657481E0A685E003D5E87 /* Log */,
@@ -643,7 +666,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C3E2C2F6864B72E3F095373A /* [CP] Embed Pods Frameworks */ = {
@@ -688,6 +711,7 @@
 				A0342EF41E1C034D0005E74C /* URMeInfoTableViewCell.m in Sources */,
 				A0D29C191DF4679600C7CF4D /* ViewController.m in Sources */,
 				A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */,
+				A0DFE27C1E2C6030005B254F /* URWWLoginService.m in Sources */,
 				A08723071E0D132B00AADFBC /* URWWLoginViewController.m in Sources */,
 				A08723731E0D20CF00AADFBC /* URWWObjectInfo.m in Sources */,
 				A08723091E0D132B00AADFBC /* RunViewController.m in Sources */,
@@ -696,6 +720,7 @@
 				A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */,
 				A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */,
 				A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */,
+				A0DFE2811E2C789B005B254F /* URAsyncSocketWrapper.m in Sources */,
 				A0647B261E1AB14500F5AC6E /* URLogCheckViewController.m in Sources */,
 				A0647B191E163BC400F5AC6E /* TPWeatherWrapper.m in Sources */,
 				A08723841E0D76AD00AADFBC /* URCalendarTableViewCell.m in Sources */,
@@ -714,6 +739,7 @@
 				A0C65A2A1DFEAB23005EF47D /* URMarcoUtil.m in Sources */,
 				A0647B1F1E16BD9E00F5AC6E /* URWWMainService.m in Sources */,
 				A0DFE2761E2B19FF005B254F /* NSDictionary+Safe.m in Sources */,
+				A01119BF1E2EFEBE00511C57 /* URSocketService.m in Sources */,
 				A08723881E0E0CCA00AADFBC /* URWWCalendarView.m in Sources */,
 				A08723081E0D132B00AADFBC /* MeViewController.m in Sources */,
 				A0E657591E0ADA91003D5E87 /* URLocationManager.m in Sources */,

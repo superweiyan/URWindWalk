@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, URGander) {
 
 @interface URWWUserInfo : NSObject
 
-@property (nonatomic, strong) NSString *nickName;
+@property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, assign) URGander *gander;
 
 @end

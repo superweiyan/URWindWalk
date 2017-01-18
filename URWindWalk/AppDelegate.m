@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "URWWWeatherSerivce.h"
+#import "URSocketService.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,7 @@
     // Override point for customization after application launch.
     
     [URWWWeatherSerivce sharedObject];
+    [URSocketService sharedObject];
     
     return YES;
 }

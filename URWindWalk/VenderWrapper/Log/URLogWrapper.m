@@ -7,7 +7,8 @@
 //
 
 #import "URLogWrapper.h"
-#import <CocoaLumberjack/CocoaLumberjack.h>
+//#import <CocoaLumberjack/CocoaLumberjack.h>
+@import CocoaLumberjack;
 
 static const int ddLogLevel = DDLogLevelVerbose;
 
