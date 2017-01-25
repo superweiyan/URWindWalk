@@ -34,7 +34,8 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
     self = [super init];
     if (self) {
         _asyncSocketWrapper = [[URAsyncSocketWrapper alloc] init];
-        
+        _asyncSocketWrapper.port = 7777;
+        _asyncSocketWrapper.ip = @"127.0.0.1";
         [self initData];
     }
     return self;
@@ -45,6 +46,17 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
     if([_asyncSocketWrapper connectServer]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:URSocketResultNotification object:nil];
     }
+}
+
+- (BOOL)sendText:(NSString *)content callback:(on_requestTimeout_blcok)callback
+{
+    NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
+    
+    BOOL issuccess = [_asyncSocketWrapper sendData:data callback:^(BOOL timeout) {
+        callback(timeout);
+    }];
+    
+    return issuccess;
 }
 
 @end

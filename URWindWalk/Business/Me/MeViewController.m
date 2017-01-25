@@ -10,6 +10,7 @@
 #import "URTestViewController.h"
 #import "URLogCheckViewController.h"
 #import "URMeInfoTableViewCell.h"
+#import "URTestProtocolViewController.h"
 
 @interface MeViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -42,9 +43,15 @@
 
 - (void)onTestClicked
 {
-    URTestViewController *controller = [[URTestViewController alloc] init];
-    controller.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:controller animated:YES];
+//    URTestViewController *controller = [[URTestViewController alloc] init];
+//    controller.view.backgroundColor = [UIColor whiteColor];
+//    [self.navigationController pushViewController:controller animated:YES];
+    
+    URTestProtocolViewController *testProtocolViewController = [[UIStoryboard storyboardWithName:@"URTestProtocolStoryboard"
+                                                                                          bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"URTestProtocolViewController"];
+    
+    [self.navigationController pushViewController:testProtocolViewController animated:YES];
+    
 }
 
 #pragma mark - init

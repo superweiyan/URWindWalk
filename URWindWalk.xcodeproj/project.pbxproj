@@ -42,6 +42,8 @@
 		A0D29C1E1DF4679600C7CF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D29C1D1DF4679600C7CF4D /* Assets.xcassets */; };
 		A0D29C211DF4679600C7CF4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D29C1F1DF4679600C7CF4D /* LaunchScreen.storyboard */; };
 		A0D4BFE41E097DA5006CB813 /* URWWWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D4BFE31E097DA5006CB813 /* URWWWeatherView.m */; };
+		A0DB7E591E3851B6002A1950 /* URTestProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DB7E581E3851B6002A1950 /* URTestProtocolViewController.m */; };
+		A0DB7E5B1E3852F3002A1950 /* URTestProtocolStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0DB7E5A1E3852F3002A1950 /* URTestProtocolStoryboard.storyboard */; };
 		A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2711E2B19FF005B254F /* UIImage+URExtension.m */; };
 		A0DFE2761E2B19FF005B254F /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2731E2B19FF005B254F /* NSDictionary+Safe.m */; };
 		A0DFE2791E2B1AC5005B254F /* URStepFrequencyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DFE2781E2B1AC5005B254F /* URStepFrequencyUtil.m */; };
@@ -57,6 +59,7 @@
 		A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8891E13973A000236A4 /* URAFNetWorkingWrapper.m */; };
 		A0EAE88D1E139AF2000236A4 /* URDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88C1E139AF2000236A4 /* URDefine.m */; };
 		A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88F1E13AF17000236A4 /* URWWLocationService.m */; };
+		A0EC34101E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EC340F1E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m */; };
 		C986EA9AAA48A052B3B730F8 /* Pods_URWindWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3D0D3C8D0E2F50736ACF8E /* Pods_URWindWalk.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +130,9 @@
 		A0D29C221DF4679600C7CF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0D4BFE21E097DA5006CB813 /* URWWWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWWeatherView.h; sourceTree = "<group>"; };
 		A0D4BFE31E097DA5006CB813 /* URWWWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWWeatherView.m; sourceTree = "<group>"; };
+		A0DB7E571E3851B6002A1950 /* URTestProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URTestProtocolViewController.h; sourceTree = "<group>"; };
+		A0DB7E581E3851B6002A1950 /* URTestProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URTestProtocolViewController.m; sourceTree = "<group>"; };
+		A0DB7E5A1E3852F3002A1950 /* URTestProtocolStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = URTestProtocolStoryboard.storyboard; sourceTree = "<group>"; };
 		A0DFE2711E2B19FF005B254F /* UIImage+URExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+URExtension.m"; sourceTree = "<group>"; };
 		A0DFE2721E2B19FF005B254F /* UIImage+URExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+URExtension.h"; sourceTree = "<group>"; };
 		A0DFE2731E2B19FF005B254F /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 		A0EAE88C1E139AF2000236A4 /* URDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URDefine.m; sourceTree = "<group>"; };
 		A0EAE88E1E13AF17000236A4 /* URWWLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWLocationService.h; sourceTree = "<group>"; };
 		A0EAE88F1E13AF17000236A4 /* URWWLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWLocationService.m; sourceTree = "<group>"; };
+		A0EC340E1E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URAsyncSocketWrapper+timeout.h"; sourceTree = "<group>"; };
+		A0EC340F1E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "URAsyncSocketWrapper+timeout.m"; sourceTree = "<group>"; };
 		A0F887FF1E012AAB0002A41A /* URWindWalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URWindWalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F888011E012AAB0002A41A /* URWindWalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URWindWalkTests.m; sourceTree = "<group>"; };
 		A0F888031E012AAB0002A41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -226,6 +234,9 @@
 			children = (
 				A06AFEE71E11643B008D6464 /* URTestViewController.h */,
 				A06AFEE81E11643B008D6464 /* URTestViewController.m */,
+				A0DB7E571E3851B6002A1950 /* URTestProtocolViewController.h */,
+				A0DB7E581E3851B6002A1950 /* URTestProtocolViewController.m */,
+				A0DB7E5A1E3852F3002A1950 /* URTestProtocolStoryboard.storyboard */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -432,6 +443,8 @@
 			children = (
 				A0DFE27F1E2C789B005B254F /* URAsyncSocketWrapper.h */,
 				A0DFE2801E2C789B005B254F /* URAsyncSocketWrapper.m */,
+				A0EC340E1E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.h */,
+				A0EC340F1E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m */,
 			);
 			path = URSocket;
 			sourceTree = "<group>";
@@ -638,6 +651,7 @@
 			files = (
 				A0D29C211DF4679600C7CF4D /* LaunchScreen.storyboard in Resources */,
 				A0D29C1E1DF4679600C7CF4D /* Assets.xcassets in Resources */,
+				A0DB7E5B1E3852F3002A1950 /* URTestProtocolStoryboard.storyboard in Resources */,
 				A087236D1E0D16FF00AADFBC /* b16.jpg in Resources */,
 				A0E657551E0A6E33003D5E87 /* weather-cloudy.jpg in Resources */,
 				A0D29C1C1DF4679600C7CF4D /* Main.storyboard in Resources */,
@@ -708,6 +722,7 @@
 			files = (
 				A0647B221E17684000F5AC6E /* URWWRunService.m in Sources */,
 				A087230A1E0D132B00AADFBC /* URSummaryViewController+URLayout.m in Sources */,
+				A0DB7E591E3851B6002A1950 /* URTestProtocolViewController.m in Sources */,
 				A0342EF41E1C034D0005E74C /* URMeInfoTableViewCell.m in Sources */,
 				A0D29C191DF4679600C7CF4D /* ViewController.m in Sources */,
 				A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */,
@@ -716,6 +731,7 @@
 				A08723731E0D20CF00AADFBC /* URWWObjectInfo.m in Sources */,
 				A08723091E0D132B00AADFBC /* RunViewController.m in Sources */,
 				A087237E1E0D66F900AADFBC /* URLabel.m in Sources */,
+				A0EC34101E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m in Sources */,
 				A08723811E0D6F3F00AADFBC /* URRunRecordTableViewCell.m in Sources */,
 				A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */,
 				A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */,
