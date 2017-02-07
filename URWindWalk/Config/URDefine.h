@@ -13,4 +13,6 @@ static NSString *URThinkPageUIDKey = @"UE020775F7";
 
 @interface URDefine : NSObject
 
++ (int32_t)protocolVersion;
+
 @end

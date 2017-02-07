@@ -8,6 +8,9 @@
 
 #import "URAsyncSocketWrapper.h"
 #import "URAsyncSocketWrapper+timeout.h"
+#import "URProtocolWrapper.h"
+
+const NSString * URPackageHeader = @"com.ur.URPackageHeader";
 
 typedef NS_ENUM(NSUInteger, URAsyncSocketState) {
     URAsyncSocketStateNormal = 0,
@@ -86,17 +89,53 @@ static long count = 0;
     return YES;
 }
 
-- (BOOL)sendData:(NSData *)data callback:(ur_asyncSocketTimeout_block)callback
+- (BOOL)sendData:(NSData *)data callback:(ur_asyncSocketTimeout_block)callback;
 {
     if (_socketState != URAsyncSocketStateLink) {
         return NO;
     }
+    
+    NSData *pacakgeData = [self generatePackage:data];
+    
     long key = [URAsyncSocketWrapper getUniqueness];
-    [_asyncSocket writeData:data withTimeout:10 tag:key];
+    [_asyncSocket writeData:pacakgeData withTimeout:10 tag:key];
     
     [self addSendCallback:key value:callback];
     
     return YES;
+}
+
+- (NSData *)generatePackage:(NSData *)data
+{
+    NSMutableData *newData = [[NSMutableData alloc] init];
+    
+    [newData appendData:[URPackageHeader dataUsingEncoding:NSASCIIStringEncoding]];
+    
+//    NSString *hexString = [self hexStringFromString:@(1).stringValue];
+//    NSData * hexData = [self dataFromHexString:hexString];
+//    [newData appendData:hexData];
+    
+//    unsigned short i = 1;
+    Byte tag[1] = {0x05};
+    NSData *tagData = [NSData dataWithBytes:tag length:1];
+    [newData appendData:tagData];
+    
+    int dataLength = (int)data.length;
+    NSData *lengthData = [NSData dataWithBytes:&dataLength length:sizeof(dataLength)];
+//    [newData appendData:lengthData];
+    
+    Byte bigEndiam[lengthData.length];
+    Byte *bytes = (Byte *)[lengthData bytes];
+    short len = [lengthData length];
+    for (int i = 0; i < len; i++) {
+        char byte = bytes[i];
+        bigEndiam[len - i - 1] = byte;
+    }
+    [newData appendBytes:bigEndiam length:len];
+    
+    [newData appendData:data];
+
+    return newData;
 }
 
 - (void)disconnection
@@ -117,7 +156,7 @@ static long count = 0;
     
     _socketState = URAsyncSocketStateLink;
     
-    [self initHeartBeat];
+//    [self initHeartBeat];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
@@ -126,6 +165,8 @@ static long count = 0;
     
     NSString *aStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@" %@", aStr);
+    
+    [URProtocolWrapper loginRes:data];
     
     if (self.dataArrivedDelegate && [self.dataArrivedDelegate respondsToSelector:@selector(onDataArrived:)]) {
         [self.dataArrivedDelegate onDataArrived:data];
@@ -176,6 +217,60 @@ static long count = 0;
     }
 }
 
+- (Byte *)getByteForInt:(short)value expLen:(NSUInteger)length
+{
+//    Byte buff[4];
+//    buff[3] = 0xFF & (value >> 24);
+//    buff[2] = 0xFF & (value >> 16);
+//    buff[1] = 0xff & (value >> 8);
+//    buff[0] = 0xff & value;
+//    
+//    return &buff;
+    
+//    NSData *data = [@(value).stringValue dataUsingEncoding:NSUTF16BigEndianStringEncoding];
+//    uint8_t byteArray[4];
+//    uint8_t* byteArray2 = malloc(length);
+    
+//    NSData *data = [NSData dataWithBytes:&value length: sizeof(value)];
+//    return data;
+//    [data appendData:tagData];
+
+    
+    uint8_t byteArray[sizeof(value)];
+    NSData *data = [NSData dataWithBytes: &value length: sizeof(value)];
+    
+    [data getBytes:&byteArray length:length];
+    
+    for (int i = 0; i<[data length]; i++) {
+        char byte = byteArray[i];
+        NSLog(@"++++%c",byte);
+    }
+    
+    return byteArray;
+}
+
+- (NSString *)hexStringFromString:(NSString *)string
+{
+    NSData *myD = [string dataUsingEncoding:NSUTF8StringEncoding];
+    Byte *bytes = (Byte *)[myD bytes];
+    //下面是Byte 转换为16进制。
+    NSString *hexStr=@"";
+    for(int i=0;i<[myD length];i++)
+        
+    {
+        NSString *newHexStr = [NSString stringWithFormat:@"%x",bytes[i]&0xff];///16进制数
+        
+        if([newHexStr length]==1)
+            
+            hexStr = [NSString stringWithFormat:@"%@0%@",hexStr,newHexStr];
+        
+        else
+            
+            hexStr = [NSString stringWithFormat:@"%@%@",hexStr,newHexStr];   
+    }   
+    return hexStr;   
+}
+
 - (NSTimeInterval)socket:(GCDAsyncSocket *)sock shouldTimeoutWriteWithTag:(long)tag
                  elapsed:(NSTimeInterval)elapsed
                bytesDone:(NSUInteger)length
@@ -204,6 +299,40 @@ static long count = 0;
     return 0;
 }
 #pragma mark - util
+
+- (NSData *)dataFromHexString:(NSString *)string {
+    const char *chars = [string UTF8String];
+    int i = 0;
+    NSUInteger len = string.length;
+    
+    NSMutableData *data = [NSMutableData dataWithCapacity:4];
+    char byteChars[2] = {'\0','\0'};
+    unsigned long wholeByte;
+    
+    while (i < len) {
+        byteChars[0] = chars[i++];
+        byteChars[1] = chars[i++];
+        wholeByte = strtoul(byteChars, NULL, 16);
+        [data appendBytes:&wholeByte length:1];
+    }
+    
+    return data;
+}
+
+- (Byte *)getValueByteLength:(NSString *)value
+{
+    Byte *byte= (Byte*)malloc(4);
+    
+    const char * a =[value UTF8String];
+    
+    for (NSInteger i = 0; i < 4; i++){
+        if (i < value.length) {
+            byte[i] = a[i];
+        }
+    }
+    
+    return byte;
+}
 
 + (long)getUniqueness
 {

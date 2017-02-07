@@ -21,8 +21,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,16 +40,18 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSString *content = textField.text;
-    
-    BOOL isSuccess = [[URSocketService sharedObject] sendText:content callback:^(BOOL timeout) {
-        NSLog(@"%s timeout", __func__);
-    }];
-    
-    if (!isSuccess) {
-        NSLog(@"network is broken");
-    }
+//    NSString *content = textField.text;
+//    for (int i = 0; i < 1000; i++) {
+        BOOL isSuccess = [[URSocketService sharedObject] login:@"linweiyan" password:@"123456" callback:^(BOOL timeout) {
+            NSLog(@"%s timeout", __func__);
+        }];
+
+        if (!isSuccess) {
+            NSLog(@"network is broken");
+        }
+//    }
     
     return YES;
 }
+
 @end

@@ -1,0 +1,34 @@
+syntax = "proto3";
+package URWWPacketProtocol;
+
+enum URPacketType
+{
+	kUriInvalid = 0; //无效uri
+
+	kUriPLoginReq = 10; 
+     kUriPLoginRes = 11; 
+     kUriPLogoutReq = 12;
+     kUriPLogoutRes =13;
+}
+
+enum ResultType
+{
+	ResultTypeOK = 0;
+	ResultTypeFail = 1;
+}
+
+
+message PHeader
+{
+     uint64 uid = 1;
+     uint64 seqid = 2;
+     uint32 platform = 3;
+     uint32 version = 4;
+     Result result = 5;
+}
+
+message Result
+{
+     ResultType code = 1;
+     string     res_msg = 2;
+}

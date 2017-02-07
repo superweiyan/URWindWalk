@@ -8,6 +8,7 @@
 
 #import "URSocketService.h"
 #import "URAsyncSocketWrapper.h"
+#import "URProtocolWrapper.h"
 
 NSString * URSocketResultNotification = @"URSocketResultNotification";
 
@@ -50,7 +51,17 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
 
 - (BOOL)sendText:(NSString *)content callback:(on_requestTimeout_blcok)callback
 {
-    NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
+    if (content.length == 0) {
+        return NO;
+    }
+    
+    NSDictionary *info = @{@"content":content};
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
+    
+    if(error) {
+        return NO;
+    }
     
     BOOL issuccess = [_asyncSocketWrapper sendData:data callback:^(BOOL timeout) {
         callback(timeout);
@@ -58,5 +69,21 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
     
     return issuccess;
 }
+
+- (BOOL)login:(NSString *)passport password:(NSString *)password callback:(on_requestTimeout_blcok)callback
+{
+    if (passport.length == 0 || password == 0) {
+        return NO;
+    }
+    
+    NSData *data = [URProtocolWrapper loginReq:passport password:password];
+    
+    BOOL issuccess = [_asyncSocketWrapper sendData:data callback:^(BOOL timeout) {
+        callback(timeout);
+    }];
+    
+    return issuccess;
+}
+
 
 @end

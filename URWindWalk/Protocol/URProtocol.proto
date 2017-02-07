@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "URPacketType.proto";
+package URWWPacketProtocol;
+
+message URProtocol
+{
+	URPacketType uri = 1;
+    PHeader header = 2;
+
+    URLoginReq 	loginReq = 3;
+    URLoginRes	loginRes = 4;
+    URLogoutReq logoutReq = 5;
+    URLogoutRes	logoutRes = 6;
+}
+
+message URLoginReq
+{
+	string passport  = 1;
+	string password  = 2;
+}
+
+message URLoginRes
+{
+	
+}
+
+message URLogoutReq
+{
+	 string passport = 1;
+	 string password = 2;
+}
+
+message URLogoutRes
+{
+}
