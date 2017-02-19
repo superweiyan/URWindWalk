@@ -7,6 +7,7 @@
 //
 
 #import "URWWLoginViewController.h"
+#import "URWWService.h"
 #import "URWWLoginService.h"
 
 @interface URWWLoginViewController ()<UITextFieldDelegate>
@@ -123,7 +124,7 @@
     }
     else {
         
-        [[URWWLoginService sharedObject] login:self.nickName.text password:self.password.text timeout:^{
+        [[URWWService sharedObject].loginService login:self.nickName.text password:self.password.text timeout:^{
             
         }];
     }

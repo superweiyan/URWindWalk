@@ -19,7 +19,7 @@ extern NSString *URUpdateStepFrequencyNotification;
 @property (nonatomic, assign) double        distance;
 @property (nonatomic, assign) double        stepFrequency;
 
-+ (URWWRunService *)sharedObject;
+//+ (URWWRunService *)sharedObject;
 
 - (void)startRun;
 

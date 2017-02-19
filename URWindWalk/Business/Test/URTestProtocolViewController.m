@@ -7,7 +7,7 @@
 //
 
 #import "URTestProtocolViewController.h"
-//#import "URSocketService.h"
+#import "URWWService.h"
 #import "URWWLoginService.h"
 
 @interface URTestProtocolViewController () <UITextFieldDelegate>
@@ -43,7 +43,7 @@
 {
 //    NSString *content = textField.text;
 //    for (int i = 0; i < 1000; i++) {
-        BOOL isSuccess = [[URWWLoginService sharedObject] login:@"linweiyan" password:@"123456" timeout:^{
+        BOOL isSuccess = [[URWWService sharedObject].loginService login:@"linweiyan" password:@"123456" timeout:^{
             NSLog(@"%s timeout", __func__);
         }];
 

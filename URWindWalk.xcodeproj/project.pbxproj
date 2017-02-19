@@ -89,6 +89,7 @@
 		A0EC34101E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EC340F1E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m */; };
 		A0FDBEC81E5998E0000877C3 /* URSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBEC71E5998E0000877C3 /* URSocketService.m */; };
 		A0FDBECE1E59991F000877C3 /* URSocketService+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBECD1E59991F000877C3 /* URSocketService+Login.m */; };
+		A0FDBED11E59DBFB000877C3 /* URWWService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBED01E59DBFB000877C3 /* URWWService.m */; };
 		C986EA9AAA48A052B3B730F8 /* Pods_URWindWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3D0D3C8D0E2F50736ACF8E /* Pods_URWindWalk.framework */; };
 /* End PBXBuildFile section */
 
@@ -266,6 +267,8 @@
 		A0FDBEC71E5998E0000877C3 /* URSocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URSocketService.m; sourceTree = "<group>"; };
 		A0FDBECC1E59991F000877C3 /* URSocketService+Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URSocketService+Login.h"; sourceTree = "<group>"; };
 		A0FDBECD1E59991F000877C3 /* URSocketService+Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "URSocketService+Login.m"; sourceTree = "<group>"; };
+		A0FDBECF1E59DBFB000877C3 /* URWWService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWService.h; sourceTree = "<group>"; };
+		A0FDBED01E59DBFB000877C3 /* URWWService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWService.m; sourceTree = "<group>"; };
 		DC3D0D3C8D0E2F50736ACF8E /* Pods_URWindWalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URWindWalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F7AC569DE18F7C87C76F81 /* Pods-URWindWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URWindWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URWindWalk/Pods-URWindWalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -682,6 +685,8 @@
 				A0647B211E17684000F5AC6E /* URWWRunService.m */,
 				A0B222AB1E1FEB7300AD35EE /* URWWUserInfoService.h */,
 				A0B222AC1E1FEB7300AD35EE /* URWWUserInfoService.m */,
+				A0FDBECF1E59DBFB000877C3 /* URWWService.h */,
+				A0FDBED01E59DBFB000877C3 /* URWWService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -968,6 +973,7 @@
 				A087237E1E0D66F900AADFBC /* URLabel.m in Sources */,
 				A05090DF1E3DA3B5002ABDCD /* GPBWellKnownTypes.m in Sources */,
 				A0EC34101E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m in Sources */,
+				A0FDBED11E59DBFB000877C3 /* URWWService.m in Sources */,
 				A05090CF1E3DA3B5002ABDCD /* Struct.pbobjc.m in Sources */,
 				A08723811E0D6F3F00AADFBC /* URRunRecordTableViewCell.m in Sources */,
 				A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */,

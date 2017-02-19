@@ -12,6 +12,7 @@
 #import "URWWLoginService.h"
 #import "URWWMainService.h"
 #import "ViewController.h"
+#import "URWWService.h"
 
 @interface AppDelegate ()
 
@@ -26,11 +27,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    [URWWWeatherSerivce sharedObject];
-    [URWWMainService sharedObject];
+    [URWWMainService sharedObject];    
+    [URWWService sharedObject];
+//    [URWWWeatherSerivce sharedObject];
+
     [URSocketService sharedObject];
     
-    if(![[URWWLoginService sharedObject] autoLogin]){
+    if(![[URWWService sharedObject].loginService autoLogin]){
         UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         ViewController *viewController = [mainBoard instantiateViewControllerWithIdentifier:@"ViewController"];
 //        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];

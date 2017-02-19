@@ -14,7 +14,7 @@ extern NSString * URShowLoginNotification;
 
 @interface URWWLoginService : NSObject
 
-+ (URWWLoginService *)sharedObject;
+//+ (URWWLoginService *)sharedObject;
 
 - (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(login_timeout_block)callback;
 

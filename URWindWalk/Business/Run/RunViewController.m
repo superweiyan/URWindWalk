@@ -13,6 +13,7 @@
 #import "URMarcoUtil.h"
 #import "URWWRunService.h"
 #import "URLabel.h"
+#import "URWWService.h"
 
 @interface RunViewController ()<MKMapViewDelegate>
 
@@ -137,11 +138,11 @@
     MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.coordinate, self.span);
     self.mapView.region = region;
     
-    if(![URWWRunService sharedObject].isRunning) {
+    if(![[URWWService sharedObject].runService isRunning]) {
         return ;
     }
     
-    [[URWWRunService sharedObject] updateRunLocation:userLocation.location];
+    [[URWWService sharedObject].runService updateRunLocation:userLocation.location];
 
     URWWLocationInfo *locationInfo = [[URWWLocationInfo alloc] init];
     locationInfo.longitude = userLocation.location.coordinate.longitude;
@@ -206,15 +207,15 @@
 
 - (void)onStartButtonClick
 {
-    if ([URWWRunService sharedObject].isRunning) {
-        [[URWWRunService sharedObject] stopRun];
+    if ([[URWWService sharedObject].runService isRunning]) {
+        [[URWWService sharedObject].runService stopRun];
         [self.runButton setTitle:@"开始" forState:UIControlStateNormal];
         [self.coordinate2DArray removeAllObjects];
     }
     else {
         [self.runButton setTitle:@"结束" forState:UIControlStateNormal];
         [self removeOverlay];
-        [[URWWRunService sharedObject] startRun];
+        [[URWWService sharedObject].runService startRun];
         
     }
 }
@@ -223,12 +224,12 @@
 
 - (void)onUpdateRunDistanceNotification:(NSNotification *)notification
 {
-    _distanceLabel.text = [NSString stringWithFormat:@"%.2f", [URWWRunService sharedObject].distance];
+    _distanceLabel.text = [NSString stringWithFormat:@"%.2f", [URWWService sharedObject].runService.distance];
 }
 
 - (void)onUpdateStepFrequencyNotification:(NSNotification *)notification
 {
-    _stepFreqencyLabel.text = @([URWWRunService sharedObject].stepFrequency).stringValue;
+    _stepFreqencyLabel.text = @([URWWService sharedObject].runService.stepFrequency).stringValue;
 
 }
 

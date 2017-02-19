@@ -16,15 +16,15 @@ NSString * URShowLoginNotification = @"URShowLoginNotification";
 
 @implementation URWWLoginService
 
-+ (URWWLoginService *)sharedObject
-{
-    static dispatch_once_t __once;              \
-    static URWWLoginService * __instance = nil;         \
-    dispatch_once(&__once, ^{                   \
-        __instance = [[URWWLoginService alloc] init];   \
-    });                                         \
-    return __instance;
-}
+//+ (URWWLoginService *)sharedObject
+//{
+//    static dispatch_once_t __once;              \
+//    static URWWLoginService * __instance = nil;         \
+//    dispatch_once(&__once, ^{                   \
+//        __instance = [[URWWLoginService alloc] init];   \
+//    });                                         \
+//    return __instance;
+//}
 
 - (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(login_timeout_block)callback
 {
