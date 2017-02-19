@@ -214,9 +214,11 @@ typedef struct URLoginReq__storage_ {
 
 @implementation URLoginRes
 
+@dynamic hasResult, result;
 
 typedef struct URLoginRes__storage_ {
   uint32_t _has_storage_[1];
+  Result *result;
 } URLoginRes__storage_;
 
 // This method is threadsafe because it is initially called
@@ -224,12 +226,23 @@ typedef struct URLoginRes__storage_ {
 + (GPBDescriptor *)descriptor {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "result",
+        .dataTypeSpecific.className = GPBStringifySymbol(Result),
+        .number = URLoginRes_FieldNumber_Result,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(URLoginRes__storage_, result),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[URLoginRes class]
                                      rootClass:[UrprotocolRoot class]
                                           file:UrprotocolRoot_FileDescriptor()
-                                        fields:NULL
-                                    fieldCount:0
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(URLoginRes__storage_)
                                          flags:0];
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -298,9 +311,11 @@ typedef struct URLogoutReq__storage_ {
 
 @implementation URLogoutRes
 
+@dynamic hasResult, result;
 
 typedef struct URLogoutRes__storage_ {
   uint32_t _has_storage_[1];
+  Result *result;
 } URLogoutRes__storage_;
 
 // This method is threadsafe because it is initially called
@@ -308,12 +323,23 @@ typedef struct URLogoutRes__storage_ {
 + (GPBDescriptor *)descriptor {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "result",
+        .dataTypeSpecific.className = GPBStringifySymbol(Result),
+        .number = URLogoutRes_FieldNumber_Result,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(URLogoutRes__storage_, result),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[URLogoutRes class]
                                      rootClass:[UrprotocolRoot class]
                                           file:UrprotocolRoot_FileDescriptor()
-                                        fields:NULL
-                                    fieldCount:0
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(URLogoutRes__storage_)
                                          flags:0];
     NSAssert(descriptor == nil, @"Startup recursed!");

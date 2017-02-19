@@ -15,6 +15,7 @@
 CF_EXTERN_C_BEGIN
 
 @class PHeader;
+@class Result;
 @class URLoginReq;
 @class URLoginRes;
 @class URLogoutReq;
@@ -98,7 +99,15 @@ typedef GPB_ENUM(URLoginReq_FieldNumber) {
 
 #pragma mark - URLoginRes
 
+typedef GPB_ENUM(URLoginRes_FieldNumber) {
+  URLoginRes_FieldNumber_Result = 1,
+};
+
 @interface URLoginRes : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) Result *result;
+/// Test to see if @c result has been set.
+@property(nonatomic, readwrite) BOOL hasResult;
 
 @end
 
@@ -119,7 +128,15 @@ typedef GPB_ENUM(URLogoutReq_FieldNumber) {
 
 #pragma mark - URLogoutRes
 
+typedef GPB_ENUM(URLogoutRes_FieldNumber) {
+  URLogoutRes_FieldNumber_Result = 1,
+};
+
 @interface URLogoutRes : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) Result *result;
+/// Test to see if @c result has been set.
+@property(nonatomic, readwrite) BOOL hasResult;
 
 @end
 
