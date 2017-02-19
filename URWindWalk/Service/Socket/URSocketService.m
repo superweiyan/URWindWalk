@@ -9,10 +9,13 @@
 #import "URSocketService.h"
 #import "URAsyncSocketWrapper.h"
 #import "URProtocolWrapper.h"
+#import "Urprotocol.pbobjc.h"
+#import "UrpacketType.pbobjc.h"
+#import "URSocketService+Login.h"
 
 NSString * URSocketResultNotification = @"URSocketResultNotification";
 
-@interface URSocketService()
+@interface URSocketService()<URSocketDataArrivedDelegate>
 {
     URAsyncSocketWrapper   *_asyncSocketWrapper;
 }
@@ -49,35 +52,53 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
     }
 }
 
-- (BOOL)sendText:(NSString *)content callback:(on_requestTimeout_blcok)callback
+//- (BOOL)sendText:(NSString *)content callback:(on_requestTimeout_blcok)callback
+//{
+//    if (content.length == 0) {
+//        return NO;
+//    }
+//    
+//    NSDictionary *info = @{@"content":content};
+//    NSError *error;
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
+//    
+//    if(error) {
+//        return NO;
+//    }
+//    
+//    return [self sendData:data callback:callback];
+//}
+
+//- (BOOL)login:(NSString *)passport password:(NSString *)password callback:(on_requestTimeout_blcok)callback
+//{
+//    if (passport.length == 0 || password == 0) {
+//        return NO;
+//    }
+//    
+//    NSData *data = [URProtocolWrapper loginReq:passport password:password];
+//    
+//    return [self sendData:data callback:callback];
+//}
+
+#pragma mark -
+
+- (void)onDataArrived:(NSData *)data
 {
-    if (content.length == 0) {
-        return NO;
-    }
-    
-    NSDictionary *info = @{@"content":content};
     NSError *error;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
+    URProtocol *proto = [URProtocol parseFromData:data error:&error];
     
-    if(error) {
-        return NO;
+    if (error) {
+        return ;
     }
     
-    BOOL issuccess = [_asyncSocketWrapper sendData:data callback:^(BOOL timeout) {
-        callback(timeout);
-    }];
-    
-    return issuccess;
+    if (proto.uri == URPacketType_KUriPloginRes) {
+        
+        [self parseLoginResProtocol:proto];
+    }
 }
 
-- (BOOL)login:(NSString *)passport password:(NSString *)password callback:(on_requestTimeout_blcok)callback
+- (BOOL)sendData:(NSData *)data callback:(on_requestTimeout_blcok)callback
 {
-    if (passport.length == 0 || password == 0) {
-        return NO;
-    }
-    
-    NSData *data = [URProtocolWrapper loginReq:passport password:password];
-    
     BOOL issuccess = [_asyncSocketWrapper sendData:data callback:^(BOOL timeout) {
         callback(timeout);
     }];

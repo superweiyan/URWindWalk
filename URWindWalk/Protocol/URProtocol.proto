@@ -22,7 +22,7 @@ message URLoginReq
 
 message URLoginRes
 {
-	
+	Result result = 1;
 }
 
 message URLogoutReq
@@ -33,4 +33,5 @@ message URLogoutReq
 
 message URLogoutRes
 {
+	Result result = 1;
 }

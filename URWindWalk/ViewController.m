@@ -34,11 +34,9 @@
 - (void)addChildViewControllers
 {
     URSummaryViewController *summaryController = [[URSummaryViewController alloc] init];
-    
     [self addChildViewController:summaryController andTitle:@"首页" andImageName:@""];
     
     RunViewController *runController = [[RunViewController alloc] init];
-    
     [self addChildViewController:runController andTitle:@"跑步" andImageName:@""];
 
     MeViewController *meController = [[MeViewController alloc] init];

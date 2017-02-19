@@ -24,7 +24,6 @@ message PHeader
      uint64 seqid = 2;
      uint32 platform = 3;
      uint32 version = 4;
-     Result result = 5;
 }
 
 message Result

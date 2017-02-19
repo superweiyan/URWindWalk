@@ -14,4 +14,6 @@
 
 + (URWWMainService *)sharedObject;
 
+- (UINavigationController *)getNavigationController;
+
 @end

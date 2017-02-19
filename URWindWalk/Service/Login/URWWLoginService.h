@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^login_timeout_block) ();
+
+extern NSString * URShowLoginNotification;
+
 @interface URWWLoginService : NSObject
 
 + (URWWLoginService *)sharedObject;
 
-- (void)login:(NSString *)nickName password:(NSString *)password;
+- (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(login_timeout_block)callback;
 
 - (void)logout;
 
-- (void)autoLogin;
+- (BOOL)autoLogin;
 
 @end

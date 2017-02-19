@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "URWWWeatherSerivce.h"
 #import "URSocketService.h"
+#import "URWWLoginService.h"
+#import "URWWMainService.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +23,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
     [URWWWeatherSerivce sharedObject];
+    [URWWMainService sharedObject];
     [URSocketService sharedObject];
     
+    if(![[URWWLoginService sharedObject] autoLogin]){
+        UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        ViewController *viewController = [mainBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+//        self.window.rootViewController = navController;
+        self.window.rootViewController = viewController;
+    }
+    else {
+        UIViewController *controller = [[NSClassFromString(@"URWWLoginViewController") alloc] init];
+        self.window.rootViewController = controller;
+    }
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

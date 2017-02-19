@@ -163,10 +163,8 @@ static long count = 0;
 {
     NSLog(@"didReadData:withTag");
     
-    NSString *aStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@" %@", aStr);
-    
-    [URProtocolWrapper loginRes:data];
+//    NSString *aStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSLog(@" %@", aStr);
     
     if (self.dataArrivedDelegate && [self.dataArrivedDelegate respondsToSelector:@selector(onDataArrived:)]) {
         [self.dataArrivedDelegate onDataArrived:data];
@@ -207,7 +205,6 @@ static long count = 0;
     /*
      *  开始断线重连
      */
-    
     if (_socketState == URAsyncSocketStateServerBroken) {
         _relinkTimer = [NSTimer scheduledTimerWithTimeInterval:5
                                                         target:self
@@ -256,18 +253,16 @@ static long count = 0;
     //下面是Byte 转换为16进制。
     NSString *hexStr=@"";
     for(int i=0;i<[myD length];i++)
-        
     {
         NSString *newHexStr = [NSString stringWithFormat:@"%x",bytes[i]&0xff];///16进制数
         
-        if([newHexStr length]==1)
-            
+        if([newHexStr length] == 1) {
             hexStr = [NSString stringWithFormat:@"%@0%@",hexStr,newHexStr];
-        
-        else
-            
-            hexStr = [NSString stringWithFormat:@"%@%@",hexStr,newHexStr];   
-    }   
+        }
+        else {
+            hexStr = [NSString stringWithFormat:@"%@%@",hexStr,newHexStr];
+        }
+    }
     return hexStr;   
 }
 

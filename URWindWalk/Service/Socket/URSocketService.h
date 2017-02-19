@@ -16,8 +16,6 @@ extern NSString * URSocketResultNotification;
 
 + (URSocketService *)sharedObject;
 
-- (BOOL)sendText:(NSString *)content callback:(on_requestTimeout_blcok)callback;
-
-- (BOOL)login:(NSString *)passport password:(NSString *)password callback:(on_requestTimeout_blcok)callback;
+- (BOOL)sendData:(NSData *)data callback:(on_requestTimeout_blcok)callback;
 
 @end

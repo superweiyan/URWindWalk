@@ -8,10 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+@class PHeader;
+
+static uint64_t getSeqId() {
+    static uint64_t seqID = 0;
+    if (seqID == 0) {
+        seqID = (uint64_t)[NSDate timeIntervalSinceReferenceDate];
+    }
+    
+    return ++seqID;
+}
+
 @interface URProtocolWrapper : NSObject
 
-+ (NSData *)loginReq:(NSString *)passport password:(NSString *)password;
++ (NSData *)outputStreamWithProto:(id)proto;
 
-+ (BOOL)loginRes:(NSData *)data;
++ (PHeader *)headerWithSeqId:(uint64_t)seqId;
+
+//+ (NSData *)loginReq:(NSString *)passport password:(NSString *)password;
+//+ (BOOL)loginRes:(NSData *)data;
 
 @end

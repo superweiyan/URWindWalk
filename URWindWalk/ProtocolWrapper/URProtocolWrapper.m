@@ -10,46 +10,10 @@
 #import "GPBCodedOutputStream.h"
 #import "GPBMessage.h"
 #import "Urprotocol.pbobjc.h"
+#import "URAsyncSocketWrapper.h"
 #import "UrpacketType.pbobjc.h"
 
-static uint64_t getSeqId() {
-    static uint64_t seqID = 0;
-    if (seqID == 0) {
-        seqID = (uint64_t)[NSDate timeIntervalSinceReferenceDate];
-    }
-    
-    return ++seqID;
-}
-
 @implementation URProtocolWrapper
-
-+ (NSData *)loginReq:(NSString *)passport password:(NSString *)password
-{
-    URLoginReq *loginReq = [URLoginReq new];
-    loginReq.passport = passport;
-    loginReq.password = password;
-    
-    URProtocol *protocol = [URProtocol new];
-    protocol.uri = URPacketType_KUriPloginReq;
-    protocol.loginReq = loginReq;
-    
-    return [URProtocolWrapper outputStreamWithProto:protocol];
-}
-
-+ (BOOL)loginRes:(NSData *)data
-{
-    NSError *error;
-    URProtocol *proto = [URProtocol parseFromData:data error:&error];
-    
-    if (error) {
-        return NO;
-    }
-    
-    if (proto.uri == URPacketType_KUriPloginRes) {
-        return YES;
-    }
-    return NO;
-}
 
 #pragma mark - util
 
