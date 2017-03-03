@@ -23,7 +23,7 @@ static uint64_t getSeqId() {
 
 + (NSData *)outputStreamWithProto:(id)proto;
 
-+ (PHeader *)headerWithSeqId:(uint64_t)seqId;
++ (PHeader *)initHeader;
 
 //+ (NSData *)loginReq:(NSString *)passport password:(NSString *)password;
 //+ (BOOL)loginRes:(NSData *)data;

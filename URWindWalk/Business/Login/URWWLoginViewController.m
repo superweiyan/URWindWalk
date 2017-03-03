@@ -75,7 +75,6 @@
     self.forgetPasswordBtn = [[UIButton alloc] initWithFrame:CGRectZero];
     [self.forgetPasswordBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
     self.forgetPasswordBtn.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    [self.forgetPasswordBtn addTarget:self action:@selector(onloginClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.forgetPasswordBtn];
     
     self.rigisterBtn = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -88,6 +87,8 @@
     self.loginBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     self.loginBtn.backgroundColor = [UIColor redColor];
     [self.loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
+    [self.loginBtn addTarget:self action:@selector(onloginClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:self.loginBtn];
     
     self.serviceLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -120,7 +121,6 @@
 - (IBAction)onloginClick:(id)sender
 {
     if( self.nickName.text.length == 0 || self.password.text.length == 0) {
-        
     }
     else {
         

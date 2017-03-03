@@ -9,6 +9,7 @@
 #import "URAsyncSocketWrapper.h"
 #import "URAsyncSocketWrapper+timeout.h"
 #import "URProtocolWrapper.h"
+#import "URDefine.h"
 
 const NSString * URPackageHeader = @"com.ur.URPackageHeader";
 
@@ -16,7 +17,7 @@ typedef NS_ENUM(NSUInteger, URAsyncSocketState) {
     URAsyncSocketStateNormal = 0,
     URAsyncSocketStateLink = 1,
     URAsyncSocketStateServerBroken = 2,
-    URAsyncSocketStateUserBroken
+    URAsyncSocketStateUserBroken = 3
 };
 
 @import CocoaAsyncSocket;
@@ -78,8 +79,8 @@ static long count = 0;
 {
     NSError *error;
     if (!self.ip) {
-        self.ip = @"120.25.226.101";
-        self.port = 8081;
+        self.ip = URServiceIP;
+        self.port = URServicePort;
     }
     [_asyncSocket connectToHost:self.ip onPort:self.port error:&error];
     
@@ -89,7 +90,7 @@ static long count = 0;
     return YES;
 }
 
-- (BOOL)sendData:(NSData *)data callback:(ur_asyncSocketTimeout_block)callback;
+- (BOOL)sendData:(NSData *)data time:(ur_asyncSocketTimeout_block)callback;
 {
     if (_socketState != URAsyncSocketStateLink) {
         return NO;

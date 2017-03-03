@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef void(^on_requestTimeout_blcok) (BOOL);
+#import "URBlock.h"
 
 extern NSString * URSocketResultNotification;
 
@@ -16,6 +15,9 @@ extern NSString * URSocketResultNotification;
 
 + (URSocketService *)sharedObject;
 
-- (BOOL)sendData:(NSData *)data callback:(on_requestTimeout_blcok)callback;
+- (BOOL)sendData:(NSUInteger)uri
+            data:(URProtocol *)protocolData
+        callback:(onRawDataArrived_block)callback
+         timeout:(timeout_block)timeout;
 
 @end

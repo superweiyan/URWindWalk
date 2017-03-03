@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef void(^login_timeout_block) ();
+#import "URBlock.h"
 
 extern NSString * URShowLoginNotification;
 
@@ -16,7 +15,7 @@ extern NSString * URShowLoginNotification;
 
 //+ (URWWLoginService *)sharedObject;
 
-- (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(login_timeout_block)callback;
+- (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(timeout_block)callback;
 
 - (void)logout;
 

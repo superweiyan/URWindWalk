@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "URSocketService.h"
-#import "Urprotocol.pbobjc.h"
 
-@interface URSocketService(Login)
+#import "URBlock.h"
 
-- (void)parseLoginResProtocol:(URProtocol *)protocol;
+@interface URLoginCore : NSObject
+
+- (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(timeout_block)callback;
 
 @end

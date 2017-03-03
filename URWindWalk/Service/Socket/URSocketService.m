@@ -11,13 +11,21 @@
 #import "URProtocolWrapper.h"
 #import "Urprotocol.pbobjc.h"
 #import "UrpacketType.pbobjc.h"
-#import "URSocketService+Login.h"
 
 NSString * URSocketResultNotification = @"URSocketResultNotification";
+
+@interface ReqInfo : NSObject
+@property (assign, nonatomic) uint64_t              uriRes;
+@property (strong, nonatomic) timeout_block         timeoutHandler;
+@property (strong, nonatomic) onDataCallback_block  callbackHandler;
+@end;
+
 
 @interface URSocketService()<URSocketDataArrivedDelegate>
 {
     URAsyncSocketWrapper   *_asyncSocketWrapper;
+    NSMutableDictionary    *_blockDict;
+    uint64_t                seqid;
 }
 @end
 
@@ -40,6 +48,8 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
         _asyncSocketWrapper = [[URAsyncSocketWrapper alloc] init];
         _asyncSocketWrapper.port = 7777;
         _asyncSocketWrapper.ip = @"127.0.0.1";
+        _blockDict = [[NSMutableDictionary alloc] init];
+        seqid = [[NSDate date] timeIntervalSince1970];
         [self initData];
     }
     return self;
@@ -52,34 +62,6 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
     }
 }
 
-//- (BOOL)sendText:(NSString *)content callback:(on_requestTimeout_blcok)callback
-//{
-//    if (content.length == 0) {
-//        return NO;
-//    }
-//    
-//    NSDictionary *info = @{@"content":content};
-//    NSError *error;
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:info options:0 error:&error];
-//    
-//    if(error) {
-//        return NO;
-//    }
-//    
-//    return [self sendData:data callback:callback];
-//}
-
-//- (BOOL)login:(NSString *)passport password:(NSString *)password callback:(on_requestTimeout_blcok)callback
-//{
-//    if (passport.length == 0 || password == 0) {
-//        return NO;
-//    }
-//    
-//    NSData *data = [URProtocolWrapper loginReq:passport password:password];
-//    
-//    return [self sendData:data callback:callback];
-//}
-
 #pragma mark -
 
 - (void)onDataArrived:(NSData *)data
@@ -91,20 +73,66 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
         return ;
     }
     
-    if (proto.uri == URPacketType_KUriPloginRes) {
-        
-        [self parseLoginResProtocol:proto];
-    }
+    [self dispatchUri:proto];
 }
 
-- (BOOL)sendData:(NSData *)data callback:(on_requestTimeout_blcok)callback
+- (BOOL)sendData:(NSUInteger)uri data:(URProtocol *)protocolData callback:(onRawDataArrived_block)callback timeout:(timeout_block)timeout
 {
-    BOOL issuccess = [_asyncSocketWrapper sendData:data callback:^(BOOL timeout) {
-        callback(timeout);
+    protocolData.uri = URPacketType_KUriPloginReq;
+    protocolData.header = [URProtocolWrapper initHeader];
+    NSData *data = [URProtocolWrapper outputStreamWithProto:protocolData];
+    
+    NSString *blockId = [self genernateUniqueness:protocolData.header.seqid uri:(uri+1)];
+    [_blockDict setObject:callback forKey:blockId];
+    
+    BOOL issuccess = [_asyncSocketWrapper sendData:data callback:^{
+            timeout();
     }];
+    
+    [self watchTimeout:blockId];
     
     return issuccess;
 }
 
+- (void)watchTimeout:(NSString *)blockId
+{
+    __weak __typeof__(self) weakSelf = self;
+    dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC));
+    dispatch_after(timeout, dispatch_get_main_queue(), ^(void) {
+        [weakSelf handleRequestTimeout:blockId];
+    });
+
+}
+
+- (void)handleRequestTimeout:(NSString *)blockId
+{
+    ReqInfo *reqInfo = (ReqInfo *)[_blockDict objectForKey:blockId];
+    if (reqInfo) {
+        [_blockDict removeObjectForKey:blockId];
+        if (reqInfo.timeoutHandler) {
+            reqInfo.timeoutHandler();
+        }
+    }
+}
+
+- (void)dispatchUri:(URProtocol *)proto
+{
+    URPacketType uri = proto.uri;
+    
+    NSString *blockid = [self genernateUniqueness:proto.header.seqid uri:uri];
+    
+    ReqInfo *info = [_blockDict objectForKey:blockid];
+    
+    if (info.callbackHandler) {
+        info.callbackHandler(proto);
+    }
+    
+    [_blockDict removeObjectForKey:blockid];
+}
+
+- (NSString *)genernateUniqueness:(uint64_t)sequid uri:(NSUInteger)uri
+{
+    return [NSString stringWithFormat:@"%@_%lu", @(sequid), (unsigned long)uri];
+}
 
 @end

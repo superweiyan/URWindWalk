@@ -30,7 +30,7 @@
     return data;
 }
 
-+ (PHeader *)headerWithSeqId:(uint64_t)seqId
++ (PHeader *)initHeader
 {
     PHeader *header = [[PHeader alloc] init];
     header.uid = 0;

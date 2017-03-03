@@ -14,7 +14,6 @@
 
 @interface URWWService : NSObject
 
-//@property (nonatomic, strong) URWWMainService   *mainService;
 @property (nonatomic, strong) URWWLoginService  *loginService;
 @property (nonatomic, strong) URWWRunService    *runService;
 

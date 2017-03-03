@@ -7,44 +7,41 @@
 //
 
 #import "URWWLoginService.h"
-#import "Urprotocol.pbobjc.h"
-#import "UrpacketType.pbobjc.h"
-#import "URSocketService.h"
-#import "URProtocolWrapper.h"
+#import "URNotification.h"
+#import "URLoginCore.h"
 
 NSString * URShowLoginNotification = @"URShowLoginNotification";
 
+@interface URWWLoginService()
+{
+    URLoginCore  *_loginCore;
+}
+@end
+
 @implementation URWWLoginService
 
-//+ (URWWLoginService *)sharedObject
-//{
-//    static dispatch_once_t __once;              \
-//    static URWWLoginService * __instance = nil;         \
-//    dispatch_once(&__once, ^{                   \
-//        __instance = [[URWWLoginService alloc] init];   \
-//    });                                         \
-//    return __instance;
-//}
-
-- (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(login_timeout_block)callback
+- (instancetype)init
 {
-    
+    self = [super init];
+    if (self) {
+        _loginCore = [[URLoginCore alloc] init];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(timeout_block)callback
+{
     if (passport.length == 0 || password.length == 0) {
         return NO;
     }
     
-    URLoginReq *loginReq = [URLoginReq new];
-    loginReq.passport = passport;
-    loginReq.password = password;
-
-    URProtocol *protocol = [URProtocol new];
-    protocol.uri = URPacketType_KUriPloginReq;
-    protocol.loginReq = loginReq;
-    
-    NSData *data = [URProtocolWrapper outputStreamWithProto:protocol];
-    
-    [[URSocketService sharedObject] sendData:data callback:^(BOOL timeout) {
-        if (timeout) {
+    [_loginCore login:passport password:password timeout:^{
+        if (callback) {
             callback();
         }
     }];
@@ -57,6 +54,14 @@ NSString * URShowLoginNotification = @"URShowLoginNotification";
     
 }
 
+- (void)initNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onLoginResultNotification:)
+                                                 name:URLoginResultNotification
+                                               object:nil];
+}
+
 - (BOOL)autoLogin
 {
     if (YES) {
@@ -67,6 +72,13 @@ NSString * URShowLoginNotification = @"URShowLoginNotification";
     }
     
     return YES;
+}
+
+#pragma mark - notification
+
+- (void)onLoginResultNotification:(NSNotification *)notification
+{
+    
 }
 
 @end

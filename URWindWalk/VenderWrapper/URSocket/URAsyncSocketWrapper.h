@@ -15,7 +15,7 @@
 @end
 
 typedef void(^ur_asyncSocketResult_block) (NSUInteger);
-typedef void(^ur_asyncSocketTimeout_block) (BOOL);
+typedef void(^ur_asyncSocketTimeout_block) ();
 
 @interface URAsyncSocketWrapper : NSObject
 
