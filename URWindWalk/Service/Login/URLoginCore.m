@@ -13,11 +13,24 @@
 
 @implementation URLoginCore
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self registerNotification];
+    }
+    return self;
+}
+
+- (void)registerNotification
+{
+    
+}
+
 - (void)parseLoginResProtocol:(URProtocol *)protocol
 {
     URLoginRes *loginRes = protocol.loginRes;
 }
-
 
 - (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(timeout_block)timeout
 {

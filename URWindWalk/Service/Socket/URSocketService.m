@@ -25,7 +25,7 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
 {
     URAsyncSocketWrapper   *_asyncSocketWrapper;
     NSMutableDictionary    *_blockDict;
-    uint64_t                seqid;
+    NSMutableDictionary    *_notificationDict;
 }
 @end
 
@@ -48,8 +48,6 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
         _asyncSocketWrapper = [[URAsyncSocketWrapper alloc] init];
         _asyncSocketWrapper.port = 7777;
         _asyncSocketWrapper.ip = @"127.0.0.1";
-        _blockDict = [[NSMutableDictionary alloc] init];
-        seqid = [[NSDate date] timeIntervalSince1970];
         [self initData];
     }
     return self;
@@ -60,21 +58,12 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
     if([_asyncSocketWrapper connectServer]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:URSocketResultNotification object:nil];
     }
+    
+    _blockDict = [[NSMutableDictionary alloc] init];
+    _notificationDict = [[NSMutableDictionary alloc] init];
 }
 
 #pragma mark -
-
-- (void)onDataArrived:(NSData *)data
-{
-    NSError *error;
-    URProtocol *proto = [URProtocol parseFromData:data error:&error];
-    
-    if (error) {
-        return ;
-    }
-    
-    [self dispatchUri:proto];
-}
 
 - (BOOL)sendData:(NSUInteger)uri data:(URProtocol *)protocolData callback:(onRawDataArrived_block)callback timeout:(timeout_block)timeout
 {
@@ -93,6 +82,38 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
     
     return issuccess;
 }
+
+- (void)registerNotification:(NSUInteger)uri notification:(NSString *)notification
+{
+    [_notificationDict setObject:notification forKey:@(uri)];
+}
+
+- (void)unregisterNotification:(NSUInteger)uri
+{
+    [_notificationDict removeObjectForKey:@(uri)];
+}
+
+#pragma mark - callback
+
+- (void)onDataArrived:(NSData *)data
+{
+    NSError *error;
+    URProtocol *proto = [URProtocol parseFromData:data error:&error];
+    
+    if (error) {
+        return ;
+    }
+    
+    NSString *notificationName = [_notificationDict objectForKey:@(proto.uri)];
+    if (notificationName) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:proto];
+    }
+    else {
+        [self dispatchUri:proto];
+    }
+}
+
+#pragma mark - private
 
 - (void)watchTimeout:(NSString *)blockId
 {
