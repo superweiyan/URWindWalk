@@ -10,9 +10,7 @@
 #import "URNotification.h"
 #import "URLoginCore.h"
 
-NSString * URShowLoginNotification = @"URShowLoginNotification";
-
-@interface URWWLoginService()
+@interface URWWLoginService()<URLoginCoreDelegate>
 {
     URLoginCore  *_loginCore;
 }
@@ -24,7 +22,8 @@ NSString * URShowLoginNotification = @"URShowLoginNotification";
 {
     self = [super init];
     if (self) {
-        _loginCore = [[URLoginCore alloc] init];
+        [self initData];
+        [self initNotification];
     }
     return self;
 }
@@ -32,6 +31,12 @@ NSString * URShowLoginNotification = @"URShowLoginNotification";
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)initData
+{
+    _loginCore = [[URLoginCore alloc] init];
+    _loginCore.loginDelegate = self;
 }
 
 - (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(timeout_block)callback
@@ -64,6 +69,8 @@ NSString * URShowLoginNotification = @"URShowLoginNotification";
 
 - (BOOL)autoLogin
 {
+    return NO;
+    
     if (YES) {
         [[NSNotificationCenter defaultCenter] postNotificationName:URShowLoginNotification object:nil];
     }
@@ -79,6 +86,15 @@ NSString * URShowLoginNotification = @"URShowLoginNotification";
 - (void)onLoginResultNotification:(NSNotification *)notification
 {
     
+}
+
+#pragma mark - URLoginCoreDelegate
+
+- (void)onLoginRes:(NSUInteger)resCode
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:URLoginResultNotification
+                                                        object:nil
+                                                      userInfo:@{URLoginResultKey:@(resCode)}];
 }
 
 @end

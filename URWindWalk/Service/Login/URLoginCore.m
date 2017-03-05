@@ -10,6 +10,7 @@
 #import "Urprotocol.pbobjc.h"
 #import "URSocketService.h"
 #import "UrpacketType.pbobjc.h"
+#import "URMarcoUtil.h"
 
 @implementation URLoginCore
 
@@ -30,6 +31,13 @@
 - (void)parseLoginResProtocol:(URProtocol *)protocol
 {
     URLoginRes *loginRes = protocol.loginRes;
+    
+    if (loginRes.result.code == 0) {
+        
+    }
+    else {
+        
+    }
 }
 
 - (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(timeout_block)timeout
@@ -45,8 +53,9 @@
     URProtocol *protocol = [URProtocol new];
     protocol.loginReq = loginReq;
     
-    __weak typeof(self) weakSelf = self;
-    [[URSocketService sharedObject] sendData:URPacketType_KUriPloginReq data:protocol
+    weak_Self
+    [[URSocketService sharedObject] sendData:URPacketType_KUriPloginReq
+                                        data:protocol
                                     callback:^(URProtocol *protocol){
                                         [weakSelf parseLoginResProtocol:protocol];
                                     }timeout:^{

@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "URBlock.h"
 
+@protocol URLoginCoreDelegate <NSObject>
+
+- (void)onLoginRes:(NSUInteger)resCode;
+
+@end
+
 @interface URLoginCore : NSObject
+
+@property (nonatomic, assign) id<URLoginCoreDelegate> loginDelegate;
 
 - (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(timeout_block)callback;
 

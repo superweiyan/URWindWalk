@@ -10,3 +10,4 @@
 
 static NSString *URLoginResultKey = @"URLoginResultKey";
 static NSString *URLoginResultNotification = @"URLoginResultNotification";
+static NSString *URShowLoginNotification = @"URShowLoginNotification";

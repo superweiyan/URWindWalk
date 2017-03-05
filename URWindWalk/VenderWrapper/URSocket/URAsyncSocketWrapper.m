@@ -90,7 +90,7 @@ static long count = 0;
     return YES;
 }
 
-- (BOOL)sendData:(NSData *)data time:(ur_asyncSocketTimeout_block)callback;
+- (BOOL)sendData:(NSData *)data callback:(ur_asyncSocketTimeout_block)callback;
 {
     if (_socketState != URAsyncSocketStateLink) {
         return NO;

@@ -20,6 +20,10 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
 @property (strong, nonatomic) onDataCallback_block  callbackHandler;
 @end;
 
+@implementation ReqInfo
+
+@end
+
 
 @interface URSocketService()<URSocketDataArrivedDelegate>
 {
@@ -48,6 +52,7 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
         _asyncSocketWrapper = [[URAsyncSocketWrapper alloc] init];
         _asyncSocketWrapper.port = 7777;
         _asyncSocketWrapper.ip = @"127.0.0.1";
+        _asyncSocketWrapper.dataArrivedDelegate = self;
         [self initData];
     }
     return self;
@@ -72,7 +77,12 @@ NSString * URSocketResultNotification = @"URSocketResultNotification";
     NSData *data = [URProtocolWrapper outputStreamWithProto:protocolData];
     
     NSString *blockId = [self genernateUniqueness:protocolData.header.seqid uri:(uri+1)];
-    [_blockDict setObject:callback forKey:blockId];
+    
+    ReqInfo *info = [ReqInfo new];
+    info.uriRes = protocolData.header.seqid;
+    info.timeoutHandler = timeout;
+    info.callbackHandler = callback;
+    [_blockDict setObject:info forKey:blockId];
     
     BOOL issuccess = [_asyncSocketWrapper sendData:data callback:^{
             timeout();

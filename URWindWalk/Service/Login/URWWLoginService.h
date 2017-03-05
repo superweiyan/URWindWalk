@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "URBlock.h"
 
-extern NSString * URShowLoginNotification;
-
 @interface URWWLoginService : NSObject
 
-- (BOOL)login:(NSString *)passport password:(NSString *)password timeout:(timeout_block)callback;
+- (BOOL)login:(NSString *)passport password:(NSString *)password
+                                    timeout:(timeout_block)callback;
 
 - (void)logout;
 

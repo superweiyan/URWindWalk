@@ -13,3 +13,5 @@
 #import "URLog.h"
 
 #define URLog(info, modelName) [[URLog sharedObject] logInfo:info model:modelName funName:__func__];
+
+#define weak_Self __weak __typeof__(self) weakSelf = self;

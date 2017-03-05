@@ -9,6 +9,7 @@
 #import "URWWLoginViewController.h"
 #import "URWWService.h"
 #import "URWWLoginService.h"
+#import "URNotification.h"
 
 @interface URWWLoginViewController ()<UITextFieldDelegate>
 
@@ -30,6 +31,7 @@
     // Do any additional setup after loading the view.
     
     [self initViews];
+    [self initNotification];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,6 +99,14 @@
     [self.view addSubview:self.serviceLabel];
 }
 
+- (void)initNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onLoginResultNotification:)
+                                                 name:URLoginResultNotification
+                                               object:nil];
+}
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -152,6 +162,13 @@
     UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
     effectview.frame = rect;
     [self.view addSubview:effectview];
+}
+
+#pragma mark - notification
+
+- (void)onLoginResultNotification:(NSNotification *)notification
+{
+    
 }
 
 @end

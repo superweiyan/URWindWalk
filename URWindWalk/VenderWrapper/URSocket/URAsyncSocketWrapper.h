@@ -19,7 +19,7 @@ typedef void(^ur_asyncSocketTimeout_block) ();
 
 @interface URAsyncSocketWrapper : NSObject
 
-@property (nonatomic, copy)     id<URSocketDataArrivedDelegate> dataArrivedDelegate;
+@property (nonatomic, assign)     id<URSocketDataArrivedDelegate> dataArrivedDelegate;
 
 @property (nonatomic, copy)     NSString        *ip;
 
