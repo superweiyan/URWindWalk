@@ -34,8 +34,6 @@
     if([[URWWService sharedObject].loginService autoLogin]){
         UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         ViewController *viewController = [mainBoard instantiateViewControllerWithIdentifier:@"ViewController"];
-//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-//        self.window.rootViewController = navController;
         self.window.rootViewController = viewController;
     }
     else {

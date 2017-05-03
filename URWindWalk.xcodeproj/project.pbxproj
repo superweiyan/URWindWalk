@@ -85,6 +85,8 @@
 		A0E657591E0ADA91003D5E87 /* URLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E657581E0ADA91003D5E87 /* URLocationManager.m */; };
 		A0E7A9B91E49BA990014C95F /* URWWLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E7A9B71E49BA990014C95F /* URWWLoginService.m */; };
 		A0E7A9BB1E4AC8A70014C95F /* IMG_4050.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A0E7A9BA1E4AC8A70014C95F /* IMG_4050.PNG */; };
+		A0E8C6F31EBA13D8001E9083 /* loginbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0E8C6F21EBA13D8001E9083 /* loginbg.jpg */; };
+		A0E8C6F71EBA17C1001E9083 /* URImageMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E8C6F61EBA17C1001E9083 /* URImageMacro.m */; };
 		A0EAE8861E136B0C000236A4 /* URHttpUrlDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8851E136B0C000236A4 /* URHttpUrlDefine.m */; };
 		A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8891E13973A000236A4 /* URAFNetWorkingWrapper.m */; };
 		A0EAE88D1E139AF2000236A4 /* URDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88C1E139AF2000236A4 /* URDefine.m */; };
@@ -258,6 +260,9 @@
 		A0E7A9B71E49BA990014C95F /* URWWLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWLoginService.m; sourceTree = "<group>"; };
 		A0E7A9B81E49BA990014C95F /* URWWLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWLoginService.h; sourceTree = "<group>"; };
 		A0E7A9BA1E4AC8A70014C95F /* IMG_4050.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4050.PNG; sourceTree = "<group>"; };
+		A0E8C6F21EBA13D8001E9083 /* loginbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginbg.jpg; sourceTree = "<group>"; };
+		A0E8C6F51EBA17C1001E9083 /* URImageMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URImageMacro.h; sourceTree = "<group>"; };
+		A0E8C6F61EBA17C1001E9083 /* URImageMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URImageMacro.m; sourceTree = "<group>"; };
 		A0EAE8841E136B0C000236A4 /* URHttpUrlDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URHttpUrlDefine.h; sourceTree = "<group>"; };
 		A0EAE8851E136B0C000236A4 /* URHttpUrlDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URHttpUrlDefine.m; sourceTree = "<group>"; };
 		A0EAE8881E13973A000236A4 /* URAFNetWorkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URAFNetWorkingWrapper.h; sourceTree = "<group>"; };
@@ -605,6 +610,7 @@
 		A0D29C101DF4679600C7CF4D /* URWindWalk */ = {
 			isa = PBXGroup;
 			children = (
+				A0E8C6F41EBA178B001E9083 /* Macro */,
 				A05090841E3D90C0002ABDCD /* ProtocolWrapper */,
 				A050907D1E3CD8EE002ABDCD /* Protocol */,
 				A0DFE2701E2B19AF005B254F /* Category */,
@@ -743,6 +749,7 @@
 		A0E657531E0A6E33003D5E87 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				A0E8C6F11EBA13D8001E9083 /* Login */,
 				A0E7A9BA1E4AC8A70014C95F /* IMG_4050.PNG */,
 				A087236C1E0D16FF00AADFBC /* b16.jpg */,
 				A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */,
@@ -768,6 +775,23 @@
 				A0E7A9B81E49BA990014C95F /* URWWLoginService.h */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		A0E8C6F11EBA13D8001E9083 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A0E8C6F21EBA13D8001E9083 /* loginbg.jpg */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A0E8C6F41EBA178B001E9083 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				A0E8C6F51EBA17C1001E9083 /* URImageMacro.h */,
+				A0E8C6F61EBA17C1001E9083 /* URImageMacro.m */,
+			);
+			path = Macro;
 			sourceTree = "<group>";
 		};
 		A0EAE8871E13973A000236A4 /* AFNetWorkingHttp */ = {
@@ -895,6 +919,7 @@
 				A0D29C1E1DF4679600C7CF4D /* Assets.xcassets in Resources */,
 				A0E7A9BB1E4AC8A70014C95F /* IMG_4050.PNG in Resources */,
 				A0DB7E5B1E3852F3002A1950 /* URTestProtocolStoryboard.storyboard in Resources */,
+				A0E8C6F31EBA13D8001E9083 /* loginbg.jpg in Resources */,
 				A087236D1E0D16FF00AADFBC /* b16.jpg in Resources */,
 				A0E657551E0A6E33003D5E87 /* weather-cloudy.jpg in Resources */,
 				A0D29C1C1DF4679600C7CF4D /* Main.storyboard in Resources */,
@@ -1029,6 +1054,7 @@
 				A08723881E0E0CCA00AADFBC /* URWWCalendarView.m in Sources */,
 				A0E7A9B91E49BA990014C95F /* URWWLoginService.m in Sources */,
 				A08723081E0D132B00AADFBC /* MeViewController.m in Sources */,
+				A0E8C6F71EBA17C1001E9083 /* URImageMacro.m in Sources */,
 				A0E657591E0ADA91003D5E87 /* URLocationManager.m in Sources */,
 				A05090821E3D908B002ABDCD /* Urprotocol.pbobjc.m in Sources */,
 				A05090D81E3DA3B5002ABDCD /* GPBExtensionInternals.m in Sources */,

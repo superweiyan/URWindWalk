@@ -10,6 +10,7 @@
 #import "URWWService.h"
 #import "URWWLoginService.h"
 #import "URNotification.h"
+#import "URImageMacro.h"
 
 @interface URWWLoginViewController ()<UITextFieldDelegate>
 
@@ -52,7 +53,11 @@
 - (void)initViews
 {
     self.carouselBgView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.carouselBgView.image = [UIImage imageNamed:@"IMG_4050.png"];
+//    self.carouselBgView.image = [UIImage imageNamed:@"IMG_4050.png"];
+    
+    NSString *path = LocalresourePath(@"loginbg.jpg");
+    UIImage  *image = GetImageForPath(path);
+    self.carouselBgView.image = image;
     [self.view addSubview:self.carouselBgView];
     
     [self addBlur:[UIScreen mainScreen].bounds];

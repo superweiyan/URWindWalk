@@ -26,16 +26,6 @@ NSString *URUpdateStepFrequencyNotification = @"URUpdateStepFrequencyNotificatio
 
 @implementation URWWRunService
 
-//+ (URWWRunService *)sharedObject
-//{
-//    static dispatch_once_t __once;              \
-//    static URWWRunService * __instance = nil;         \
-//    dispatch_once(&__once, ^{                   \
-//        __instance = [[URWWRunService alloc] init];   \
-//    });                                         \
-//    return __instance;
-//}
-
 - (instancetype)init
 {
     self = [super init];
