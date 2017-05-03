@@ -84,7 +84,6 @@
 		A0E657551E0A6E33003D5E87 /* weather-cloudy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */; };
 		A0E657591E0ADA91003D5E87 /* URLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E657581E0ADA91003D5E87 /* URLocationManager.m */; };
 		A0E7A9B91E49BA990014C95F /* URWWLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E7A9B71E49BA990014C95F /* URWWLoginService.m */; };
-		A0E7A9BB1E4AC8A70014C95F /* IMG_4050.PNG in Resources */ = {isa = PBXBuildFile; fileRef = A0E7A9BA1E4AC8A70014C95F /* IMG_4050.PNG */; };
 		A0E8C6F31EBA13D8001E9083 /* loginbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0E8C6F21EBA13D8001E9083 /* loginbg.jpg */; };
 		A0E8C6F71EBA17C1001E9083 /* URImageMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E8C6F61EBA17C1001E9083 /* URImageMacro.m */; };
 		A0EAE8861E136B0C000236A4 /* URHttpUrlDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8851E136B0C000236A4 /* URHttpUrlDefine.m */; };
@@ -92,6 +91,7 @@
 		A0EAE88D1E139AF2000236A4 /* URDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88C1E139AF2000236A4 /* URDefine.m */; };
 		A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88F1E13AF17000236A4 /* URWWLocationService.m */; };
 		A0EC34101E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EC340F1E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m */; };
+		A0FA9B411EBA400300C30EC9 /* URWWLoginViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9B401EBA400300C30EC9 /* URWWLoginViewController+Layout.m */; };
 		A0FDBEC81E5998E0000877C3 /* URSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBEC71E5998E0000877C3 /* URSocketService.m */; };
 		A0FDBED11E59DBFB000877C3 /* URWWService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBED01E59DBFB000877C3 /* URWWService.m */; };
 		C986EA9AAA48A052B3B730F8 /* Pods_URWindWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3D0D3C8D0E2F50736ACF8E /* Pods_URWindWalk.framework */; };
@@ -259,7 +259,6 @@
 		A0E657581E0ADA91003D5E87 /* URLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLocationManager.m; sourceTree = "<group>"; };
 		A0E7A9B71E49BA990014C95F /* URWWLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWLoginService.m; sourceTree = "<group>"; };
 		A0E7A9B81E49BA990014C95F /* URWWLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWLoginService.h; sourceTree = "<group>"; };
-		A0E7A9BA1E4AC8A70014C95F /* IMG_4050.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4050.PNG; sourceTree = "<group>"; };
 		A0E8C6F21EBA13D8001E9083 /* loginbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginbg.jpg; sourceTree = "<group>"; };
 		A0E8C6F51EBA17C1001E9083 /* URImageMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URImageMacro.h; sourceTree = "<group>"; };
 		A0E8C6F61EBA17C1001E9083 /* URImageMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URImageMacro.m; sourceTree = "<group>"; };
@@ -276,6 +275,8 @@
 		A0F887FF1E012AAB0002A41A /* URWindWalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URWindWalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F888011E012AAB0002A41A /* URWindWalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URWindWalkTests.m; sourceTree = "<group>"; };
 		A0F888031E012AAB0002A41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0FA9B3F1EBA400300C30EC9 /* URWWLoginViewController+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URWWLoginViewController+Layout.h"; sourceTree = "<group>"; };
+		A0FA9B401EBA400300C30EC9 /* URWWLoginViewController+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "URWWLoginViewController+Layout.m"; sourceTree = "<group>"; };
 		A0FDBEC61E5998E0000877C3 /* URSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URSocketService.h; sourceTree = "<group>"; };
 		A0FDBEC71E5998E0000877C3 /* URSocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URSocketService.m; sourceTree = "<group>"; };
 		A0FDBECF1E59DBFB000877C3 /* URWWService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWService.h; sourceTree = "<group>"; };
@@ -487,6 +488,8 @@
 			children = (
 				A08722FA1E0D132B00AADFBC /* URWWLoginViewController.h */,
 				A08722FB1E0D132B00AADFBC /* URWWLoginViewController.m */,
+				A0FA9B3F1EBA400300C30EC9 /* URWWLoginViewController+Layout.h */,
+				A0FA9B401EBA400300C30EC9 /* URWWLoginViewController+Layout.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -750,7 +753,6 @@
 			isa = PBXGroup;
 			children = (
 				A0E8C6F11EBA13D8001E9083 /* Login */,
-				A0E7A9BA1E4AC8A70014C95F /* IMG_4050.PNG */,
 				A087236C1E0D16FF00AADFBC /* b16.jpg */,
 				A0E657541E0A6E33003D5E87 /* weather-cloudy.jpg */,
 			);
@@ -881,7 +883,7 @@
 				TargetAttributes = {
 					A0D29C0D1DF4679600C7CF4D = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = PJD5F25QWG;
+						DevelopmentTeam = CAGU5L98ZV;
 						ProvisioningStyle = Automatic;
 					};
 					A0F887FE1E012AAB0002A41A = {
@@ -917,7 +919,6 @@
 			files = (
 				A0D29C211DF4679600C7CF4D /* LaunchScreen.storyboard in Resources */,
 				A0D29C1E1DF4679600C7CF4D /* Assets.xcassets in Resources */,
-				A0E7A9BB1E4AC8A70014C95F /* IMG_4050.PNG in Resources */,
 				A0DB7E5B1E3852F3002A1950 /* URTestProtocolStoryboard.storyboard in Resources */,
 				A0E8C6F31EBA13D8001E9083 /* loginbg.jpg in Resources */,
 				A087236D1E0D16FF00AADFBC /* b16.jpg in Resources */,
@@ -1008,6 +1009,7 @@
 				A08723091E0D132B00AADFBC /* RunViewController.m in Sources */,
 				A087237E1E0D66F900AADFBC /* URLabel.m in Sources */,
 				A05090DF1E3DA3B5002ABDCD /* GPBWellKnownTypes.m in Sources */,
+				A0FA9B411EBA400300C30EC9 /* URWWLoginViewController+Layout.m in Sources */,
 				A0EC34101E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m in Sources */,
 				A0FDBED11E59DBFB000877C3 /* URWWService.m in Sources */,
 				A05090CF1E3DA3B5002ABDCD /* Struct.pbobjc.m in Sources */,
@@ -1195,7 +1197,7 @@
 			baseConfigurationReference = E2F7AC569DE18F7C87C76F81 /* Pods-URWindWalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PJD5F25QWG;
+				DEVELOPMENT_TEAM = CAGU5L98ZV;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/URWindWalk/VenderWrapper/protobuf";
 				INFOPLIST_FILE = URWindWalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1211,7 +1213,7 @@
 			baseConfigurationReference = 7DF0D77818870D74D7875F69 /* Pods-URWindWalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PJD5F25QWG;
+				DEVELOPMENT_TEAM = CAGU5L98ZV;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/URWindWalk/VenderWrapper/protobuf";
 				INFOPLIST_FILE = URWindWalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
