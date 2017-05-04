@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#define VIEW_WIDTH  [UIScreen mainScreen].bounds.size.width
+#define VIEW_HEIGHT  [UIScreen mainScreen].bounds.size.height
+
+
 //#define newObj(z) [[z alloc] initWithFrame:CGRectZero];
 #define AddView(z, t) z = [[t alloc] initWithFrame:CGRectZero]; [self.view addSubview:z];
 

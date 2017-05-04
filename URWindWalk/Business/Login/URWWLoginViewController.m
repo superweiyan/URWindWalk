@@ -14,7 +14,7 @@
 #import "URImageMacro.h"
 #import "URActionMacro.h"
 
-@interface URWWLoginViewController ()
+@interface URWWLoginViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -25,6 +25,8 @@
     // Do any additional setup after loading the view.
     
     [self initViews];
+    self.nickName.delegate = self;
+    self.password.delegate = self;
     [self addAction];
     [self initNotification];
 }
@@ -96,6 +98,13 @@
 - (void)onLoginResultNotification:(NSNotification *)notification
 {
     
+}
+
+#pragma mark - delegaate 
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@" +++++++ ");
 }
 
 @end

@@ -18,6 +18,7 @@
 @property (nonatomic, strong)  UIButton         *forgetPasswordBtn;
 @property (nonatomic, strong)  UILabel          *serviceLabel;
 @property (nonatomic, strong)  UIView           *loginView;
+@property (nonatomic, strong)  UIImageView      *portailImage;
 
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "URWWLoginViewController.h"
 
-@interface URWWLoginViewController(Layout)<UITextFieldDelegate>
+@interface URWWLoginViewController(Layout)
 
 - (void)initViews;
 
