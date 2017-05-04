@@ -19,4 +19,5 @@
 @property (nonatomic, strong)  UILabel          *serviceLabel;
 @property (nonatomic, strong)  UIView           *loginView;
 
+
 @end

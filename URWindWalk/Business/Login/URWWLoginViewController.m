@@ -12,6 +12,7 @@
 #import "URNotification.h"
 #import "URWWLoginViewController+Layout.h"
 #import "URImageMacro.h"
+#import "URActionMacro.h"
 
 @interface URWWLoginViewController ()
 
@@ -45,15 +46,12 @@
 
 - (void)addAction
 {
-    [self.loginBtn addTarget:self action:@selector(onloginClick:) forControlEvents:UIControlEventTouchUpInside];
+    ADD_ACTION(self.loginBtn, @selector(onloginClick:));
 }
 
 - (void)initNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onLoginResultNotification:)
-                                                 name:URLoginResultNotification
-                                               object:nil];
+    ADD_NOTIFY(URLoginResultNotification, @selector(onLoginResultNotification:));
 }
 
 - (void)viewDidLayoutSubviews

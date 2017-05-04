@@ -86,6 +86,8 @@
 		A0E7A9B91E49BA990014C95F /* URWWLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E7A9B71E49BA990014C95F /* URWWLoginService.m */; };
 		A0E8C6F31EBA13D8001E9083 /* loginbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0E8C6F21EBA13D8001E9083 /* loginbg.jpg */; };
 		A0E8C6F71EBA17C1001E9083 /* URImageMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E8C6F61EBA17C1001E9083 /* URImageMacro.m */; };
+		A0E8C6FD1EBAFCBD001E9083 /* URLayoutViewMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E8C6FC1EBAFCBD001E9083 /* URLayoutViewMacro.m */; };
+		A0E8C7001EBB0529001E9083 /* URActionMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E8C6FF1EBB0529001E9083 /* URActionMacro.m */; };
 		A0EAE8861E136B0C000236A4 /* URHttpUrlDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8851E136B0C000236A4 /* URHttpUrlDefine.m */; };
 		A0EAE88A1E13973A000236A4 /* URAFNetWorkingWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE8891E13973A000236A4 /* URAFNetWorkingWrapper.m */; };
 		A0EAE88D1E139AF2000236A4 /* URDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88C1E139AF2000236A4 /* URDefine.m */; };
@@ -262,6 +264,10 @@
 		A0E8C6F21EBA13D8001E9083 /* loginbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginbg.jpg; sourceTree = "<group>"; };
 		A0E8C6F51EBA17C1001E9083 /* URImageMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URImageMacro.h; sourceTree = "<group>"; };
 		A0E8C6F61EBA17C1001E9083 /* URImageMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URImageMacro.m; sourceTree = "<group>"; };
+		A0E8C6FB1EBAFCBD001E9083 /* URLayoutViewMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLayoutViewMacro.h; sourceTree = "<group>"; };
+		A0E8C6FC1EBAFCBD001E9083 /* URLayoutViewMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLayoutViewMacro.m; sourceTree = "<group>"; };
+		A0E8C6FE1EBB0529001E9083 /* URActionMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URActionMacro.h; sourceTree = "<group>"; };
+		A0E8C6FF1EBB0529001E9083 /* URActionMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URActionMacro.m; sourceTree = "<group>"; };
 		A0EAE8841E136B0C000236A4 /* URHttpUrlDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URHttpUrlDefine.h; sourceTree = "<group>"; };
 		A0EAE8851E136B0C000236A4 /* URHttpUrlDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URHttpUrlDefine.m; sourceTree = "<group>"; };
 		A0EAE8881E13973A000236A4 /* URAFNetWorkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URAFNetWorkingWrapper.h; sourceTree = "<group>"; };
@@ -792,6 +798,10 @@
 			children = (
 				A0E8C6F51EBA17C1001E9083 /* URImageMacro.h */,
 				A0E8C6F61EBA17C1001E9083 /* URImageMacro.m */,
+				A0E8C6FB1EBAFCBD001E9083 /* URLayoutViewMacro.h */,
+				A0E8C6FC1EBAFCBD001E9083 /* URLayoutViewMacro.m */,
+				A0E8C6FE1EBB0529001E9083 /* URActionMacro.h */,
+				A0E8C6FF1EBB0529001E9083 /* URActionMacro.m */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -949,7 +959,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C3E2C2F6864B72E3F095373A /* [CP] Embed Pods Frameworks */ = {
@@ -989,12 +999,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E8C6FD1EBAFCBD001E9083 /* URLayoutViewMacro.m in Sources */,
 				A0647B221E17684000F5AC6E /* URWWRunService.m in Sources */,
 				A05090DC1E3DA3B5002ABDCD /* GPBUnknownField.m in Sources */,
 				A087230A1E0D132B00AADFBC /* URSummaryViewController+URLayout.m in Sources */,
 				A0DB7E591E3851B6002A1950 /* URTestProtocolViewController.m in Sources */,
 				A0342EF41E1C034D0005E74C /* URMeInfoTableViewCell.m in Sources */,
 				A05090D21E3DA3B5002ABDCD /* Wrappers.pbobjc.m in Sources */,
+				A0E8C7001EBB0529001E9083 /* URActionMacro.m in Sources */,
 				A04D7F921E6869C40003E7D4 /* URBlock.m in Sources */,
 				A0D29C191DF4679600C7CF4D /* ViewController.m in Sources */,
 				A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */,
