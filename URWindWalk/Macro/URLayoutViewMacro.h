@@ -13,8 +13,10 @@
 
 
 //#define newObj(z) [[z alloc] initWithFrame:CGRectZero];
-#define AddView(z, t) z = [[t alloc] initWithFrame:CGRectZero]; [self.view addSubview:z];
+#define ADD_VIEW(z, t) z = [[t alloc] initWithFrame:CGRectZero]; [self.view addSubview:z];
 
-#define AddViewInView(z, t, s) z = [[t alloc] initWithFrame:CGRectZero]; [s addSubview:z];
+#define ADD_VIEW_IN_VIEW(z, t, s) z = [[t alloc] initWithFrame:CGRectZero]; [s addSubview:z];
 
-#define URColor(r,g,b,a) [UIColor colorWithRed:r/255 green:g/255 blue:b/255 alpha:a];
+#define URCOLOR(r,g,b,a) [UIColor colorWithRed:r/255 green:g/255 blue:b/255 alpha:a];
+
+

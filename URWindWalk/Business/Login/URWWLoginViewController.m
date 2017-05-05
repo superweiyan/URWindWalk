@@ -14,7 +14,7 @@
 #import "URImageMacro.h"
 #import "URActionMacro.h"
 
-@interface URWWLoginViewController ()<UITextFieldDelegate>
+@interface URWWLoginViewController ()
 
 @end
 
@@ -25,8 +25,6 @@
     // Do any additional setup after loading the view.
     
     [self initViews];
-    self.nickName.delegate = self;
-    self.password.delegate = self;
     [self addAction];
     [self initNotification];
 }
@@ -49,6 +47,7 @@
 - (void)addAction
 {
     ADD_ACTION(self.loginBtn, @selector(onloginClick:));
+    ADD_ACTION(self.registerBtn, @selector(onRegisterClicked:));
 }
 
 - (void)initNotification
@@ -75,6 +74,11 @@
             
         }];
     }
+}
+
+- (IBAction)onRegisterClicked:(id)sender
+{
+    
 }
 
 #pragma mark - util
