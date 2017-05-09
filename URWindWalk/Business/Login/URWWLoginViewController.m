@@ -13,6 +13,7 @@
 #import "URWWLoginViewController+Layout.h"
 #import "URImageMacro.h"
 #import "URActionMacro.h"
+#import "URTelephoneNumberViewController.h"
 
 @interface URWWLoginViewController ()
 
@@ -48,6 +49,7 @@
 {
     ADD_ACTION(self.loginBtn, @selector(onloginClick:));
     ADD_ACTION(self.registerBtn, @selector(onRegisterClicked:));
+    ADD_ACTION(self.forgetPasswordBtn, @selector(onForgetPasswordClicked:));
 }
 
 - (void)initNotification
@@ -77,6 +79,12 @@
 }
 
 - (IBAction)onRegisterClicked:(id)sender
+{
+    URTelephoneNumberViewController *telephoneController = [[URTelephoneNumberViewController alloc] init];
+    [self.navigationController pushViewController:telephoneController animated:YES];
+}
+
+- (IBAction)onForgetPasswordClicked:(id)sender
 {
     
 }

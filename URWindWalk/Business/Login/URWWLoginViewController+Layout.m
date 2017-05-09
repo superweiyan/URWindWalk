@@ -52,7 +52,7 @@ CGFloat URViewWidth = 300;
     ADD_VIEW_IN_VIEW(self.registerBtn, UIButton, self.view);
     [self.registerBtn setTitle:@"注册" forState:UIControlStateNormal];
     self.registerBtn.titleLabel.font = [UIFont systemFontOfSize:12.0];
-    self.registerBtn.contentVerticalAlignment = UIControlContentHorizontalAlignmentRight;
+//    self.registerBtn.contentVerticalAlignment = UIControlContentHorizontalAlignmentRight;
     self.registerBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     
     ADD_VIEW_IN_VIEW(self.loginBtn, UIButton, self.view);
@@ -85,7 +85,7 @@ CGFloat URViewWidth = 300;
     self.forgetPasswordBtn.frame = CGRectMake(20, CGRectGetMaxY(self.password.frame) + 20, VIEW_WIDTH / 2 - 20, 30);
     self.registerBtn.frame = CGRectMake(VIEW_WIDTH / 2 + 20, CGRectGetMaxY(self.password.frame) + 20, VIEW_WIDTH / 2 - 20, 30);
     
-    self.loginBtn.frame = CGRectMake(x, CGRectGetMaxY(self.password.frame) + 20, URViewWidth, 30);
+    self.loginBtn.frame = CGRectMake(x, CGRectGetMaxY(self.forgetPasswordBtn.frame) + 20, URViewWidth, 30);
     self.serviceLabel.frame = CGRectMake(URViewWidth / 2 - 60, URViewWidth - 30, 140, 10);
 }
 

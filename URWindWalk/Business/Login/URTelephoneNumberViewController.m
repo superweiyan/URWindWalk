@@ -45,7 +45,6 @@ CGFloat kSecurityCodeButtonWidth = 92;
 {
     ADD_VIEW(self.telephoneNumberLabel, UITextField);
     ADD_VIEW(self.securityCodeButton, UIButton);
-    
 }
 
 - (void)viewDidLayoutSubviews

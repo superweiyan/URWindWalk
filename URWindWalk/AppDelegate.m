@@ -31,15 +31,19 @@
     [URWWService sharedObject];
     [URSocketService sharedObject];
     
+    ViewController *viewController = nil;
     if([[URWWService sharedObject].loginService autoLogin]){
         UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        ViewController *viewController = [mainBoard instantiateViewControllerWithIdentifier:@"ViewController"];
-        self.window.rootViewController = viewController;
+        viewController = [mainBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+//        self.window.rootViewController = viewController;
     }
     else {
-        UIViewController *controller = [[NSClassFromString(@"URWWLoginViewController") alloc] init];
-        self.window.rootViewController = controller;
+        viewController = [[NSClassFromString(@"URWWLoginViewController") alloc] init];
+        
     }
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
     return YES;
