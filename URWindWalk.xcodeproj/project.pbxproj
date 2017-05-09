@@ -45,6 +45,8 @@
 		A0647B261E1AB14500F5AC6E /* URLogCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0647B251E1AB14500F5AC6E /* URLogCheckViewController.m */; };
 		A06AFEE21E100B68008D6464 /* URWWCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE11E100B68008D6464 /* URWWCalendarCollectionViewCell.m */; };
 		A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE81E11643B008D6464 /* URTestViewController.m */; };
+		A086A56F1EC1C3B700A2ACB9 /* URButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A086A56E1EC1C3B700A2ACB9 /* URButton.m */; };
+		A086A5721EC1C4A000A2ACB9 /* URTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A086A5711EC1C4A000A2ACB9 /* URTextField.m */; };
 		A08722F71E0C314400AADFBC /* URWWUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722F61E0C314400AADFBC /* URWWUserInfoView.m */; };
 		A08723071E0D132B00AADFBC /* URWWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722FB1E0D132B00AADFBC /* URWWLoginViewController.m */; };
 		A08723081E0D132B00AADFBC /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722FE1E0D132B00AADFBC /* MeViewController.m */; };
@@ -190,6 +192,10 @@
 		A06AFEE11E100B68008D6464 /* URWWCalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWCalendarCollectionViewCell.m; sourceTree = "<group>"; };
 		A06AFEE71E11643B008D6464 /* URTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URTestViewController.h; sourceTree = "<group>"; };
 		A06AFEE81E11643B008D6464 /* URTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URTestViewController.m; sourceTree = "<group>"; };
+		A086A56D1EC1C3B700A2ACB9 /* URButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URButton.h; sourceTree = "<group>"; };
+		A086A56E1EC1C3B700A2ACB9 /* URButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URButton.m; sourceTree = "<group>"; };
+		A086A5701EC1C4A000A2ACB9 /* URTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URTextField.h; sourceTree = "<group>"; };
+		A086A5711EC1C4A000A2ACB9 /* URTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URTextField.m; sourceTree = "<group>"; };
 		A08722F51E0C314400AADFBC /* URWWUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWUserInfoView.h; sourceTree = "<group>"; };
 		A08722F61E0C314400AADFBC /* URWWUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWUserInfoView.m; sourceTree = "<group>"; };
 		A08722FA1E0D132B00AADFBC /* URWWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWLoginViewController.h; sourceTree = "<group>"; };
@@ -569,6 +575,10 @@
 				A0B222A61E1F44DF00AD35EE /* URPortraitView.h */,
 				A087237C1E0D66F900AADFBC /* URLabel.h */,
 				A087237D1E0D66F900AADFBC /* URLabel.m */,
+				A086A56D1EC1C3B700A2ACB9 /* URButton.h */,
+				A086A56E1EC1C3B700A2ACB9 /* URButton.m */,
+				A086A5701EC1C4A000A2ACB9 /* URTextField.h */,
+				A086A5711EC1C4A000A2ACB9 /* URTextField.m */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1012,6 +1022,7 @@
 				A0342EF41E1C034D0005E74C /* URMeInfoTableViewCell.m in Sources */,
 				A05090D21E3DA3B5002ABDCD /* Wrappers.pbobjc.m in Sources */,
 				A0E8C7001EBB0529001E9083 /* URActionMacro.m in Sources */,
+				A086A5721EC1C4A000A2ACB9 /* URTextField.m in Sources */,
 				A04D7F921E6869C40003E7D4 /* URBlock.m in Sources */,
 				A0D29C191DF4679600C7CF4D /* ViewController.m in Sources */,
 				A0DFE2751E2B19FF005B254F /* UIImage+URExtension.m in Sources */,
@@ -1084,6 +1095,7 @@
 				A08723701E0D1B5D00AADFBC /* URWWUserInfoTableViewCell.m in Sources */,
 				A0E657421E0A30AB003D5E87 /* URWWWeatherSerivce.m in Sources */,
 				A087237A1E0D27A500AADFBC /* URWWRunRecordView.m in Sources */,
+				A086A56F1EC1C3B700A2ACB9 /* URButton.m in Sources */,
 				A05090D51E3DA3B5002ABDCD /* GPBCodedOutputStream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

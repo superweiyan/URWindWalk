@@ -9,6 +9,7 @@
 #import "URWWLoginService.h"
 #import "URNotification.h"
 #import "URLoginCore.h"
+#import "URActionMacro.h"
 
 @interface URWWLoginService()<URLoginCoreDelegate>
 {
@@ -72,13 +73,18 @@
     return NO;
     
     if (YES) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:URShowLoginNotification object:nil];
+        POST_NOTIFY(URShowLoginNotification);
     }
     else {
         
     }
     
     return YES;
+}
+
+- (void)registerAccount:(NSString *)telephoneName :(NSString *)secureCode
+{
+    POST_NOTIFY(URRegisterNotification);
 }
 
 #pragma mark - notification

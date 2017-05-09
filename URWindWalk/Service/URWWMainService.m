@@ -11,6 +11,7 @@
 #import "URWWMainService.h"
 #import "URWWWeatherSerivce.h"
 #import "URWWLocationService.h"
+#import "URActionMacro.h"
 
 
 @implementation URWWMainService
@@ -36,10 +37,7 @@
 
 - (void)initNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showLoginView:)
-                                                 name:@"URShowLoginNotification"
-                                               object:nil];
+    ADD_NOTIFY(@"URShowLoginNotification", @selector(showLoginView:));
 }
 
 - (void)pushViewController:(UIViewController *)viewController

@@ -16,3 +16,5 @@
                                                                                 selector:__SELECTOR__ \\
                                                                                 name:__NAME__ \\
                                                                                 object:__OBJ__];
+
+#define POST_NOTIFY(__NAME__) [[NSNotificationCenter defaultCenter] postNotificationName:__NAME__ object:nil];

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString *URLoginResultKey = @"URLoginResultKey";
-static NSString *URLoginResultNotification = @"URLoginResultNotification";
-static NSString *URShowLoginNotification = @"URShowLoginNotification";
+extern NSString *URLoginResultKey;
+extern NSString *URLoginResultNotification;
+extern NSString *URShowLoginNotification;
+extern NSString *URRegisterNotification;

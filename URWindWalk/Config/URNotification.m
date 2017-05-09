@@ -8,3 +8,11 @@
 
 #import "URNotification.h"
 
+#pragma mark - login
+
+NSString *URLoginResultKey = @"URLoginResultKey";
+NSString *URLoginResultNotification = @"URLoginResultNotification";
+NSString *URShowLoginNotification = @"URShowLoginNotification";
+NSString *URRegisterNotification = @"URRegisterNotification";
+
+#pragma mark - other

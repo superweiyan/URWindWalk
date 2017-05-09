@@ -18,4 +18,6 @@
 
 - (BOOL)autoLogin;
 
+- (void)registerAccount:(NSString *)telephoneName :(NSString *)secureCode;
+
 @end
