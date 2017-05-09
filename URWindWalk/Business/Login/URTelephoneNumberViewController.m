@@ -56,6 +56,7 @@ CGFloat kSecurityCodeButtonWidth = 92;
     self.securityCodeLabel.placeholder = @"输入验证码";
     self.telephoneNumberLabel.placeholder = @"输入手机号码";
     [self.securityCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [self.registerButton setTitle:@"注册" forState:UIControlStateNormal];
     
     ADD_ACTION(self.securityCodeButton, @selector(onClicked));
     ADD_ACTION(self.registerButton, @selector(onRegisterClicked:));

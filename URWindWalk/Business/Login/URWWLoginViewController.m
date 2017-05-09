@@ -14,6 +14,7 @@
 #import "URImageMacro.h"
 #import "URActionMacro.h"
 #import "URTelephoneNumberViewController.h"
+#import "URForgetPasswordViewController.h"
 
 @interface URWWLoginViewController ()
 
@@ -44,6 +45,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
 
 - (void)addAction
 {
@@ -86,7 +99,8 @@
 
 - (IBAction)onForgetPasswordClicked:(id)sender
 {
-    
+    URForgetPasswordViewController *forgetController = [[URForgetPasswordViewController alloc] init];
+    [self.navigationController pushViewController:forgetController animated:YES];
 }
 
 #pragma mark - util

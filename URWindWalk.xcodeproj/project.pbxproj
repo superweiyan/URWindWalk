@@ -96,6 +96,8 @@
 		A0EAE8901E13AF17000236A4 /* URWWLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAE88F1E13AF17000236A4 /* URWWLocationService.m */; };
 		A0EC34101E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EC340F1E37A84B00EC31F2 /* URAsyncSocketWrapper+timeout.m */; };
 		A0EEA7561EBC659100C0C6FD /* URTelephoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EEA7551EBC659100C0C6FD /* URTelephoneNumberViewController.m */; };
+		A0F936461EC2135000FF26D6 /* URForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F936451EC2135000FF26D6 /* URForgetPasswordViewController.m */; };
+		A0F936491EC221C400FF26D6 /* URControlType.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F936481EC221C400FF26D6 /* URControlType.m */; };
 		A0FA9B411EBA400300C30EC9 /* URWWLoginViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9B401EBA400300C30EC9 /* URWWLoginViewController+Layout.m */; };
 		A0FDBEC81E5998E0000877C3 /* URSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBEC71E5998E0000877C3 /* URSocketService.m */; };
 		A0FDBED11E59DBFB000877C3 /* URWWService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBED01E59DBFB000877C3 /* URWWService.m */; };
@@ -290,6 +292,10 @@
 		A0F887FF1E012AAB0002A41A /* URWindWalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URWindWalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F888011E012AAB0002A41A /* URWindWalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URWindWalkTests.m; sourceTree = "<group>"; };
 		A0F888031E012AAB0002A41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F936441EC2135000FF26D6 /* URForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URForgetPasswordViewController.h; sourceTree = "<group>"; };
+		A0F936451EC2135000FF26D6 /* URForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URForgetPasswordViewController.m; sourceTree = "<group>"; };
+		A0F936471EC221C400FF26D6 /* URControlType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URControlType.h; sourceTree = "<group>"; };
+		A0F936481EC221C400FF26D6 /* URControlType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URControlType.m; sourceTree = "<group>"; };
 		A0FA9B3F1EBA400300C30EC9 /* URWWLoginViewController+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URWWLoginViewController+Layout.h"; sourceTree = "<group>"; };
 		A0FA9B401EBA400300C30EC9 /* URWWLoginViewController+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "URWWLoginViewController+Layout.m"; sourceTree = "<group>"; };
 		A0FDBEC61E5998E0000877C3 /* URSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URSocketService.h; sourceTree = "<group>"; };
@@ -507,6 +513,8 @@
 				A0FA9B401EBA400300C30EC9 /* URWWLoginViewController+Layout.m */,
 				A0EEA7541EBC659100C0C6FD /* URTelephoneNumberViewController.h */,
 				A0EEA7551EBC659100C0C6FD /* URTelephoneNumberViewController.m */,
+				A0F936441EC2135000FF26D6 /* URForgetPasswordViewController.h */,
+				A0F936451EC2135000FF26D6 /* URForgetPasswordViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -579,6 +587,8 @@
 				A086A56E1EC1C3B700A2ACB9 /* URButton.m */,
 				A086A5701EC1C4A000A2ACB9 /* URTextField.h */,
 				A086A5711EC1C4A000A2ACB9 /* URTextField.m */,
+				A0F936471EC221C400FF26D6 /* URControlType.h */,
+				A0F936481EC221C400FF26D6 /* URControlType.m */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1035,6 +1045,7 @@
 				A05090871E3D90DA002ABDCD /* URProtocolWrapper.m in Sources */,
 				A08723731E0D20CF00AADFBC /* URWWObjectInfo.m in Sources */,
 				A08723091E0D132B00AADFBC /* RunViewController.m in Sources */,
+				A0F936491EC221C400FF26D6 /* URControlType.m in Sources */,
 				A087237E1E0D66F900AADFBC /* URLabel.m in Sources */,
 				A05090DF1E3DA3B5002ABDCD /* GPBWellKnownTypes.m in Sources */,
 				A0FA9B411EBA400300C30EC9 /* URWWLoginViewController+Layout.m in Sources */,
@@ -1068,6 +1079,7 @@
 				A0B222B01E1FEE4B00AD35EE /* URWWUserInfo.m in Sources */,
 				A0D29C131DF4679600C7CF4D /* main.m in Sources */,
 				A05090DE1E3DA3B5002ABDCD /* GPBUtilities.m in Sources */,
+				A0F936461EC2135000FF26D6 /* URForgetPasswordViewController.m in Sources */,
 				A087230B1E0D132B00AADFBC /* URSummaryViewController.m in Sources */,
 				A08722F71E0C314400AADFBC /* URWWUserInfoView.m in Sources */,
 				A0B222A71E1F44DF00AD35EE /* URPortraitView.m in Sources */,
