@@ -239,10 +239,10 @@ static long count = 0;
     
     [data getBytes:&byteArray length:length];
     
-    for (int i = 0; i<[data length]; i++) {
-        char byte = byteArray[i];
-        NSLog(@"++++%c",byte);
-    }
+//    for (int i = 0; i<[data length]; i++) {
+//        char byte = byteArray[i];
+//        NSLog(@"++++%c",byte);
+//    }
     
     return byteArray;
 }

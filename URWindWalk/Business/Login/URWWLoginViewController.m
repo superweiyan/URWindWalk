@@ -15,6 +15,7 @@
 #import "URActionMacro.h"
 #import "URTelephoneNumberViewController.h"
 #import "URForgetPasswordViewController.h"
+#import "URActionMacro.h"
 
 @interface URWWLoginViewController ()
 
@@ -80,15 +81,18 @@
 
 - (IBAction)onloginClick:(id)sender
 {
-    if( self.nickName.text.length == 0 || self.password.text.length == 0) {
-        
-    }
-    else {
-        
-        [[URWWService sharedObject].loginService login:self.nickName.text password:self.password.text timeout:^{
-            
-        }];
-    }
+    NSDictionary *userInfo = @{URLoginResultKey:@(1)};
+    POST_OBJ_NOTIFY(URLoginResultNotification, userInfo);
+    
+//    if( self.nickName.text.length == 0 || self.password.text.length == 0) {
+//        
+//    }
+//    else {
+//        
+//        [[URWWService sharedObject].loginService login:self.nickName.text password:self.password.text timeout:^{
+//            
+//        }];
+//    }
 }
 
 - (IBAction)onRegisterClicked:(id)sender

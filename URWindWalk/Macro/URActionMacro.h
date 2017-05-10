@@ -18,3 +18,4 @@
                                                                                 object:__OBJ__];
 
 #define POST_NOTIFY(__NAME__) [[NSNotificationCenter defaultCenter] postNotificationName:__NAME__ object:nil];
+#define POST_OBJ_NOTIFY(__NAME__, __OBJ__) [[NSNotificationCenter defaultCenter] postNotificationName:__NAME__ object:__OBJ__];

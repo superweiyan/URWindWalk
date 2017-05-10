@@ -10,14 +10,6 @@
 
 @class PHeader;
 
-static uint64_t getSeqId() {
-    static uint64_t seqID = 0;
-    if (seqID == 0) {
-        seqID = (uint64_t)[NSDate timeIntervalSinceReferenceDate];
-    }
-    
-    return ++seqID;
-}
 
 @interface URProtocolWrapper : NSObject
 

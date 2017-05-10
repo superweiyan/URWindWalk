@@ -52,6 +52,7 @@
     self.confirmPasswordText.placeholder = @"再次输入密码";
     [self.secureCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
     [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
+    [self.loginButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 }
 
 - (void)layoutSubview

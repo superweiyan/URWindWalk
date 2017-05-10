@@ -13,6 +13,16 @@
 #import "URAsyncSocketWrapper.h"
 #import "UrpacketType.pbobjc.h"
 
+static uint64_t getSeqId()
+{
+    static uint64_t seqID = 0;
+    if (seqID == 0) {
+        seqID = (uint64_t)[NSDate timeIntervalSinceReferenceDate];
+    }
+    
+    return ++seqID;
+}
+
 @implementation URProtocolWrapper
 
 #pragma mark - util

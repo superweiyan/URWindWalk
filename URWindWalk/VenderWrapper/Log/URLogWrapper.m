@@ -53,12 +53,12 @@ static const int ddLogLevel = DDLogLevelVerbose;
 
 - (void)logDebug:(NSString *)info
 {
-    DDLogDebug(info);
+    DDLogDebug(@"%@", info);
 }
 
 - (void)logInfo:(NSString *)info
 {
-    DDLogInfo(info);
+    DDLogInfo(@"%@", info);
 }
 
 - (NSString *)getLogPath

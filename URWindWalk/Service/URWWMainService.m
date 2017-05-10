@@ -37,7 +37,7 @@
 
 - (void)initNotification
 {
-    ADD_NOTIFY(@"URShowLoginNotification", @selector(showLoginView:));
+    ADD_NOTIFY(@"URShowLoginNotification", @selector(showMainView));
 }
 
 - (void)pushViewController:(UIViewController *)viewController
@@ -50,12 +50,30 @@
     return (UINavigationController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
 }
 
+- (void)showLoginView
+{
+    [[self getNavigationController] popViewControllerAnimated:NO];
+    UIViewController *viewController = [[NSClassFromString(@"URWWLoginViewController") alloc] init];
+    [self switchRootView:viewController];
+}
+
+- (void)showMainView
+{
+    [[self getNavigationController] popViewControllerAnimated:NO];
+    UIViewController *viewController = [[NSClassFromString(@"URWWLoginViewController") alloc] init];
+    [self switchRootView:viewController];
+}
+
 #pragma mark - notification
 
-- (void)showLoginView:(NSNotification *)notification
+
+#pragma mark - utils
+
+- (void)switchRootView:(UIViewController *)viewController
 {
-//    UIViewController *controller = [[NSClassFromString(@"URWWLoginViewController") alloc] init];
-//    [self pushViewController:controller];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [UIApplication sharedApplication].keyWindow.rootViewController = navigationController;
+    [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
 }
 
 @end

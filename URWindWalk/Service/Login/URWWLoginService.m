@@ -10,6 +10,7 @@
 #import "URNotification.h"
 #import "URLoginCore.h"
 #import "URActionMacro.h"
+#import "URWWMainService.h"
 
 @interface URWWLoginService()<URLoginCoreDelegate>
 {
@@ -62,10 +63,7 @@
 
 - (void)initNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onLoginResultNotification:)
-                                                 name:URLoginResultNotification
-                                               object:nil];
+    ADD_NOTIFY(URLoginResultNotification, @selector(onLoginResultNotification:));
 }
 
 - (BOOL)autoLogin
@@ -91,7 +89,7 @@
 
 - (void)onLoginResultNotification:(NSNotification *)notification
 {
-    
+    [[[URWWMainService sharedObject] getNavigationController] popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - URLoginCoreDelegate

@@ -9,11 +9,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface URWWMainService : NSObject
 
 + (URWWMainService *)sharedObject;
 
 - (UINavigationController *)getNavigationController;
+
+- (void)showLoginView;
+
+- (void)showMainView;
 
 @end
