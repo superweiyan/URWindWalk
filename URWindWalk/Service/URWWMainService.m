@@ -12,6 +12,7 @@
 #import "URWWWeatherSerivce.h"
 #import "URWWLocationService.h"
 #import "URActionMacro.h"
+#import "URNotification.h"
 
 
 @implementation URWWMainService
@@ -37,7 +38,7 @@
 
 - (void)initNotification
 {
-    ADD_NOTIFY(@"URShowLoginNotification", @selector(showMainView));
+    ADD_NOTIFY(URLoginResultNotification, @selector(showMainView));
 }
 
 - (void)pushViewController:(UIViewController *)viewController
@@ -59,8 +60,8 @@
 
 - (void)showMainView
 {
-    [[self getNavigationController] popViewControllerAnimated:NO];
-    UIViewController *viewController = [[NSClassFromString(@"URWWLoginViewController") alloc] init];
+    UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *viewController = [mainBoard instantiateViewControllerWithIdentifier:@"ViewController"];
     [self switchRootView:viewController];
 }
 

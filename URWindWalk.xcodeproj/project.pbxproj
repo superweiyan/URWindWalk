@@ -98,6 +98,8 @@
 		A0EEA7561EBC659100C0C6FD /* URTelephoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EEA7551EBC659100C0C6FD /* URTelephoneNumberViewController.m */; };
 		A0F936461EC2135000FF26D6 /* URForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F936451EC2135000FF26D6 /* URForgetPasswordViewController.m */; };
 		A0F936491EC221C400FF26D6 /* URControlType.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F936481EC221C400FF26D6 /* URControlType.m */; };
+		A0F936601EC37E0D00FF26D6 /* URMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F9365F1EC37E0D00FF26D6 /* URMessageViewController.m */; };
+		A0F936641EC37EA600FF26D6 /* URFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F936631EC37EA600FF26D6 /* URFeedViewController.m */; };
 		A0FA9B411EBA400300C30EC9 /* URWWLoginViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9B401EBA400300C30EC9 /* URWWLoginViewController+Layout.m */; };
 		A0FDBEC81E5998E0000877C3 /* URSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBEC71E5998E0000877C3 /* URSocketService.m */; };
 		A0FDBED11E59DBFB000877C3 /* URWWService.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FDBED01E59DBFB000877C3 /* URWWService.m */; };
@@ -296,6 +298,10 @@
 		A0F936451EC2135000FF26D6 /* URForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URForgetPasswordViewController.m; sourceTree = "<group>"; };
 		A0F936471EC221C400FF26D6 /* URControlType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URControlType.h; sourceTree = "<group>"; };
 		A0F936481EC221C400FF26D6 /* URControlType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URControlType.m; sourceTree = "<group>"; };
+		A0F9365E1EC37E0D00FF26D6 /* URMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URMessageViewController.h; sourceTree = "<group>"; };
+		A0F9365F1EC37E0D00FF26D6 /* URMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URMessageViewController.m; sourceTree = "<group>"; };
+		A0F936621EC37EA600FF26D6 /* URFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URFeedViewController.h; sourceTree = "<group>"; };
+		A0F936631EC37EA600FF26D6 /* URFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URFeedViewController.m; sourceTree = "<group>"; };
 		A0FA9B3F1EBA400300C30EC9 /* URWWLoginViewController+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URWWLoginViewController+Layout.h"; sourceTree = "<group>"; };
 		A0FA9B401EBA400300C30EC9 /* URWWLoginViewController+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "URWWLoginViewController+Layout.m"; sourceTree = "<group>"; };
 		A0FDBEC61E5998E0000877C3 /* URSocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URSocketService.h; sourceTree = "<group>"; };
@@ -494,6 +500,8 @@
 		A08722F81E0D132B00AADFBC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				A0F936611EC37E9900FF26D6 /* Feed */,
+				A0F9365D1EC37E0D00FF26D6 /* Message */,
 				A0647B231E1AB12A00F5AC6E /* LogCheck */,
 				A06AFEE61E116428008D6464 /* Test */,
 				A08722F91E0D132B00AADFBC /* Login */,
@@ -849,6 +857,24 @@
 			path = URWindWalkTests;
 			sourceTree = "<group>";
 		};
+		A0F9365D1EC37E0D00FF26D6 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				A0F9365E1EC37E0D00FF26D6 /* URMessageViewController.h */,
+				A0F9365F1EC37E0D00FF26D6 /* URMessageViewController.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		A0F936611EC37E9900FF26D6 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				A0F936621EC37EA600FF26D6 /* URFeedViewController.h */,
+				A0F936631EC37EA600FF26D6 /* URFeedViewController.m */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		A0FDBEC51E5998E0000877C3 /* Socket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1043,6 +1069,7 @@
 				A08723071E0D132B00AADFBC /* URWWLoginViewController.m in Sources */,
 				A0FDBEC81E5998E0000877C3 /* URSocketService.m in Sources */,
 				A05090871E3D90DA002ABDCD /* URProtocolWrapper.m in Sources */,
+				A0F936601EC37E0D00FF26D6 /* URMessageViewController.m in Sources */,
 				A08723731E0D20CF00AADFBC /* URWWObjectInfo.m in Sources */,
 				A08723091E0D132B00AADFBC /* RunViewController.m in Sources */,
 				A0F936491EC221C400FF26D6 /* URControlType.m in Sources */,
@@ -1088,6 +1115,7 @@
 				A05090DD1E3DA3B5002ABDCD /* GPBUnknownFieldSet.m in Sources */,
 				A05090D11E3DA3B5002ABDCD /* Type.pbobjc.m in Sources */,
 				A0C65A2A1DFEAB23005EF47D /* URMarcoUtil.m in Sources */,
+				A0F936641EC37EA600FF26D6 /* URFeedViewController.m in Sources */,
 				A05090D91E3DA3B5002ABDCD /* GPBExtensionRegistry.m in Sources */,
 				A05090CC1E3DA3B5002ABDCD /* Empty.pbobjc.m in Sources */,
 				A0647B1F1E16BD9E00F5AC6E /* URWWMainService.m in Sources */,

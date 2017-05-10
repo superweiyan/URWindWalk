@@ -13,6 +13,8 @@
 #import "RunViewController.h"
 #import "MeViewController.h"
 #import "URWWWeatherSerivce.h"
+#import "URMessageViewController.h"
+#import "URFeedViewController.h"
 
 @interface ViewController ()<UITabBarDelegate>
 @end
@@ -36,8 +38,14 @@
     URSummaryViewController *summaryController = [[URSummaryViewController alloc] init];
     [self addChildViewController:summaryController andTitle:@"首页" andImageName:@""];
     
+    URFeedViewController *feedController = [URFeedViewController new];
+    [self addChildViewController:feedController andTitle:@"动态" andImageName:@""];
+    
     RunViewController *runController = [[RunViewController alloc] init];
     [self addChildViewController:runController andTitle:@"跑步" andImageName:@""];
+
+    URMessageViewController *messageController = [URMessageViewController new];
+    [self addChildViewController:messageController andTitle:@"消息" andImageName:@""];
 
     MeViewController *meController = [[MeViewController alloc] init];
     [self addChildViewController:meController andTitle:@"我" andImageName:@""];
