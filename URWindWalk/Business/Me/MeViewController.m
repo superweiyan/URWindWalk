@@ -144,7 +144,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 70.0;
+        return 170.0;
     }
     return 50.0;
 }

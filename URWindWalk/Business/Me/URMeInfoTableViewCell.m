@@ -11,6 +11,7 @@
 #import "URLabel.h"
 #import "URWWUserInfoService.h"
 #import "URWWUserInfo.h"
+#import "URLayoutViewMacro.h"
 
 @interface URMeInfoTableViewCell()
 {
@@ -40,6 +41,13 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    CGFloat x = (VIEW_WIDTH - 80) / 2;
+    CGFloat y = 10;
+    _portailImageView.frame = CGRectMake(x, y, 80, 80);
+    
+//    _nickNameLabel.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -52,13 +60,15 @@
 
 - (void)initViews
 {
-    _portailImageView = [[URPortraitView alloc] initWithFrame:CGRectMake(10, 10, 50, 50)];
+    ADD_VIEW_IN_VIEW(_portailImageView, URPortraitView, self);
     [self addSubview:_portailImageView];
     
-    _nickNameLabel = [[URLabel alloc] initWithFrame:CGRectMake(70, 10, 100, 20)];
+//    _nickNameLabel = [[URLabel alloc] initWithFrame:CGRectMake(70, 10, 100, 20)];
+    ADD_VIEW_IN_VIEW(_nickNameLabel, URLabel, self);
     [self addSubview:_nickNameLabel];
     
-    _ganderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(45, 45, 20, 20)];
+//    _ganderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(45, 45, 20, 20)];
+    ADD_VIEW_IN_VIEW(_ganderImageView, UIImageView, self);
     [self addSubview:_ganderImageView];
 }
 
