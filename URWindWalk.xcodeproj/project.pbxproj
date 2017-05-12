@@ -47,6 +47,7 @@
 		A06AFEE91E11643B008D6464 /* URTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06AFEE81E11643B008D6464 /* URTestViewController.m */; };
 		A086A56F1EC1C3B700A2ACB9 /* URButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A086A56E1EC1C3B700A2ACB9 /* URButton.m */; };
 		A086A5721EC1C4A000A2ACB9 /* URTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A086A5711EC1C4A000A2ACB9 /* URTextField.m */; };
+		A086A5851EC5DFF900A2ACB9 /* UIView+URLayoutUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A086A5841EC5DFF900A2ACB9 /* UIView+URLayoutUtil.m */; };
 		A08722F71E0C314400AADFBC /* URWWUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722F61E0C314400AADFBC /* URWWUserInfoView.m */; };
 		A08723071E0D132B00AADFBC /* URWWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722FB1E0D132B00AADFBC /* URWWLoginViewController.m */; };
 		A08723081E0D132B00AADFBC /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08722FE1E0D132B00AADFBC /* MeViewController.m */; };
@@ -200,6 +201,8 @@
 		A086A56E1EC1C3B700A2ACB9 /* URButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URButton.m; sourceTree = "<group>"; };
 		A086A5701EC1C4A000A2ACB9 /* URTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URTextField.h; sourceTree = "<group>"; };
 		A086A5711EC1C4A000A2ACB9 /* URTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URTextField.m; sourceTree = "<group>"; };
+		A086A5831EC5DFF900A2ACB9 /* UIView+URLayoutUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+URLayoutUtil.h"; sourceTree = "<group>"; };
+		A086A5841EC5DFF900A2ACB9 /* UIView+URLayoutUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+URLayoutUtil.m"; sourceTree = "<group>"; };
 		A08722F51E0C314400AADFBC /* URWWUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWUserInfoView.h; sourceTree = "<group>"; };
 		A08722F61E0C314400AADFBC /* URWWUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWWUserInfoView.m; sourceTree = "<group>"; };
 		A08722FA1E0D132B00AADFBC /* URWWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWWLoginViewController.h; sourceTree = "<group>"; };
@@ -488,6 +491,15 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		A086A57F1EC5DDD000A2ACB9 /* LayoutUtil */ = {
+			isa = PBXGroup;
+			children = (
+				A086A5831EC5DFF900A2ACB9 /* UIView+URLayoutUtil.h */,
+				A086A5841EC5DFF900A2ACB9 /* UIView+URLayoutUtil.m */,
+			);
+			path = LayoutUtil;
+			sourceTree = "<group>";
+		};
 		A08722F41E0C310A00AADFBC /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +664,7 @@
 		A0D29C101DF4679600C7CF4D /* URWindWalk */ = {
 			isa = PBXGroup;
 			children = (
+				A086A57F1EC5DDD000A2ACB9 /* LayoutUtil */,
 				A0E8C6F41EBA178B001E9083 /* Macro */,
 				A05090841E3D90C0002ABDCD /* ProtocolWrapper */,
 				A050907D1E3CD8EE002ABDCD /* Protocol */,
@@ -1065,6 +1078,7 @@
 				A05090D31E3DA3B5002ABDCD /* GPBArray.m in Sources */,
 				A05090D41E3DA3B5002ABDCD /* GPBCodedInputStream.m in Sources */,
 				A05090D01E3DA3B5002ABDCD /* Timestamp.pbobjc.m in Sources */,
+				A086A5851EC5DFF900A2ACB9 /* UIView+URLayoutUtil.m in Sources */,
 				A05090CE1E3DA3B5002ABDCD /* SourceContext.pbobjc.m in Sources */,
 				A08723071E0D132B00AADFBC /* URWWLoginViewController.m in Sources */,
 				A0FDBEC81E5998E0000877C3 /* URSocketService.m in Sources */,

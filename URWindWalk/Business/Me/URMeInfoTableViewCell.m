@@ -13,6 +13,9 @@
 #import "URWWUserInfo.h"
 #import "URLayoutViewMacro.h"
 
+const CGFloat URPortraitViewWidth = 100;
+const CGFloat URPortraitViewHeight = 100;
+
 @interface URMeInfoTableViewCell()
 {
     URPortraitView      *_portailImageView;
@@ -42,12 +45,12 @@
 {
     [super layoutSubviews];
     
-    CGFloat x = (VIEW_WIDTH - 80) / 2;
+    CGFloat x = (VIEW_WIDTH - URPortraitViewWidth) / 2;
     CGFloat y = 10;
-    _portailImageView.frame = CGRectMake(x, y, 80, 80);
-    
-//    _nickNameLabel.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
-    
+    _portailImageView.frame = CGRectMake(x, y, URPortraitViewWidth, URPortraitViewHeight);
+    _nickNameLabel.frame = CGRectMake((self.bounds.size.width - 100) / 2, CGRectGetMaxY(_portailImageView.frame) + 5, 100, 20 );
+    _nickNameLabel.textAlignment = NSTextAlignmentCenter;
+    _nickNameLabel.textColor = [UIColor whiteColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -62,12 +65,12 @@
 {
     ADD_VIEW_IN_VIEW(_portailImageView, URPortraitView, self);
     [self addSubview:_portailImageView];
+    _portailImageView.backgroundColor = [UIColor redColor];
     
-//    _nickNameLabel = [[URLabel alloc] initWithFrame:CGRectMake(70, 10, 100, 20)];
     ADD_VIEW_IN_VIEW(_nickNameLabel, URLabel, self);
+    _nickNameLabel.text = @"Runner";
     [self addSubview:_nickNameLabel];
     
-//    _ganderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(45, 45, 20, 20)];
     ADD_VIEW_IN_VIEW(_ganderImageView, UIImageView, self);
     [self addSubview:_ganderImageView];
 }
