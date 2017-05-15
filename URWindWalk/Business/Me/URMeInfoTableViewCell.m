@@ -21,6 +21,7 @@ const CGFloat URPortraitViewHeight = 100;
     URPortraitView      *_portailImageView;
     URLabel             *_nickNameLabel;
     UIImageView         *_ganderImageView;
+    UILabel             *_IDLabel;
 }
 @end
 
@@ -45,12 +46,15 @@ const CGFloat URPortraitViewHeight = 100;
 {
     [super layoutSubviews];
     
-    CGFloat x = (VIEW_WIDTH - URPortraitViewWidth) / 2;
-    CGFloat y = 10;
-    _portailImageView.frame = CGRectMake(x, y, URPortraitViewWidth, URPortraitViewHeight);
-    _nickNameLabel.frame = CGRectMake((self.bounds.size.width - 100) / 2, CGRectGetMaxY(_portailImageView.frame) + 5, 100, 20 );
-    _nickNameLabel.textAlignment = NSTextAlignmentCenter;
-    _nickNameLabel.textColor = [UIColor whiteColor];
+    _portailImageView.frame = CGRectMake(LEFT_TO_VIEW_CENTER(URPortraitViewWidth/2),
+                                         10,
+                                         URPortraitViewWidth,
+                                         URPortraitViewHeight);
+    _nickNameLabel.frame = CGRectMake(LEFT_TO_VIEW_CENTER(50),
+                                      BOTTOM_TO_VIEW(_portailImageView, 5), 100, 20 );
+    _IDLabel.frame = CGRectMake(LEFT_TO_VIEW_CENTER(100),
+                                BOTTOM_TO_VIEW(_nickNameLabel, 5), 100, 15);
+    _IDLabel.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -63,16 +67,20 @@ const CGFloat URPortraitViewHeight = 100;
 
 - (void)initViews
 {
+    self.backgroundColor = [UIColor clearColor];
+    
     ADD_VIEW_IN_VIEW(_portailImageView, URPortraitView, self);
-    [self addSubview:_portailImageView];
-    _portailImageView.backgroundColor = [UIColor redColor];
-    
     ADD_VIEW_IN_VIEW(_nickNameLabel, URLabel, self);
-    _nickNameLabel.text = @"Runner";
-    [self addSubview:_nickNameLabel];
-    
     ADD_VIEW_IN_VIEW(_ganderImageView, UIImageView, self);
-    [self addSubview:_ganderImageView];
+    ADD_VIEW_IN_VIEW(_IDLabel, UILabel, self);
+    
+    _portailImageView.backgroundColor = [UIColor redColor];
+    _nickNameLabel.text = @"Runner";
+    _nickNameLabel.textAlignment = NSTextAlignmentCenter;
+    _nickNameLabel.textColor = [UIColor whiteColor];
+    
+    _IDLabel.text = @"1";
+    _IDLabel.textColor = [UIColor whiteColor];
 }
 
 - (void)initData

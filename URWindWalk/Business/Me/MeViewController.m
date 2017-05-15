@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     // Do any additional setup after loading the view.
     
     [self initViews];
@@ -70,6 +70,7 @@
     _infoTable.delegate = self;
     _infoTable.dataSource = self;
     [self.view addSubview:_infoTable];
+    _infoTable.backgroundColor = [UIColor clearColor];
     
     UIView  *footView = [[UIView alloc] init];
     _infoTable.tableFooterView = footView;
@@ -118,6 +119,7 @@
 - (UITableViewCell *)createDefaultTableViewCell:(NSString *)title
 {
     UITableViewCell * newCell = [UITableViewCell new];
+    newCell.backgroundColor = [UIColor clearColor];
     newCell.imageView.image = [UIImage imageNamed:@""];
     newCell.textLabel.font = [UIFont systemFontOfSize:13.0];
     newCell.textLabel.text = title;
