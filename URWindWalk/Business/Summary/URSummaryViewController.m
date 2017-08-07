@@ -14,6 +14,8 @@
 #import "URLog.h"
 #import "URWWRunService.h"
 
+#import <URUtilityManager/BSDicUtils.h>
+
 float URWeatherShowHeight = 150.0;
 
 @interface URSummaryViewController ()<UITableViewDelegate, UITableViewDataSource>

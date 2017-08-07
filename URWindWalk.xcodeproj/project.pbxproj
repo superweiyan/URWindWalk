@@ -957,7 +957,7 @@
 				TargetAttributes = {
 					A0D29C0D1DF4679600C7CF4D = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = CAGU5L98ZV;
+						DevelopmentTeam = PJD5F25QWG;
 						ProvisioningStyle = Automatic;
 					};
 					A0F887FE1E012AAB0002A41A = {
@@ -1281,7 +1281,14 @@
 			baseConfigurationReference = E2F7AC569DE18F7C87C76F81 /* Pods-URWindWalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CAGU5L98ZV;
+				DEVELOPMENT_TEAM = PJD5F25QWG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/CocoaLumberjack\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/URUtilityManager\"/**",
+				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/URWindWalk/VenderWrapper/protobuf";
 				INFOPLIST_FILE = URWindWalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1297,7 +1304,14 @@
 			baseConfigurationReference = 7DF0D77818870D74D7875F69 /* Pods-URWindWalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CAGU5L98ZV;
+				DEVELOPMENT_TEAM = PJD5F25QWG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/CocoaLumberjack\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/URUtilityManager\"/**",
+				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/URWindWalk/VenderWrapper/protobuf";
 				INFOPLIST_FILE = URWindWalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
